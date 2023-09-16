@@ -1,0 +1,42 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["plugin:react/recommended", "xo"],
+	"overrides": [
+		{
+			"extends": ["xo-typescript"],
+			"files": ["*.ts", "*.tsx"],
+			"rules": {
+				"@typescript-eslint/no-explicit-any": "error",
+				"@typescript-eslint/no-unsafe-assignment": "off",
+				"@typescript-eslint/triple-slash-reference": "off",
+				"object-curly-spacing": "off",
+				"@typescript-eslint/object-curly-spacing": "off",
+				"comma-dangle": "off",
+				"@typescript-eslint/comma-dangle": "off",
+				"@typescript-eslint/no-unsafe-call": "off",
+				"@typescript-eslint/naming-convention": "off",
+				"@typescript-eslint/consistent-type-definitions": "off"
+			}
+		}
+	],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"no-console": "warn",
+		"react/react-in-jsx-scope": 0,
+		"no-unused-expressions": "warn",
+		"no-unused-vars": "warn",
+		"no-duplicate-imports": "warn"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
+}
