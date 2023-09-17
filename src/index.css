@@ -8,6 +8,10 @@ body {
 	font-family: 'cooke-300';
 }
 
+button {
+	font-family: inherit;
+}
+
 @font-face {
 	font-family: 'cooke-100';
 	src: url('./assets/fonts/Gluten-Thin.ttf');
