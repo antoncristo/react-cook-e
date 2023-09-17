@@ -7,15 +7,15 @@ import {
 
 import { cookePathnames } from './pathnames';
 import { Login, Dashboard, Wizard, ReadRecipe } from '../views';
+import { Layout } from '../layout';
 
 class RoutesDelegator {
 	#_rootRoute: RouteObject = {
 		path: '/',
 		element: (
-			<div>
-				LAYOUT
+			<Layout>
 				<Outlet />
-			</div>
+			</Layout>
 		),
 		errorElement: <div>404</div>
 	};
