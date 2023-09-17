@@ -12,7 +12,11 @@ export type BaseColor =
 	| 'success';
 
 export interface Decorators {
-	boxShadow: string;
+	boxShadow: {
+		primary: string;
+		secondary: string;
+		error: string;
+	};
 }
 
 export interface CookeTheme {
@@ -33,6 +37,10 @@ export const cookeTheme: CookeTheme = {
 		error: Colors.ERROR
 	},
 	decorators: {
-		boxShadow: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.BLACK}, 0.3)`
+		boxShadow: {
+			primary: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.BLACK}, 0.6)`,
+			secondary: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.BLACK}, 0.3)`,
+			error: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.ERROR}, 0.9)`
+		}
 	}
 };
