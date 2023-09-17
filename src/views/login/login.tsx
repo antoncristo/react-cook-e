@@ -1,8 +1,18 @@
-import * as Styled from './login.styled';
-import { CookeLogo } from './components';
+import { type FormEventHandler } from 'react';
 
-export const Login = () => (
-	<Styled.Login>
-		<CookeLogo fontSize='6rem' />
-	</Styled.Login>
-);
+import { CookeLogo, LoginForm } from './components';
+
+import * as Styled from './login.styled';
+
+export const Login = () => {
+	const loginHandler: FormEventHandler = event => {
+		event.preventDefault();
+	};
+
+	return (
+		<Styled.Login>
+			<CookeLogo fontSize='6rem' />
+			<LoginForm submitHandler={loginHandler} />
+		</Styled.Login>
+	);
+};
