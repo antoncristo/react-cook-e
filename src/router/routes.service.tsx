@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { cookePathnames } from './pathnames';
+import { Login, Dashboard, Wizard, ReadRecipe } from '../views';
 
 class RoutesDelegator {
 	#_rootRoute: RouteObject = {
@@ -25,7 +26,7 @@ class RoutesDelegator {
 			path: '/',
 			element: <Navigate to={cookePathnames.unauthenticatedPathNames.LOGIN} />
 		},
-		{ path: cookePathnames.unauthenticatedPathNames.LOGIN, element: <div>LOGIN</div> }
+		{ path: cookePathnames.unauthenticatedPathNames.LOGIN, element: <Login /> }
 	];
 
 	#_authenticatedRoutes: RouteObject[] = [
@@ -36,19 +37,19 @@ class RoutesDelegator {
 		},
 		{
 			path: cookePathnames.authenticatedPathNames.DASHBOARD,
-			element: <div>DASHBOARD</div>
+			element: <Dashboard />
 		},
 		{
 			path: cookePathnames.authenticatedPathNames.CREATE_RECIPE,
-			element: <div>CREATE RECIPE</div>
+			element: <Wizard />
 		},
 		{
 			path: cookePathnames.authenticatedPathNames.READ_RECIPE,
-			element: <div>READ RECIPE</div>
+			element: <ReadRecipe />
 		},
 		{
 			path: cookePathnames.authenticatedPathNames.EDIT_RECIPE,
-			element: <div>EDIT RECIPE</div>
+			element: <Wizard />
 		}
 	];
 
