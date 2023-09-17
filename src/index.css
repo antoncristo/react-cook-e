@@ -1,4 +1,50 @@
 body {
 	margin: 0;
 	padding: 0;
+	font-family: 'cooke-300';
+}
+
+@font-face {
+	font-family: 'cooke-100';
+	src: url('./assets/fonts/Gluten-Thin.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-200';
+	src: url('./assets/fonts/Gluten-ExtraLight.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-300';
+	src: url('./assets/fonts/Gluten-Light.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-400';
+	src: url('./assets/fonts/Gluten-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-500';
+	src: url('./assets/fonts/Gluten-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-600';
+	src: url('./assets/fonts/Gluten-SemiBold.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-700';
+	src: url('./assets/fonts/Gluten-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-800';
+	src: url('./assets/fonts/Gluten-ExtraBold.ttf');
+}
+
+@font-face {
+	font-family: 'cooke-200';
+	src: url('./assets/fonts/Gluten-Black.ttf');
 }
