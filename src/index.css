@@ -8,8 +8,13 @@ body {
 	font-family: 'cooke-300';
 }
 
+input,
 button {
 	font-family: inherit;
+}
+
+*:focus {
+	outline: 0.2rem dashed rgba(17, 130, 59, 0.6);
 }
 
 @font-face {
