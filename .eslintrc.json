@@ -19,7 +19,9 @@
 				"@typescript-eslint/no-unsafe-call": "off",
 				"@typescript-eslint/naming-convention": "off",
 				"@typescript-eslint/consistent-type-definitions": "off",
-				"@typescript-eslint/no-inferrable-types": "off"
+				"@typescript-eslint/no-inferrable-types": "off",
+				"@typescript-eslint/ban-types": "off",
+				"@typescript-eslint/indent": "off"
 			}
 		}
 	],
@@ -33,7 +35,8 @@
 		"react/react-in-jsx-scope": 0,
 		"no-unused-expressions": "warn",
 		"no-unused-vars": "warn",
-		"no-duplicate-imports": "warn"
+		"no-duplicate-imports": "warn",
+		"operator-linebreak": "off"
 	},
 	"settings": {
 		"react": {
