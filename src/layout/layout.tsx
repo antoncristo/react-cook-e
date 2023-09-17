@@ -6,6 +6,6 @@ interface LayoutProps {
 	children: ReactNode;
 }
 
-export const Layout = (props: LayoutProps) => (
-	<Styled.Layout>{props.children}</Styled.Layout>
+export const Layout = ({ children }: LayoutProps) => (
+	<Styled.Layout>{children}</Styled.Layout>
 );
