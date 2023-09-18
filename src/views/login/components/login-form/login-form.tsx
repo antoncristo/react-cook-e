@@ -1,6 +1,6 @@
 import { useState, type FormEventHandler, type ChangeEventHandler } from 'react';
 import { recordUpdate } from '@cooke/utils';
-import { Input } from '@cooke/shared';
+import { Input, Button } from '@cooke/shared';
 
 import * as Styled from './login-form.styled';
 
@@ -50,8 +50,12 @@ export const LoginForm = () => {
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
-				<button type='submit'>SIGN_IN</button>
-				<button type='button'>SIGN_IN WITH GOOGLE</button>
+				<Button variant='primary' width='25.2rem' type='submit'>
+					SIGN_IN
+				</Button>
+				<Button variant='secondary' width='25.2rem' type='button'>
+					SIGN_IN WITH GOOGLE
+				</Button>
 			</Styled.Controls>
 		</Styled.LoginForm>
 	);
