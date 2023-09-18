@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Input = styled.input<{ width?: string; isValid: boolean }>`
+export const Input = styled.input<{ width?: string; $isValid: boolean }>`
 	padding: 0;
 	margin: 0;
 	border: none;
@@ -9,8 +9,8 @@ export const Input = styled.input<{ width?: string; isValid: boolean }>`
 	font-size: 1.6rem;
 	width: ${({ width }) => width ?? '22rem'};
 
-	${({ isValid }) =>
-		isValid
+	${({ $isValid }) =>
+		$isValid
 			? css`
 					color: rgba(${({ theme }) => theme.colors.primary}, 1);
 					box-shadow: ${({ theme }) => theme.decorators.boxShadow.secondary};
