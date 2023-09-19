@@ -21,7 +21,7 @@ export const Input = styled.input<{ width?: string; $isValid: boolean }>`
 			  `
 			: css`
 					color: rgba(${({ theme }) => theme.colors.error}, 1);
-					box-shadow: ${({ theme }) => theme.decorators.boxShadow.error};
+					box-shadow: ${({ theme }) => `inset ${theme.decorators.boxShadow.error}`};
 					outline-color: rgba(${({ theme }) => theme.colors.error}, 1);
 
 					&::placeholder {
