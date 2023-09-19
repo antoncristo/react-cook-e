@@ -1,21 +1,50 @@
-import { type ValidationEntry } from './use-validation.types';
+import { useCallback, useState } from 'react';
+import {
+	type ValidationHandlers,
+	type ValidationEntry,
+	type ValidationError
+} from './use-validation.types';
 
-export const useValidation = <T,>(validate: Array<ValidationEntry<T>>) => {
-	const errors: AbstractObject = {};
-
-	type FormKeys = keyof T;
-
-	validate.forEach(formInput => {
-		formInput.validators.forEach(validatorFn => {
-			const _error = validatorFn(formInput.value);
-
-			if (_error) {
-				errors[formInput.key as string] = _error.errorCode;
-			}
-		});
+const checkValidationErrors = <T,>(entry: ValidationEntry<T>): ValidationError | null => {
+	let error: ValidationError | null = null;
+	entry.validators?.forEach(validatorFn => {
+		error = validatorFn(entry.value);
 	});
 
-	const isInputValid = (formKey: FormKeys) => Boolean(!errors[formKey as string]);
+	return error;
+};
 
-	return { errors, isFormValid: !Object.keys(errors).length, isInputValid };
+/**
+ *
+ * @param validate - array of entries `(see ValidationEntry<T>)` representing the inputs of the form.
+ *
+ * @returns
+ */
+export const useValidation = <T,>(
+	validate: Array<ValidationEntry<T>>
+): ValidationHandlers<T> => {
+	const [touched, setTouched] = useState<Partial<Record<keyof T, boolean>>>({});
+	const errors: Partial<Record<keyof T, string>> = {};
+
+	validate.forEach(formInput => {
+		const _error = checkValidationErrors(formInput);
+
+		if (_error) {
+			errors[formInput.key] = _error.errorCode;
+		}
+	});
+
+	const isInputValid = (formKey: keyof T) => Boolean(!errors[formKey]);
+
+	const markAsTouched = useCallback((formKey: keyof T) => {
+		setTouched(prev => ({ ...prev, [formKey]: true }));
+	}, []);
+
+	return {
+		errors,
+		isFormValid: !Object.keys(errors).length,
+		isInputValid,
+		markAsTouched,
+		touched
+	};
 };
