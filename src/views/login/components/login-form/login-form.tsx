@@ -18,7 +18,7 @@ export const LoginForm = () => {
 		email: '',
 		password: ''
 	});
-	const { loginHandler, user } = useLogin();
+	const { loginHandler } = useLogin();
 
 	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
@@ -63,7 +63,6 @@ export const LoginForm = () => {
 
 	return (
 		<Styled.LoginForm onSubmit={onSubmitHandler}>
-			{user?.fullName}
 			<Styled.Inputs>
 				<Input
 					data-name='email'
