@@ -1,4 +1,9 @@
-import { useState, type FormEventHandler, type ChangeEventHandler } from 'react';
+import {
+	useState,
+	type FormEventHandler,
+	type ChangeEventHandler,
+	type FocusEventHandler
+} from 'react';
 import { recordUpdate } from '@cooke/utils';
 import { Input, Button } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
@@ -13,7 +18,7 @@ export const LoginForm = () => {
 		password: ''
 	});
 
-	const { errors, isFormValid, isInputValid } = useValidation([
+	const { errors, isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
 			key: 'email',
 			value: credentials.email,
@@ -45,6 +50,14 @@ export const LoginForm = () => {
 		}
 	};
 
+	const onBlurHandler: FocusEventHandler<HTMLInputElement> = focusEvent => {
+		const formKey = focusEvent.currentTarget.getAttribute(
+			'data-name'
+		)! as keyof Credentials;
+
+		markAsTouched(formKey);
+	};
+
 	return (
 		<Styled.LoginForm onSubmit={loginHandler}>
 			<Styled.Inputs>
@@ -52,18 +65,20 @@ export const LoginForm = () => {
 					data-name='email'
 					name='email'
 					value={credentials.email}
-					isValid={isInputValid('email')}
+					isValid={!touched.email || isInputValid('email')}
 					onChange={onCredentialsChangeHandler}
-					placeholder='email@example.com'
+					placeholder={touched.email ? 'email is required...' : 'email@example.com'}
+					onBlur={onBlurHandler}
 				/>
 				<Input
 					data-name='password'
 					name='password'
 					value={credentials.password}
-					isValid={isInputValid('password')}
+					isValid={!touched.password || isInputValid('password')}
 					onChange={onCredentialsChangeHandler}
 					type='password'
 					placeholder='password'
+					onBlur={onBlurHandler}
 					autoComplete='new-password'
 				/>
 			</Styled.Inputs>
