@@ -7,6 +7,7 @@ import {
 import { recordUpdate } from '@cooke/utils';
 import { Input, Button } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
+import { useLogin } from '@cooke/api/user';
 
 import * as loginValidators from './validators';
 
@@ -17,8 +18,9 @@ export const LoginForm = () => {
 		email: '',
 		password: ''
 	});
+	const { loginHandler, user } = useLogin();
 
-	const { errors, isFormValid, isInputValid, markAsTouched, touched } = useValidation([
+	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
 			key: 'email',
 			value: credentials.email,
@@ -31,8 +33,9 @@ export const LoginForm = () => {
 		}
 	]);
 
-	const loginHandler: FormEventHandler = event => {
+	const onSubmitHandler: FormEventHandler = event => {
 		event.preventDefault();
+		loginHandler(credentials);
 	};
 
 	const onCredentialsChangeHandler: ChangeEventHandler<
@@ -59,7 +62,8 @@ export const LoginForm = () => {
 	};
 
 	return (
-		<Styled.LoginForm onSubmit={loginHandler}>
+		<Styled.LoginForm onSubmit={onSubmitHandler}>
+			{user?.fullName}
 			<Styled.Inputs>
 				<Input
 					data-name='email'

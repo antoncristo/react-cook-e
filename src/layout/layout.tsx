@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 import { Header } from './components';
 
 import * as Styled from './layout.styled';
+import { useQueryClient } from 'react-query';
 
 interface LayoutProps {
 	children: ReactNode;
@@ -10,7 +11,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
 	// Fix: sync with user api
-	const isLoggedIn = true;
+	const isLoggedIn = false;
 
 	return (
 		<Styled.Layout>
