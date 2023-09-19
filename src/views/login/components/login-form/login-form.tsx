@@ -1,6 +1,9 @@
 import { useState, type FormEventHandler, type ChangeEventHandler } from 'react';
 import { recordUpdate } from '@cooke/utils';
 import { Input, Button } from '@cooke/shared';
+import { useValidation } from '@cooke/hooks';
+
+import * as loginValidators from './validators';
 
 import * as Styled from './login-form.styled';
 
@@ -9,6 +12,19 @@ export const LoginForm = () => {
 		email: '',
 		password: ''
 	});
+
+	const { errors, isFormValid, isInputValid } = useValidation([
+		{
+			key: 'email',
+			value: credentials.email,
+			validators: [loginValidators.required]
+		},
+		{
+			key: 'password',
+			value: credentials.password,
+			validators: [loginValidators.required]
+		}
+	]);
 
 	const loginHandler: FormEventHandler = event => {
 		event.preventDefault();
@@ -36,13 +52,15 @@ export const LoginForm = () => {
 					data-name='email'
 					name='email'
 					value={credentials.email}
+					isValid={isInputValid('email')}
 					onChange={onCredentialsChangeHandler}
-					placeholder='email'
+					placeholder='email@example.com'
 				/>
 				<Input
 					data-name='password'
 					name='password'
 					value={credentials.password}
+					isValid={isInputValid('password')}
 					onChange={onCredentialsChangeHandler}
 					type='password'
 					placeholder='password'
@@ -50,7 +68,7 @@ export const LoginForm = () => {
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
-				<Button variant='primary' width='25.2rem' type='submit'>
+				<Button disabled={!isFormValid} variant='primary' width='25.2rem' type='submit'>
 					SIGN_IN
 				</Button>
 				<Button variant='secondary' width='25.2rem' type='button'>
