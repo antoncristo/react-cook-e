@@ -1,6 +1,6 @@
-import { type FormEventHandler } from 'react';
+import { CookeLogo } from '@cooke/shared';
 
-import { CookeLogo, LoginForm } from './components';
+import { LoginForm } from './components';
 
 import * as Styled from './login.styled';
 
