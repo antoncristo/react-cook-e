@@ -1,7 +1,6 @@
 import { type ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-
-const queryClient = new QueryClient();
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from '@cooke/api';
 
 interface ReactQueryProviderProps {
 	children: ReactNode;
