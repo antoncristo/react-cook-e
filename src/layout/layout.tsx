@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 import { useSelector } from '@legendapp/state/react';
 import { userStore } from '@cooke/stores/user-store';
 
-import { Header } from './components';
+import { Header, Menu } from './components';
 
 import * as Styled from './layout.styled';
 
@@ -18,7 +18,10 @@ export const Layout = ({ children }: LayoutProps) => {
 			{isLoggedIn ? (
 				<Styled.Children>
 					<Header />
-					{children}
+					<Styled.Body>
+						<Menu />
+						<Styled.AppOutlet>{children}</Styled.AppOutlet>
+					</Styled.Body>
 				</Styled.Children>
 			) : (
 				children

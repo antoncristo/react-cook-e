@@ -5,4 +5,5 @@ export const Header = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 `;
