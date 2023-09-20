@@ -4,9 +4,9 @@ import {
 	Outlet,
 	Navigate
 } from 'react-router-dom';
+import { Login, Dashboard, Wizard, ReadRecipe, ErrorPage } from '@cooke/views';
 
 import { cookePathnames } from './pathnames';
-import { Login, Dashboard, Wizard, ReadRecipe } from '../views';
 import { Layout } from '../layout';
 
 class RoutesDelegator {
@@ -17,7 +17,11 @@ class RoutesDelegator {
 				<Outlet />
 			</Layout>
 		),
-		errorElement: <div>404</div>
+		errorElement: (
+			<Layout>
+				<ErrorPage />
+			</Layout>
+		)
 	};
 
 	#_UNAuthenticatedRoutes: RouteObject[] = [
