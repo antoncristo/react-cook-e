@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 import { useSelector } from '@legendapp/state/react';
 import { userStore } from '@cooke/stores/user-store';
 
-import { Header } from './components';
+import { Header, Menu } from './components';
 
 import * as Styled from './layout.styled';
 
@@ -19,7 +19,7 @@ export const Layout = ({ children }: LayoutProps) => {
 				<Styled.Children>
 					<Header />
 					<Styled.Body>
-						<div>menu</div>
+						<Menu />
 						<Styled.AppOutlet>{children}</Styled.AppOutlet>
 					</Styled.Body>
 				</Styled.Children>

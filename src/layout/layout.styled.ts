@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const HEADER_HEIGHT = '6rem';
-const APP_PADDING = '2rem';
 
 export const Layout = styled.div`
 	box-sizing: border-box;
@@ -27,5 +26,5 @@ export const AppOutlet = styled.div`
 	box-sizing: border-box;
 	width: 100%;
 	height: calc(100vh - ${HEADER_HEIGHT});
-	padding: ${APP_PADDING};
+	padding: ${({ theme }) => theme.decorators.padding.default};
 `;
