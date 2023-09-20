@@ -15,10 +15,10 @@ import * as Styled from './login-form.styled';
 
 export const LoginForm = () => {
 	const [credentials, setCredentials] = useState<Credentials>({
-		email: '',
-		password: ''
+		email: 'anton@gmail.com',
+		password: 'passowrd'
 	});
-	const { loginHandler, user } = useLogin();
+	const { loginHandler } = useLogin();
 
 	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
@@ -63,7 +63,6 @@ export const LoginForm = () => {
 
 	return (
 		<Styled.LoginForm onSubmit={onSubmitHandler}>
-			{user?.fullName}
 			<Styled.Inputs>
 				<Input
 					data-name='email'
@@ -90,7 +89,7 @@ export const LoginForm = () => {
 				<Button disabled={!isFormValid} variant='primary' width='25.2rem' type='submit'>
 					SIGN_IN
 				</Button>
-				<Button variant='secondary' width='25.2rem' type='button'>
+				<Button disabled variant='secondary' width='25.2rem' type='button'>
 					SIGN_IN WITH GOOGLE
 				</Button>
 			</Styled.Controls>

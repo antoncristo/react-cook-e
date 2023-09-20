@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react';
 import { QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { queryClient } from '@cooke/api';
 
 interface ReactQueryProviderProps {
@@ -7,5 +8,8 @@ interface ReactQueryProviderProps {
 }
 
 export const ReactQueryProvider = ({ children }: ReactQueryProviderProps) => (
-	<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+	<QueryClientProvider client={queryClient}>
+		{children}
+		<ReactQueryDevtools initialIsOpen={false} />
+	</QueryClientProvider>
 );
