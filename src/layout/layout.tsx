@@ -18,7 +18,10 @@ export const Layout = ({ children }: LayoutProps) => {
 			{isLoggedIn ? (
 				<Styled.Children>
 					<Header />
-					{children}
+					<Styled.Body>
+						<div>menu</div>
+						<Styled.AppOutlet>{children}</Styled.AppOutlet>
+					</Styled.Body>
 				</Styled.Children>
 			) : (
 				children
