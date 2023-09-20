@@ -40,7 +40,7 @@ class RoutesDelegator {
 			element: <Navigate to={cookePathnames.authenticatedPathNames.DASHBOARD} />
 		},
 		{
-			path: '/login',
+			path: cookePathnames.unauthenticatedPathNames.LOGIN,
 			element: <Navigate to={cookePathnames.authenticatedPathNames.DASHBOARD} />
 		},
 		{
@@ -58,6 +58,10 @@ class RoutesDelegator {
 		{
 			path: cookePathnames.authenticatedPathNames.EDIT_RECIPE,
 			element: <Wizard />
+		},
+		{
+			path: cookePathnames.authenticatedPathNames.FAVORITES,
+			element: <div>Favorites mock</div>
 		}
 	];
 
