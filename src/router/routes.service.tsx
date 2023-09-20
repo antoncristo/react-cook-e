@@ -36,6 +36,10 @@ class RoutesDelegator {
 			element: <Navigate to={cookePathnames.authenticatedPathNames.DASHBOARD} />
 		},
 		{
+			path: '/login',
+			element: <Navigate to={cookePathnames.authenticatedPathNames.DASHBOARD} />
+		},
+		{
 			path: cookePathnames.authenticatedPathNames.DASHBOARD,
 			element: <Dashboard />
 		},
