@@ -1,2 +1,2 @@
 export { CookeRouter } from './router';
-export { cookePathnames } from './pathnames';
+export { cookePathnames, injectRecipeUUID } from './pathnames';

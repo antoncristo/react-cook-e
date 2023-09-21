@@ -15,3 +15,6 @@ export const cookePathnames = {
 	unauthenticatedPathNames,
 	authenticatedPathNames
 };
+
+export const injectRecipeUUID = (dynamicPathName: string, recipeUUID: UUID) =>
+	dynamicPathName.replace(':recipeid', recipeUUID);
