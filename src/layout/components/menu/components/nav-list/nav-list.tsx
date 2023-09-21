@@ -7,10 +7,10 @@ export const NavList = () => (
 		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.DASHBOARD}>
 			Dashboard
 		</Styled.MenuLink>
-		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.CREATE_RECIPE}>
+		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.CREATE_RECIPE} end>
 			Add Recipe
 		</Styled.MenuLink>
-		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.FAVORITES}>
+		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.FAVORITES} end>
 			Favorites
 		</Styled.MenuLink>
 	</Styled.NavList>

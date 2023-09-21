@@ -6,4 +6,5 @@ export const Menu = styled.menu`
 	margin: 0;
 	padding: ${({ theme }) => theme.decorators.padding.default} 0;
 	background-color: rgba(${({ theme }) => theme.colors.black}, 0.8);
+	border-right: 0.05rem solid rgba(${({ theme }) => theme.colors.ternary}, 0.6);
 `;
