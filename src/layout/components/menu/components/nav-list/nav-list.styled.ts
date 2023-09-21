@@ -22,6 +22,7 @@ export const MenuLink = styled(NavLink)`
 	border-bottom: 0.1rem dashed transparent;
 	transition: all 0.26s ease-in-out;
 
+	&:focus,
 	&.active,
 	&:hover {
 		font-family: 'cooke-600';
