@@ -14,9 +14,9 @@ export const Text = (props: TextProps) => {
 
 	return (
 		<Styled.Text
-			maxWidth={maxWidth}
+			$maxWidth={maxWidth}
 			fontSize={fontSize}
-			numberOfLines={numberOfLines}
+			$numberOfLines={numberOfLines}
 			{...rest}
 		>
 			{text}
