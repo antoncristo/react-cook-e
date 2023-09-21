@@ -17,6 +17,9 @@ export interface Decorators {
 		secondary: string;
 		error: string;
 	};
+	textShadow: {
+		primary: string;
+	};
 	padding: {
 		default: string;
 	};
@@ -44,6 +47,9 @@ export const cookeTheme: CookeTheme = {
 			primary: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.BLACK}, 0.6)`,
 			secondary: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.BLACK}, 0.3)`,
 			error: `0.1rem 0.1rem 1rem 0.1rem rgba(${Colors.ERROR}, 0.9)`
+		},
+		textShadow: {
+			primary: '0.1rem 0.1rem 0.6rem black'
 		},
 		padding: {
 			default: '2rem'

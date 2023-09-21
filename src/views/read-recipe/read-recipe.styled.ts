@@ -24,10 +24,13 @@ export const RecipeFlex = styled.div`
 
 export const RecipeTitle = styled(Text)`
 	font-family: 'cooke-600';
+	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 `;
 
 export const RecipeDescription = styled(Text)`
 	padding-left: 1.6rem;
 	border-left: 0.2rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
+	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 `;

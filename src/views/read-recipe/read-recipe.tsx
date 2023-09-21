@@ -1,6 +1,7 @@
 import { type Recipe } from '@cooke/types';
 
 import * as Styled from './read-recipe.styled';
+import { Ingredients } from './components';
 
 const recipe: Recipe = {
 	id: crypto.randomUUID(),
@@ -68,6 +69,7 @@ export const ReadRecipe = () => (
 				fontSize='1.6rem'
 				text={recipe.description}
 			/>
+			<Ingredients recipe={recipe} />
 		</Styled.RecipeFlex>
 	</Styled.ReadRecipe>
 );
