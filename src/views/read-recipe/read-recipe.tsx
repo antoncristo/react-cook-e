@@ -62,9 +62,12 @@ const recipe: Recipe = {
 export const ReadRecipe = () => (
 	<Styled.ReadRecipe>
 		<Styled.RecipeFlex>
-			<Styled.RecipeTitle numberOfLines={2} fontSize='2.5rem' text={recipe.title}>
-				{recipe.title}
-			</Styled.RecipeTitle>
+			<Styled.RecipeTitle numberOfLines={2} fontSize='2.5rem' text={recipe.title} />
+			<Styled.RecipeDescription
+				numberOfLines={6}
+				fontSize='1.6rem'
+				text={recipe.description}
+			/>
 		</Styled.RecipeFlex>
 	</Styled.ReadRecipe>
 );
