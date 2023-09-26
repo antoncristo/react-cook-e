@@ -1,4 +1,4 @@
-import { Input } from '@cooke/shared';
+import { Input, TextArea } from '@cooke/shared';
 import styled from 'styled-components';
 
 export const Wizard = styled.div`
@@ -16,6 +16,7 @@ export const WizardFlex = styled.div`
 	height: 100%;
 	max-width: 99rem;
 	padding-inline-end: 6rem;
+	padding-inline-start: 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -42,6 +43,18 @@ export const WizardTitleInput = styled(Input)`
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	width: 100%;
+
+	&::placeholder {
+		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);
+	}
+`;
+
+export const WIzardDescriptionInput = styled(TextArea)`
+	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
+	color: rgba(${({ theme }) => theme.colors.white}, 1);
+	width: 100%;
+	min-height: 10rem;
+	resize: vertical;
 
 	&::placeholder {
 		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);

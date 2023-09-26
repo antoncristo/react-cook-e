@@ -8,6 +8,7 @@ body {
 	font-family: 'cooke-300';
 }
 
+textarea,
 input,
 button {
 	font-family: inherit;
