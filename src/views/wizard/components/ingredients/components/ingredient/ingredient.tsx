@@ -1,8 +1,8 @@
-import { type Recipe } from '@cooke/types';
-import { Text } from '@cooke/shared';
+import { type MeasurementUnit, type Recipe } from '@cooke/types';
+import { Option, Select, Text } from '@cooke/shared';
+import { Colors } from '@cooke/style';
 
 import * as Styled from './ingredient.styled';
-import { Colors } from '@cooke/style';
 
 interface IngredientProps {
 	recipe: Recipe;
@@ -12,11 +12,25 @@ interface IngredientProps {
 export const Ingredient = (props: IngredientProps) => {
 	const { ingredientIndex, recipe } = props;
 	const _ingredient = recipe.ingredients[ingredientIndex];
+	const unitsOptions: MeasurementUnit[] = [
+		'cup',
+		'g',
+		'kg',
+		'l',
+		'ml',
+		'table-spoon',
+		'tea-spoon',
+		'unit'
+	];
 
 	return (
 		<Styled.Ingredient tabIndex={0}>
 			<Styled.IngredientInput width='4rem' type='number' placeholder='1' />
-			<Text maxWidth='3rem' text='unit' />
+			<Select>
+				{unitsOptions.map(val => (
+					<Option key={val} selected={_ingredient.unit === val} label={val} value={val} />
+				))}
+			</Select>
 			<Text
 				maxWidth='3rem'
 				fontSize='1.4rem'

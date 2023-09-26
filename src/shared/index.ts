@@ -3,3 +3,4 @@ export { Button } from './button';
 export { CookeLogo } from './cooke-logo';
 export { Text } from './text';
 export { TextArea } from './textarea';
+export { Select, Option } from './select';

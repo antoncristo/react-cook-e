@@ -8,6 +8,8 @@ body {
 	font-family: 'cooke-300';
 }
 
+option,
+select,
 textarea,
 input,
 button {
