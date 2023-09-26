@@ -15,13 +15,13 @@ export const WizardFlex = styled.div`
 	width: 100%;
 	height: 100%;
 	max-width: 99rem;
-	padding-inline-end: 6rem;
+	padding-inline-end: 1rem;
 	padding-inline-start: 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-start;
-	gap: 1.6rem;
+	gap: 2rem;
 	overflow-y: auto;
 
 	scrollbar-width: none;
@@ -40,6 +40,7 @@ export const WizardTitle = styled.h1`
 `;
 
 export const WizardTitleInput = styled(Input)`
+	box-sizing: border-box;
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	width: 100%;
@@ -50,6 +51,7 @@ export const WizardTitleInput = styled(Input)`
 `;
 
 export const WIzardDescriptionInput = styled(TextArea)`
+	box-sizing: border-box;
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	width: 100%;
