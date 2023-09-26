@@ -1,6 +1,6 @@
 import { type Recipe } from '@cooke/types';
 
-import { Ingredients } from './components';
+import { Ingredients, PreparationSteps } from './components';
 
 import * as Styled from './wizard.styled';
 
@@ -75,6 +75,7 @@ export const Wizard = () => (
 			<Styled.WizardTitleInput placeholder='Dish name...' />
 			<Styled.WIzardDescriptionInput placeholder='Description...' />
 			<Ingredients recipe={recipe} />
+			<PreparationSteps recipe={recipe} />
 		</Styled.WizardFlex>
 	</Styled.Wizard>
 );

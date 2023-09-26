@@ -21,10 +21,6 @@ export const IngredientInput = styled(Input)`
 	padding: 0.6rem 1.2rem;
 	font-size: 1.4rem;
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
-
-	&::placeholder {
-		color: rgba(${({ theme }) => theme.colors.ternary}, 0.8);
-	}
 `;
 
 export const Controls = styled.div`

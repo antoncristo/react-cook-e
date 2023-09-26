@@ -1,7 +1,7 @@
 import { Button } from '@cooke/shared';
 import styled from 'styled-components';
 
-export const Ingredients = styled.div`
+export const PreparationSteps = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -10,7 +10,7 @@ export const Ingredients = styled.div`
 	padding-bottom: 2rem;
 `;
 
-export const IngredientsTitle = styled.h2`
+export const PreparationStepsTitle = styled.h2`
 	width: fit-content;
 	margin: 0;
 	color: rgba(${({ theme }) => theme.colors.ternary}, 1);

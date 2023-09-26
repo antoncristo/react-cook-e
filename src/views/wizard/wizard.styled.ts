@@ -44,10 +44,6 @@ export const WizardTitleInput = styled(Input)`
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	width: 100%;
-
-	&::placeholder {
-		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);
-	}
 `;
 
 export const WIzardDescriptionInput = styled(TextArea)`
@@ -57,8 +53,4 @@ export const WIzardDescriptionInput = styled(TextArea)`
 	width: 100%;
 	min-height: 10rem;
 	resize: vertical;
-
-	&::placeholder {
-		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);
-	}
 `;
