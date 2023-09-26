@@ -8,5 +8,5 @@ export enum Colors {
 	PURPLE = '140, 20, 252',
 	SUCCESS = '82,182,68',
 	WARNING = '238,186,48',
-	ERROR = '139,0,0'
+	ERROR = '255, 0, 0'
 }
