@@ -1,7 +1,8 @@
 import { type Recipe } from '@cooke/types';
 
-import * as Styled from './dashboard.styled';
 import { RecipeCard } from './components';
+
+import * as Styled from './dashboard.styled';
 
 // Fix: move mock to recipe service response
 
@@ -13,26 +14,31 @@ const recipes: Recipe[] = [
 			'Deep fried chicken breasts overflowing\n text test overflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text test',
 		ingredients: [
 			{
+				id: '1-1-1-1',
 				name: 'Oil',
 				amount: 1,
 				unit: 'l'
 			},
 			{
+				id: '1-1-1-2',
 				name: 'Chicken breast',
 				amount: 1,
 				unit: 'kg'
 			},
 			{
+				id: '1-1-1-3',
 				name: 'Egg',
 				amount: 1,
 				unit: 'unit'
 			},
 			{
+				id: '1-1-1-4',
 				name: 'Breadcrumbs',
 				amount: 1,
 				unit: 'unit'
 			},
 			{
+				id: '1-1-1-5',
 				name: 'Mustard',
 				amount: 60,
 				unit: 'g'
@@ -69,6 +75,7 @@ const recipes: Recipe[] = [
 		description: 'Spaghetti with beef and tomato sauce overflowing text test',
 		ingredients: [
 			{
+				id: '1-2-1-1',
 				amount: 1,
 				name: 'Beaf',
 				unit: 'kg'
