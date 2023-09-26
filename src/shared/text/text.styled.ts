@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Text = styled.p<{
 	$maxWidth?: string;
@@ -8,6 +8,14 @@ export const Text = styled.p<{
 	box-sizing: border-box;
 	margin: 0;
 	width: 100%;
+	${({ $numberOfLines, fontSize }) =>
+		$numberOfLines && fontSize
+			? css`
+					min-height: calc(${fontSize} * (${$numberOfLines}*1.2));
+			  `
+			: css`
+					min-height: 1.6rem;
+			  `}
 	max-width: ${({ $maxWidth }) => $maxWidth};
 	font-size: ${({ fontSize }) => fontSize};
 	line-height: 1.2;

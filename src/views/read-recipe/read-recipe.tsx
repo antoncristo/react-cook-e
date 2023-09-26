@@ -1,11 +1,13 @@
 import { type Recipe } from '@cooke/types';
 
+import { Ingredients, Steps } from './components';
+
 import * as Styled from './read-recipe.styled';
-import { Ingredients } from './components';
 
 const recipe: Recipe = {
 	id: crypto.randomUUID(),
-	title: 'Shnitzel overflowing text test overflowing text test overflowing text test',
+	title:
+		'Shnitzel overflowing text overflowing text overflowing text test overflowing text test',
 	description:
 		'Deep fried chicken breasts overflowing\n text test overflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text testoverflowing text test overflowing text test overflowing text test',
 	ingredients: [
@@ -38,7 +40,8 @@ const recipe: Recipe = {
 	steps: [
 		{
 			stepCount: 1,
-			description: 'Cut the chicken breast into small semi flat square pieces'
+			description:
+				'Cut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square piecesCut the chicken breast into small semi flat square pieces'
 		},
 		{
 			stepCount: 2,
@@ -63,13 +66,15 @@ const recipe: Recipe = {
 export const ReadRecipe = () => (
 	<Styled.ReadRecipe>
 		<Styled.RecipeFlex>
-			<Styled.RecipeTitle numberOfLines={2} fontSize='2.5rem' text={recipe.title} />
+			<Styled.RecipeTitle numberOfLines={1} fontSize='2.5rem' text={recipe.title} />
 			<Styled.RecipeDescription
 				numberOfLines={6}
 				fontSize='1.6rem'
 				text={recipe.description}
 			/>
 			<Ingredients recipe={recipe} />
+			<Steps recipe={recipe} />
+			<Styled.RecipeFooter>Bon Appetito!</Styled.RecipeFooter>
 		</Styled.RecipeFlex>
 	</Styled.ReadRecipe>
 );

@@ -1,7 +1,7 @@
 import { Text } from '@cooke/shared';
 import styled from 'styled-components';
 
-export const Ingredients = styled.div`
+export const Steps = styled.div`
 	box-sizing: border-box;
 	width: 100%;
 	display: flex;
@@ -11,13 +11,13 @@ export const Ingredients = styled.div`
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 `;
 
-export const IngredientsTitle = styled(Text)`
+export const StepsTitle = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-decoration: underline;
 	font-family: 'cooke-400';
 `;
 
-export const IngredientsList = styled.ul`
+export const StepsList = styled.ul`
 	padding: 0;
 	margin: 0;
 	display: flex;
@@ -25,18 +25,21 @@ export const IngredientsList = styled.ul`
 	gap: 1.6rem;
 `;
 
-export const IngredientItem = styled.li`
+export const StepsItem = styled.li`
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	flex-direction: column;
 	font-size: 1.6rem;
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 
-	& > span:nth-child(2) {
-		color: rgba(${({ theme }) => theme.colors.ternary}, 1);
-		font-family: 'cooke-500';
-		font-size: 1.8rem;
+	p {
+		margin: 0;
+	}
+
+	div {
 		text-decoration: underline;
+		color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	}
 `;
