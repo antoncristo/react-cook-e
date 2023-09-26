@@ -7,6 +7,7 @@ export type RelativeUnit = 'unit' | 'cup' | 'tea-spoon' | 'table-spoon';
 export type MeasurementUnit = WeightUnit | LiquidUnit | RelativeUnit;
 
 export interface Ingredient {
+	id: UUID;
 	name: string;
 	amount: number;
 	unit: MeasurementUnit;
