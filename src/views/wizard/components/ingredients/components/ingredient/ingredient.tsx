@@ -1,17 +1,21 @@
-import { type MeasurementUnit, type Recipe } from '@cooke/types';
+import { type ChangeEventHandler } from 'react';
+import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
 import { Option, Select, Text } from '@cooke/shared';
 import { Colors } from '@cooke/style';
 
 import * as Styled from './ingredient.styled';
 
 interface IngredientProps {
-	recipe: Recipe;
-	ingredientIndex: number;
+	ingredient: IngredientType;
+	add: () => void;
+	deleteIng: () => void;
+	changeName: ChangeEventHandler<HTMLInputElement>;
+	changeAmount: ChangeEventHandler<HTMLInputElement>;
+	changeUnit: ChangeEventHandler<HTMLSelectElement>;
 }
 
 export const Ingredient = (props: IngredientProps) => {
-	const { ingredientIndex, recipe } = props;
-	const _ingredient = recipe.ingredients[ingredientIndex];
+	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
 	const unitsOptions: MeasurementUnit[] = [
 		'cup',
 		'g',
@@ -25,10 +29,16 @@ export const Ingredient = (props: IngredientProps) => {
 
 	return (
 		<Styled.Ingredient tabIndex={0}>
-			<Styled.IngredientInput width='4rem' type='number' placeholder='1' />
-			<Select>
+			<Styled.IngredientInput
+				value={ingredient.amount}
+				onChange={changeAmount}
+				width='4rem'
+				type='number'
+				placeholder='1'
+			/>
+			<Select onChange={changeUnit}>
 				{unitsOptions.map(val => (
-					<Option key={val} selected={_ingredient.unit === val} label={val} value={val} />
+					<Option key={val} selected={ingredient.unit === val} label={val} value={val} />
 				))}
 			</Select>
 			<Text
@@ -37,10 +47,17 @@ export const Ingredient = (props: IngredientProps) => {
 				style={{ color: `rgba(${Colors.WHITE},1)` }}
 				text='of'
 			/>
-			<Styled.IngredientInput placeholder='Ingredient name...' width='22rem' />
+			<Styled.IngredientInput
+				value={ingredient.name}
+				onChange={changeName}
+				placeholder='Ingredient name...'
+				width='22rem'
+			/>
 			<Styled.Controls>
-				<Styled.ControlButton>Add</Styled.ControlButton>
-				<Styled.ControlButton variant='secondary'>Delete</Styled.ControlButton>
+				<Styled.ControlButton onClick={add}>Add</Styled.ControlButton>
+				<Styled.ControlButton variant='secondary' onClick={deleteIng}>
+					Delete
+				</Styled.ControlButton>
 			</Styled.Controls>
 		</Styled.Ingredient>
 	);
