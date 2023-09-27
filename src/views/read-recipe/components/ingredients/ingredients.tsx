@@ -15,7 +15,7 @@ export const Ingredients = (props: IngredientsProps) => {
 			<Styled.IngredientsTitle text='Ingredients' fontSize='2rem' />
 			<Styled.IngredientsList>
 				{recipe.ingredients.map(ing => (
-					<Styled.IngredientItem key={ing.name}>
+					<Styled.IngredientItem key={ing.id}>
 						<span>{ing.name}</span>
 						<span>
 							{ing.amount} {ing.unit}

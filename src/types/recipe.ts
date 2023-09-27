@@ -14,6 +14,7 @@ export interface Ingredient {
 }
 
 export interface PreparationStep {
+	id: UUID;
 	stepCount: number;
 	description: string;
 }
