@@ -1,4 +1,4 @@
-import { DishName, Ingredients, PreparationSteps } from './components';
+import { DishDescription, DishName, Ingredients, PreparationSteps } from './components';
 
 import * as Styled from './wizard.styled';
 
@@ -7,7 +7,7 @@ export const Wizard = () => (
 		<Styled.WizardFlex>
 			<Styled.WizardTitle>What`s Cook-E ?</Styled.WizardTitle>
 			<DishName />
-			<Styled.WIzardDescriptionInput placeholder='Description...' />
+			<DishDescription />
 			<Ingredients />
 			<PreparationSteps />
 		</Styled.WizardFlex>

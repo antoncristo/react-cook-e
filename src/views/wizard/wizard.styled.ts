@@ -38,12 +38,3 @@ export const WizardTitle = styled.h1`
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 	margin: 0;
 `;
-
-export const WIzardDescriptionInput = styled(TextArea)`
-	box-sizing: border-box;
-	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
-	color: rgba(${({ theme }) => theme.colors.white}, 1);
-	width: 100%;
-	min-height: 10rem;
-	resize: vertical;
-`;
