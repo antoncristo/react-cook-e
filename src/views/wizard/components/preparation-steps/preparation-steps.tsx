@@ -1,24 +1,58 @@
-import { type Recipe } from '@cooke/types';
+import { type ChangeEventHandler } from 'react';
+import { observer } from '@legendapp/state/react';
+import { wizardStore } from '@cooke/stores/wizard-store';
 
-import * as Styled from './preparation-steps.styled';
 import { Step } from './components';
 
-interface PreparationStepsProps {
-	recipe: Recipe;
-}
+import * as Styled from './preparation-steps.styled';
 
-export const PreparationSteps = (props: PreparationStepsProps) => {
-	const { recipe } = props;
+export const PreparationSteps = observer(() => {
+	const { steps } = wizardStore;
+
+	const addStep = () => {
+		wizardStore.addStep();
+	};
+
+	const addStepBelow = (pusherIndex: number) => {
+		wizardStore.addStepBelow(pusherIndex);
+	};
+
+	const deleteStep = (indexToDelete: number) => {
+		wizardStore.deleteStep(indexToDelete);
+	};
+
+	const swapSteps = (swapperIndex: number) => (direction: 'up' | 'down') => {
+		wizardStore.swapSteps(swapperIndex, direction);
+	};
+
+	const changeDescription =
+		(index: number): ChangeEventHandler<HTMLTextAreaElement> =>
+		change => {
+			wizardStore.changeStepDescription(index, change.currentTarget.value);
+		};
 
 	return (
 		<Styled.PreparationSteps>
 			<Styled.Header>
 				<Styled.PreparationStepsTitle>PREPARATION STEPS</Styled.PreparationStepsTitle>
-				<Styled.ControlButton>Add</Styled.ControlButton>
+				<Styled.ControlButton onClick={addStep}>Add</Styled.ControlButton>
 			</Styled.Header>
-			{recipe.steps.map((step, index) => (
-				<Step key={step.stepCount} recipe={recipe} stepIndex={index} />
+			{steps.map((step, index) => (
+				<Step
+					key={step.id}
+					step={step}
+					isFirstStep={index === 0}
+					isLastStep={index === steps.length - 1}
+					add={() => {
+						addStepBelow(index);
+					}}
+					deleteStep={() => {
+						deleteStep(index);
+					}}
+					swap={swapSteps(index)}
+					changeDescription={changeDescription(index)}
+				/>
 			))}
 		</Styled.PreparationSteps>
 	);
-};
+});
