@@ -39,13 +39,6 @@ export const WizardTitle = styled.h1`
 	margin: 0;
 `;
 
-export const WizardTitleInput = styled(Input)`
-	box-sizing: border-box;
-	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
-	color: rgba(${({ theme }) => theme.colors.white}, 1);
-	width: 100%;
-`;
-
 export const WIzardDescriptionInput = styled(TextArea)`
 	box-sizing: border-box;
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
