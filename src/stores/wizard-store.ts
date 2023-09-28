@@ -6,121 +6,137 @@ import {
 } from '@cooke/types';
 import { recordUpdate } from '@cooke/utils';
 import { wizardService } from '@cooke/views/wizard/wizard.service';
-import { observable } from '@legendapp/state';
+import { makeAutoObservable } from 'mobx';
 
 class WizardStore {
-	#title = observable<Recipe['title']>('');
-	#description = observable<Recipe['description']>('');
-	#ingredients = observable<Recipe['ingredients']>([]);
-	#steps = observable<Recipe['steps']>([]);
+	private readonly _id: UUID = crypto.randomUUID();
+	private _title: Recipe['title'] = '';
+	private _description: Recipe['description'] = '';
+	private readonly _ingredients: Recipe['ingredients'] = [];
+	private readonly _steps: Recipe['steps'] = [];
+
+	constructor() {
+		makeAutoObservable(this);
+	}
 
 	get title() {
-		return this.#title.get();
+		return this._title;
 	}
 
 	set title(update: Recipe['title']) {
-		this.#title.set(update);
+		this._title = update;
 	}
 
 	get description() {
-		return this.#description.get();
+		return this._description;
 	}
 
 	set description(update: Recipe['description']) {
-		this.#description.set(update);
+		this._description = update;
 	}
 
 	get ingredients() {
-		return this.#ingredients.get();
+		return this._ingredients;
+	}
+
+	get recipe(): Recipe {
+		return {
+			id: this._id,
+			title: this._title,
+			description: this._description,
+			ingredients: this._ingredients,
+			steps: this._steps
+		};
 	}
 
 	addIngredient() {
 		const newIngredient: Ingredient = wizardService.getIngredientTemplate();
-		this.#ingredients.push(newIngredient);
+		this._ingredients.push(newIngredient);
 	}
 
 	addIngredientBelow(pusherIndex: number) {
 		const newIngredient: Ingredient = wizardService.getIngredientTemplate();
-		this.#ingredients.splice(pusherIndex + 1, 0, newIngredient);
+		this._ingredients.splice(pusherIndex + 1, 0, newIngredient);
 	}
 
 	deleteIngredient(indexToDelete: number) {
-		this.#ingredients.splice(indexToDelete, 1);
+		this._ingredients.splice(indexToDelete, 1);
 	}
 
 	changeIngredientName(ingredientIndex: number, nameUpdate: string) {
-		const _ingredient = this.#ingredients[ingredientIndex].get();
+		const _ingredient = this._ingredients[ingredientIndex];
 		const updatedRecord = recordUpdate(_ingredient, 'name', nameUpdate);
 
-		this.#ingredients[ingredientIndex].set(updatedRecord);
+		this._ingredients[ingredientIndex] = updatedRecord;
 	}
 
 	changeIngredientAmount(ingredientIndex: number, amountUpdate: number) {
-		const _ingredient = this.#ingredients[ingredientIndex].get();
+		const _ingredient = this._ingredients[ingredientIndex];
 		const updatedRecord = recordUpdate(_ingredient, 'amount', amountUpdate);
 
-		this.#ingredients[ingredientIndex].set(updatedRecord);
+		this._ingredients[ingredientIndex] = updatedRecord;
 	}
 
 	changeIngredientUnit(ingredientIndex: number, unitUpdate: MeasurementUnit) {
-		const _ingredient = this.#ingredients[ingredientIndex].get();
-		const updatedRecord = recordUpdate(_ingredient, 'amount', unitUpdate);
+		const _ingredient = this._ingredients[ingredientIndex];
+		const updatedRecord = recordUpdate(_ingredient, 'unit', unitUpdate);
 
-		this.#ingredients[ingredientIndex].set(updatedRecord);
+		this._ingredients[ingredientIndex] = updatedRecord;
 	}
 
 	get steps() {
-		return this.#steps.get();
+		return this._steps;
 	}
 
 	resetStepsCount() {
-		this.#steps.forEach((step, i) => {
-			step.stepCount.set(i + 1);
+		this._steps.forEach((step, i) => {
+			step.stepCount = i + 1;
 		});
 	}
 
 	addStep() {
 		const newStep: PreparationStep = wizardService.getPreparationStepTemplate(
-			this.#steps.get().length + 1
+			this._steps.length + 1
 		);
-		this.#steps.push(newStep);
+
+		this._steps.push(newStep);
 	}
 
 	addStepBelow(pusherIndex: number) {
 		const newStep: PreparationStep = wizardService.getPreparationStepTemplate(
-			this.#steps.get().length + 1
+			this._steps.length + 1
 		);
-		this.#steps.splice(pusherIndex + 1, 0, newStep);
+		this._steps.splice(pusherIndex + 1, 0, newStep);
+
 		this.resetStepsCount();
 	}
 
 	deleteStep(indexToDelete: number) {
-		this.#steps.splice(indexToDelete, 1);
+		this._steps.splice(indexToDelete, 1);
+
 		this.resetStepsCount();
 	}
 
 	swapSteps(swapperIndex: number, direction: 'up' | 'down') {
-		const temp: PreparationStep = JSON.parse(
-			JSON.stringify(this.#steps[swapperIndex].get())
-		);
+		const temp: PreparationStep = JSON.parse(JSON.stringify(this._steps[swapperIndex]));
 
 		if (direction === 'up') {
-			this.#steps[swapperIndex].set(this.#steps[swapperIndex - 1].get());
-			this.#steps[swapperIndex - 1].set(temp);
+			this._steps[swapperIndex] = this._steps[swapperIndex - 1];
+			this._steps[swapperIndex - 1] = temp;
 		} else {
-			this.#steps[swapperIndex].set(this.#steps[swapperIndex + 1].get());
-			this.#steps[swapperIndex + 1].set(temp);
+			this._steps[swapperIndex] = this._steps[swapperIndex + 1];
+			this._steps[swapperIndex + 1] = temp;
 		}
 
 		this.resetStepsCount();
 	}
 
 	changeStepDescription(stepIndex: number, update: string) {
-		const _step = this.#steps[stepIndex].get();
+		const _step = this._steps[stepIndex];
 
 		const updatedRecord = recordUpdate(_step, 'description', update);
 
-		this.#steps[stepIndex].set(updatedRecord);
+		this._steps[stepIndex] = updatedRecord;
 	}
 }
 

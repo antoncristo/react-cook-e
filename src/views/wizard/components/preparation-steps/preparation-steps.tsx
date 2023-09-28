@@ -1,5 +1,5 @@
 import { type ChangeEventHandler } from 'react';
-import { observer } from '@legendapp/state/react';
+import { observer } from 'mobx-react-lite';
 import { wizardStore } from '@cooke/stores/wizard-store';
 
 import { Step } from './components';
