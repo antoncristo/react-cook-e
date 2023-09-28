@@ -1,4 +1,10 @@
-import { DishDescription, DishName, Ingredients, PreparationSteps } from './components';
+import {
+	DishDescription,
+	DishName,
+	Ingredients,
+	PreparationSteps,
+	Submit
+} from './components';
 
 import * as Styled from './wizard.styled';
 
@@ -10,6 +16,7 @@ export const Wizard = () => (
 			<DishDescription />
 			<Ingredients />
 			<PreparationSteps />
+			<Submit />
 		</Styled.WizardFlex>
 	</Styled.Wizard>
 );
