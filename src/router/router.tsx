@@ -1,13 +1,13 @@
 import { RouterProvider } from 'react-router-dom';
-import { useSelector } from '@legendapp/state/react';
+import { observer } from 'mobx-react-lite';
 import { userStore } from '@cooke/stores/user-store';
 
 import { routesDelegator } from './routes.service';
 
-export const CookeRouter = () => {
+export const CookeRouter = observer(() => {
 	// Fix: sync with user api
-	const isAuthenticated = useSelector(() => userStore.get());
-	const userRoutes = routesDelegator.initUserRoutes(Boolean(isAuthenticated));
+	const { user } = userStore;
+	const userRoutes = routesDelegator.initUserRoutes(Boolean(user));
 
 	return <RouterProvider router={userRoutes} />;
-};
+});

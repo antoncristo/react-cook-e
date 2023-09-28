@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { useSelector } from '@legendapp/state/react';
+import { observer } from 'mobx-react-lite';
 import { userStore } from '@cooke/stores/user-store';
 
 import { Header, Menu } from './components';
@@ -10,12 +10,12 @@ interface LayoutProps {
 	children: ReactNode;
 }
 
-export const Layout = ({ children }: LayoutProps) => {
-	const isLoggedIn = useSelector(() => userStore.get());
+export const Layout = observer(({ children }: LayoutProps) => {
+	const { user } = userStore;
 
 	return (
 		<Styled.Layout>
-			{isLoggedIn ? (
+			{user ? (
 				<Styled.Children>
 					<Header />
 					<Styled.Body>
@@ -28,4 +28,4 @@ export const Layout = ({ children }: LayoutProps) => {
 			)}
 		</Styled.Layout>
 	);
-};
+});

@@ -9,7 +9,10 @@ export const useLogin = () => {
 		[LOGIN_QUERY_KEY],
 		async (cred: Credentials) => userService.login(cred),
 		{
-			onSuccess: async data => Promise.resolve(userStore.set(data))
+			async onSuccess(data) {
+				userStore.user = data;
+				return Promise.resolve(data);
+			}
 		}
 	);
 
