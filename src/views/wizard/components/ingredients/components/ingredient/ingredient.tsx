@@ -1,4 +1,4 @@
-import { type ChangeEventHandler } from 'react';
+import { type ChangeEvent, type ChangeEventHandler } from 'react';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
 import { Option, Select, Text } from '@cooke/shared';
 import { Colors } from '@cooke/style';
