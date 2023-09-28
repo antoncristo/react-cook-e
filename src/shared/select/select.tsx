@@ -7,7 +7,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export const Select = (props: SelectProps) => {
-	const { children } = props;
+	const { children, ...rest } = props;
 
-	return <Styled.Select>{children}</Styled.Select>;
+	return <Styled.Select {...rest}>{children}</Styled.Select>;
 };
