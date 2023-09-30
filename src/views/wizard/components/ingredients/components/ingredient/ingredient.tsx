@@ -1,4 +1,4 @@
-import { useEffect, type ChangeEventHandler } from 'react';
+import { useEffect, type ChangeEventHandler, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
 import { wizardValidator } from '@cooke/stores/wizard-validator';
@@ -17,6 +17,7 @@ interface IngredientProps {
 }
 
 export const Ingredient = observer((props: IngredientProps) => {
+	const _ref = useRef<HTMLDivElement>(null);
 	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
 	const unitsOptions: MeasurementUnit[] = [
 		'cup',
@@ -55,10 +56,11 @@ export const Ingredient = observer((props: IngredientProps) => {
 
 	useEffect(() => {
 		wizardValidator.ingredientValidation().addSimpleValidation(ingredient.id);
+		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 	}, []);
 
 	return (
-		<Styled.Ingredient onBlur={markAsTouched} tabIndex={0}>
+		<Styled.Ingredient ref={_ref} onBlur={markAsTouched} tabIndex={0}>
 			<Styled.IngredientInput
 				value={ingredient.amount}
 				onChange={changeAmount}
@@ -81,7 +83,9 @@ export const Ingredient = observer((props: IngredientProps) => {
 				value={ingredient.name}
 				isValid={isNameValid || !isNameTouched}
 				onChange={onChangeNameHandler}
-				placeholder='Ingredient name...'
+				placeholder={
+					isNameTouched ? 'Ingredient name is required...' : 'Ingredient name...'
+				}
 				width='22rem'
 			/>
 			<Styled.Controls>

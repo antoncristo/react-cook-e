@@ -1,4 +1,4 @@
-import { useEffect, type ChangeEventHandler } from 'react';
+import { useEffect, type ChangeEventHandler, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { type PreparationStep } from '@cooke/types';
 import { wizardValidator } from '@cooke/stores/wizard-validator';
@@ -16,6 +16,7 @@ interface StepProps {
 }
 
 export const Step = observer((props: StepProps) => {
+	const _ref = useRef<HTMLDivElement>(null);
 	const { step, isLastStep, isFirstStep, add, deleteStep, swap, changeDescription } =
 		props;
 
@@ -43,10 +44,11 @@ export const Step = observer((props: StepProps) => {
 
 	useEffect(() => {
 		wizardValidator.stepsValidation().addSimpleValidation(step.id);
+		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 	}, []);
 
 	return (
-		<Styled.Step>
+		<Styled.Step ref={_ref}>
 			<Styled.Header>
 				<Styled.StepCount>Step {step.stepCount}</Styled.StepCount>
 				<Styled.Controls>
@@ -77,7 +79,9 @@ export const Step = observer((props: StepProps) => {
 				isValid={isDescriptionValid || !isDescriptionTouched}
 				onChange={onChangeDescriptionHandler}
 				onBlur={markAsTouched}
-				placeholder='Description...'
+				placeholder={
+					isDescriptionTouched ? 'Description is required...' : 'Description...'
+				}
 			/>
 		</Styled.Step>
 	);
