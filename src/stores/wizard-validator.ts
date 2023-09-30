@@ -22,6 +22,22 @@ export class WizardValidator {
 	stepsValidation() {
 		return this._steps;
 	}
+
+	touchAll() {
+		this._title.isTouched = true;
+		this._description.isTouched = true;
+		this._ingredients.markAsTouchedAll();
+		this._steps.markAsTouchedAll();
+	}
+
+	isRecipeValid() {
+		return (
+			this._title.isValid &&
+			this._description.isValid &&
+			this._ingredients.isGroupValid() &&
+			this._steps.isGroupValid()
+		);
+	}
 }
 
 export const wizardValidator = new WizardValidator();

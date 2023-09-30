@@ -47,4 +47,22 @@ export class GroupInputValidator<T> {
 	deleteInputValidation(inputId: UUID) {
 		delete this.group[inputId];
 	}
+
+	markAsTouched(inputId: UUID) {
+		this.group[inputId].isTouched = true;
+	}
+
+	markAsTouchedAll() {
+		const inputIDs = Object.keys(this.group) as UUID[];
+		inputIDs.forEach(inputId => {
+			this.markAsTouched(inputId);
+		});
+	}
+
+	isGroupValid(): boolean {
+		const inputIDs = Object.keys(this.group) as UUID[];
+		return inputIDs.length
+			? inputIDs.every((input: UUID) => this.group[input].isValid)
+			: false;
+	}
 }

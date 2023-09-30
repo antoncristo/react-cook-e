@@ -50,8 +50,7 @@ export const Ingredient = observer((props: IngredientProps) => {
 	};
 
 	const markAsTouched = () => {
-		wizardValidator.ingredientValidation().getInputValidator(ingredient.id).isTouched =
-			true;
+		wizardValidator.ingredientValidation().markAsTouched(ingredient.id);
 	};
 
 	useEffect(() => {

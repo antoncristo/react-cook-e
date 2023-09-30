@@ -38,7 +38,7 @@ export const Step = observer((props: StepProps) => {
 	};
 
 	const markAsTouched = () => {
-		wizardValidator.stepsValidation().getInputValidator(step.id).isTouched = true;
+		wizardValidator.stepsValidation().markAsTouched(step.id);
 	};
 
 	useEffect(() => {
