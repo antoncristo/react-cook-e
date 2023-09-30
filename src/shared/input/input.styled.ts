@@ -25,7 +25,7 @@ export const Input = styled.input<{ width?: string; $isValid: boolean }>`
 					outline-color: rgba(${({ theme }) => theme.colors.error}, 1);
 
 					&::placeholder {
-						color: rgba(${({ theme }) => theme.colors.error}, 1);
+						color: rgba(${({ theme }) => theme.colors.white}, 1);
 					}
 			  `}
 `;

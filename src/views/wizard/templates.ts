@@ -9,7 +9,7 @@ export const RECIPE_TEMPLATE: Recipe = {
 };
 
 export const INGREDIENT_TEMPLATE: Ingredient = {
-	name: 'Name',
+	name: '',
 	amount: 1,
 	unit: 'unit',
 	id: '1-1-1-1'

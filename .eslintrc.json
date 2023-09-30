@@ -22,7 +22,8 @@
 				"@typescript-eslint/no-inferrable-types": "off",
 				"@typescript-eslint/ban-types": "off",
 				"@typescript-eslint/indent": "off",
-				"@typescript-eslint/no-unnecessary-type-assertion": "off"
+				"@typescript-eslint/no-unnecessary-type-assertion": "off",
+				"@typescript-eslint/no-dynamic-delete": "off"
 			}
 		}
 	],
