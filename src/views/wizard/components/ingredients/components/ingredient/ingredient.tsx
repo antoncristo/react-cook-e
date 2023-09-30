@@ -1,5 +1,7 @@
-import { type ChangeEvent, type ChangeEventHandler } from 'react';
+import { useEffect, type ChangeEventHandler } from 'react';
+import { observer } from 'mobx-react-lite';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
+import { wizardValidator } from '@cooke/stores/wizard-validator';
 import { Option, Select, Text } from '@cooke/shared';
 import { Colors } from '@cooke/style';
 
@@ -14,7 +16,7 @@ interface IngredientProps {
 	changeUnit: ChangeEventHandler<HTMLSelectElement>;
 }
 
-export const Ingredient = (props: IngredientProps) => {
+export const Ingredient = observer((props: IngredientProps) => {
 	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
 	const unitsOptions: MeasurementUnit[] = [
 		'cup',
@@ -27,8 +29,37 @@ export const Ingredient = (props: IngredientProps) => {
 		'unit'
 	];
 
+	const isNameValid =
+		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isValid ??
+		true;
+	const isNameTouched =
+		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isTouched ??
+		false;
+
+	const onChangeNameHandler: ChangeEventHandler<HTMLInputElement> = change => {
+		wizardValidator
+			.ingredientValidation()
+			.getInputValidator(ingredient.id)
+			.runValidation(change.currentTarget.value);
+		changeName(change);
+	};
+
+	const onDeleteHandler = () => {
+		deleteIng();
+		wizardValidator.ingredientValidation().deleteInputValidation(ingredient.id);
+	};
+
+	const markAsTouched = () => {
+		wizardValidator.ingredientValidation().getInputValidator(ingredient.id).isTouched =
+			true;
+	};
+
+	useEffect(() => {
+		wizardValidator.ingredientValidation().addSimpleValidation(ingredient.id);
+	}, []);
+
 	return (
-		<Styled.Ingredient tabIndex={0}>
+		<Styled.Ingredient onBlur={markAsTouched} tabIndex={0}>
 			<Styled.IngredientInput
 				value={ingredient.amount}
 				onChange={changeAmount}
@@ -49,16 +80,17 @@ export const Ingredient = (props: IngredientProps) => {
 			/>
 			<Styled.IngredientInput
 				value={ingredient.name}
-				onChange={changeName}
+				isValid={isNameValid || !isNameTouched}
+				onChange={onChangeNameHandler}
 				placeholder='Ingredient name...'
 				width='22rem'
 			/>
 			<Styled.Controls>
 				<Styled.ControlButton onClick={add}>Add</Styled.ControlButton>
-				<Styled.ControlButton variant='secondary' onClick={deleteIng}>
+				<Styled.ControlButton variant='secondary' onClick={onDeleteHandler}>
 					Delete
 				</Styled.ControlButton>
 			</Styled.Controls>
 		</Styled.Ingredient>
 	);
-};
+});

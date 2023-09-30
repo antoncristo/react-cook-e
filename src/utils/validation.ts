@@ -34,9 +34,17 @@ export class SimpleInputValidator {
 }
 
 export class GroupInputValidator<T> {
-	private readonly group: T[] = [];
+	private readonly group: Record<UUID, SimpleInputValidator> = {};
 
-	constructor() {
-		makeAutoObservable(this);
+	addSimpleValidation(inputId: UUID) {
+		this.group[inputId] = new SimpleInputValidator();
+	}
+
+	getInputValidator(inputId: UUID): SimpleInputValidator {
+		return this.group[inputId];
+	}
+
+	deleteInputValidation(inputId: UUID) {
+		delete this.group[inputId];
 	}
 }
