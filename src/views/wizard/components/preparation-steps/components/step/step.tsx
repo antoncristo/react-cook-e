@@ -20,13 +20,13 @@ export const Step = observer((props: StepProps) => {
 		props;
 
 	const isDescriptionValid =
-		wizardValidator.ingredientValidation().getInputValidator(step.id)?.isValid ?? true;
+		wizardValidator.stepsValidation().getInputValidator(step.id)?.isValid ?? true;
 	const isDescriptionTouched =
-		wizardValidator.ingredientValidation().getInputValidator(step.id)?.isTouched ?? false;
+		wizardValidator.stepsValidation().getInputValidator(step.id)?.isTouched ?? false;
 
 	const onChangeDescriptionHandler: ChangeEventHandler<HTMLTextAreaElement> = change => {
 		wizardValidator
-			.ingredientValidation()
+			.stepsValidation()
 			.getInputValidator(step.id)
 			.runValidation(change.currentTarget.value);
 		changeDescription(change);
@@ -34,15 +34,15 @@ export const Step = observer((props: StepProps) => {
 
 	const onDeleteHandler = () => {
 		deleteStep();
-		wizardValidator.ingredientValidation().deleteInputValidation(step.id);
+		wizardValidator.stepsValidation().deleteInputValidation(step.id);
 	};
 
 	const markAsTouched = () => {
-		wizardValidator.ingredientValidation().getInputValidator(step.id).isTouched = true;
+		wizardValidator.stepsValidation().getInputValidator(step.id).isTouched = true;
 	};
 
 	useEffect(() => {
-		wizardValidator.ingredientValidation().addSimpleValidation(step.id);
+		wizardValidator.stepsValidation().addSimpleValidation(step.id);
 	}, []);
 
 	return (
