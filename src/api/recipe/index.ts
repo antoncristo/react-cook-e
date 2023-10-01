@@ -4,5 +4,7 @@ export {
 	GET_RECIPE_QUERY_KEY,
 	useGetRecipe,
 	POST_RECIPE_QUERY_KEY,
-	usePostRecipe
+	usePostRecipe,
+	PUT_RECIPE_QUERY_KEY,
+	usePutRecipe
 } from './query-hooks';
