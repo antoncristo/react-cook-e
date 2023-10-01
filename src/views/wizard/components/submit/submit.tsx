@@ -1,8 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@cooke/shared';
-import { wizardStore } from '@cooke/stores/wizard-store';
-import { wizardValidator } from '@cooke/stores/wizard-validator';
+import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
 
@@ -28,5 +27,5 @@ export const Submit = observer(() => {
 		}
 	};
 
-	return <Button onClick={onSubmit}>SUBMIT</Button>;
+	return <Button onClick={onSubmit}>{isEditMode ? 'UPDATE' : 'SUBMIT'}</Button>;
 });

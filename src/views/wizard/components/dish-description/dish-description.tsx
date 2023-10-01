@@ -1,9 +1,8 @@
 import { type ChangeEventHandler } from 'react';
 import { observer } from 'mobx-react-lite';
-import { wizardStore } from '@cooke/stores/wizard-store';
+import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 
 import * as Styled from './dish-description.styled';
-import { wizardValidator } from '@cooke/stores/wizard-validator';
 
 export const DishDescription = observer(() => {
 	const { description } = wizardStore;

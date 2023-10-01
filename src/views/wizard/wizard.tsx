@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetRecipe } from '@cooke/api/recipe';
 import { type Recipe } from '@cooke/types';
-import { wizardStore } from '@cooke/stores/wizard-store';
-import { wizardValidator } from '@cooke/stores/wizard-validator';
+import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 
 import {
 	DishDescription,

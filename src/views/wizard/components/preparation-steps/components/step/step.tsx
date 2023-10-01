@@ -1,7 +1,7 @@
 import { useEffect, type ChangeEventHandler, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { type PreparationStep } from '@cooke/types';
-import { wizardValidator } from '@cooke/stores/wizard-validator';
+import { wizardValidator } from '@cooke/stores/wizard-store';
 
 import * as Styled from './step.styled';
 
