@@ -9,6 +9,7 @@ export const Dashboard = () => {
 
 	if (isError) {
 		// Fix: https://trello.com/c/u9WwNHFK/18-add-loader-and-error
+		return <div>Error...</div>;
 	}
 
 	if (isLoading) {
