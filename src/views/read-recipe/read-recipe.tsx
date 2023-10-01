@@ -30,12 +30,13 @@ export const ReadRecipe = () => {
 	return (
 		<Styled.ReadRecipe>
 			<Styled.RecipeFlex>
-				<Styled.RecipeTitle numberOfLines={1} fontSize='2.5rem' text={recipe.title} />
-				<Styled.RecipeDescription
-					numberOfLines={6}
-					fontSize='1.6rem'
-					text={recipe.description}
+				<Styled.RecipeTitle
+					title={recipe.title}
+					numberOfLines={1}
+					fontSize='2.5rem'
+					text={recipe.title}
 				/>
+				<Styled.RecipeDescription>{recipe.description}</Styled.RecipeDescription>
 				<Ingredients recipe={recipe} />
 				<Steps recipe={recipe} />
 				<Styled.RecipeFooter>Bon Appetito!</Styled.RecipeFooter>

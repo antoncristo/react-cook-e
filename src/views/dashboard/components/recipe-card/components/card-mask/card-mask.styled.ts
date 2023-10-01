@@ -11,7 +11,7 @@ export const CardMask = styled.div`
 	left: 0;
 	right: 0;
 	display: none;
-	background-color: rgba(${({ theme }) => theme.colors.purple}, 0.7);
+	background-color: rgba(${({ theme }) => theme.colors.primary}, 0.7);
 	border-radius: 1.2rem;
 	align-items: center;
 	flex-direction: column;

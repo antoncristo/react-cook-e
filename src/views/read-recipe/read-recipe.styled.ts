@@ -35,10 +35,11 @@ export const RecipeTitle = styled(Text)`
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 `;
 
-export const RecipeDescription = styled(Text)`
+export const RecipeDescription = styled.p`
 	padding-left: 1.6rem;
 	border-left: 0.2rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
+	font-size: 1.6rem;
 `;
 
 export const RecipeFooter = styled.div`
