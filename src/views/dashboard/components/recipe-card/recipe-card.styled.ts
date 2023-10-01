@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const RecipeCard = styled(Link)`
+export const RecipeCard = styled.div`
+	position: relative;
 	box-sizing: border-box;
 	border: 0.1rem solid transparent;
 	width: 22rem;
@@ -12,14 +12,14 @@ export const RecipeCard = styled(Link)`
 	padding: 1.6rem;
 	transition: all 0.32s ease-in-out;
 
-	text-decoration: none;
-	color: unset;
-
 	&:hover,
-	&:focus {
+	&:focus-within {
 		transform: skew(2deg, 2deg) rotateY(3deg);
 		border-left: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
-		cursor: pointer;
+
+		> .mask {
+			display: flex;
+		}
 	}
 `;
 

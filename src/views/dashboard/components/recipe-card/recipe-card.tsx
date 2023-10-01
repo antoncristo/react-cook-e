@@ -1,6 +1,7 @@
 import { type Recipe } from '@cooke/types';
 import { Text } from '@cooke/shared';
-import { cookePathnames, injectRecipeUUID } from '@cooke/router';
+
+import { CardMask } from './components';
 
 import * as Styled from './recipe-card.styled';
 
@@ -12,9 +13,8 @@ export const RecipeCard = (props: RecipeCardProps) => {
 	const { recipe } = props;
 
 	return (
-		<Styled.RecipeCard
-			to={injectRecipeUUID(cookePathnames.authenticatedPathNames.READ_RECIPE, recipe.id)}
-		>
+		<Styled.RecipeCard tabIndex={0}>
+			<CardMask recipe={recipe} />
 			<Styled.RecipeTitle>
 				<Text
 					title={recipe.title}
