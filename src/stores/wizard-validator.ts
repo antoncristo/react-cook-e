@@ -1,11 +1,11 @@
-import { type PreparationStep, type Ingredient } from '@cooke/types';
+import { type PreparationStep, type Ingredient, type Recipe } from '@cooke/types';
 import { GroupInputValidator, SimpleInputValidator } from '@cooke/utils/validation';
 
 export class WizardValidator {
-	private readonly _title = new SimpleInputValidator();
-	private readonly _description = new SimpleInputValidator();
-	private readonly _ingredients = new GroupInputValidator<Ingredient>();
-	private readonly _steps = new GroupInputValidator<PreparationStep>();
+	private _title = new SimpleInputValidator();
+	private _description = new SimpleInputValidator();
+	private _ingredients = new GroupInputValidator<Ingredient>();
+	private _steps = new GroupInputValidator<PreparationStep>();
 
 	get titleValidation() {
 		return this._title;
@@ -30,6 +30,17 @@ export class WizardValidator {
 		this._steps.markAsTouchedAll();
 	}
 
+	preValidate(recipe: Recipe) {
+		this._title.runValidation(recipe.title);
+		this._description.runValidation(recipe.description);
+		recipe.ingredients.forEach(ing => {
+			this._ingredients.getInputValidator(ing.id).runValidation(ing.name);
+		});
+		recipe.steps.forEach(step => {
+			this._steps.getInputValidator(step.id).runValidation(step.description);
+		});
+	}
+
 	isRecipeValid() {
 		return (
 			this._title.isValid &&
@@ -37,6 +48,13 @@ export class WizardValidator {
 			this._ingredients.isGroupValid() &&
 			this._steps.isGroupValid()
 		);
+	}
+
+	resetValidator() {
+		this._title = new SimpleInputValidator();
+		this._description = new SimpleInputValidator();
+		this._ingredients = new GroupInputValidator<Ingredient>();
+		this._steps = new GroupInputValidator<PreparationStep>();
 	}
 }
 

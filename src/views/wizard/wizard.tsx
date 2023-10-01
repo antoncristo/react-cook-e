@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useGetRecipe } from '@cooke/api/recipe';
 import { type Recipe } from '@cooke/types';
 import { wizardStore } from '@cooke/stores/wizard-store';
+import { wizardValidator } from '@cooke/stores/wizard-validator';
 
 import {
 	DishDescription,
@@ -28,9 +29,17 @@ export const Wizard = () => {
 				JSON.parse(JSON.stringify(recipe)) as Recipe,
 				true
 			);
+
+			setTimeout(() => {
+				wizardValidator.preValidate(recipe);
+			}, 0);
 		} else {
 			wizardStore.initRecipeFromTemplate(RECIPE_TEMPLATE);
 		}
+
+		return () => {
+			wizardValidator.resetValidator();
+		};
 	}, [recipe]);
 
 	return (
