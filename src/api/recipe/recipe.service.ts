@@ -1,7 +1,7 @@
 import { type Recipe } from '@cooke/types';
 import { type RecipeServiceApi } from './recipe.interface';
 
-const recipes: Recipe[] = [
+let recipes: Recipe[] = [
 	{
 		id: crypto.randomUUID(),
 		title: 'Shnitzel overflowing text test overflowing text test overflowing text test',
@@ -121,6 +121,11 @@ class RecipeService implements RecipeServiceApi {
 		}
 
 		return Promise.resolve(needsUpdate!);
+	};
+
+	deleteRecipe = async (recipeToDelete: Recipe): Promise<UUID> => {
+		recipes = recipes.filter(recipe => recipe.id !== recipeToDelete.id);
+		return recipeToDelete.id;
 	};
 }
 

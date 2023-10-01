@@ -5,4 +5,5 @@ export interface RecipeServiceApi {
 	getRecipe: (recipeID: UUID) => Promise<Recipe | null>;
 	postRecipe: (recipe: Recipe) => Promise<Recipe>;
 	putRecipe: (recipe: Recipe) => Promise<Recipe>;
+	deleteRecipe: (recipeToDelete: Recipe) => Promise<UUID>;
 }
