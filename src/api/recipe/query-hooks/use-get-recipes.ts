@@ -4,8 +4,12 @@ import { recipeService } from '../recipe.service';
 export const GET_RECIPES_QUERY_KEY = 'get_recipes_key';
 
 export const useGetRecipes = () => {
-	const { data, isError, isLoading } = useQuery([GET_RECIPES_QUERY_KEY], async () =>
-		recipeService.getRecipes()
+	const { data, isError, isLoading } = useQuery(
+		[GET_RECIPES_QUERY_KEY],
+		async () => recipeService.getRecipes(),
+		{
+			staleTime: 300000
+		}
 	);
 
 	return {
