@@ -38,7 +38,8 @@
 		"no-unused-expressions": "warn",
 		"no-unused-vars": "warn",
 		"no-duplicate-imports": "warn",
-		"operator-linebreak": "off"
+		"operator-linebreak": "off",
+		"no-mixed-spaces-and-tabs": "off"
 	},
 	"settings": {
 		"react": {
