@@ -6,5 +6,7 @@ export {
 	POST_RECIPE_QUERY_KEY,
 	usePostRecipe,
 	PUT_RECIPE_QUERY_KEY,
-	usePutRecipe
+	usePutRecipe,
+	DELETE_RECIPE_QUERY_KEY,
+	useDeleteRecipe
 } from './query-hooks';

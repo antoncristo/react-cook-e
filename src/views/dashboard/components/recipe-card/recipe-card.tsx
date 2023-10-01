@@ -7,14 +7,19 @@ import * as Styled from './recipe-card.styled';
 
 interface RecipeCardProps {
 	recipe: Recipe;
+	deleteRecipe: (recipe: Recipe) => void;
 }
 
 export const RecipeCard = (props: RecipeCardProps) => {
-	const { recipe } = props;
+	const { recipe, deleteRecipe } = props;
+
+	const deleteHandler = () => {
+		deleteRecipe(recipe);
+	};
 
 	return (
 		<Styled.RecipeCard tabIndex={0}>
-			<CardMask recipe={recipe} />
+			<CardMask deleteRecipe={deleteHandler} recipe={recipe} />
 			<Styled.RecipeTitle>
 				<Text
 					title={recipe.title}
