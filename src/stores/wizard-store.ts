@@ -1,3 +1,4 @@
+import { makeAutoObservable } from 'mobx';
 import {
 	type MeasurementUnit,
 	type Ingredient,
@@ -6,14 +7,18 @@ import {
 } from '@cooke/types';
 import { recordUpdate } from '@cooke/utils';
 import { wizardService } from '@cooke/views/wizard/wizard.service';
-import { makeAutoObservable } from 'mobx';
 
 class WizardStore {
-	private readonly _id: UUID = crypto.randomUUID();
+	private _id: UUID = crypto.randomUUID();
 	private _title: Recipe['title'] = '';
 	private _description: Recipe['description'] = '';
-	private readonly _ingredients: Recipe['ingredients'] = [];
-	private readonly _steps: Recipe['steps'] = [];
+	private _ingredients: Recipe['ingredients'] = [];
+	private _steps: Recipe['steps'] = [];
+	private _isEditMode: boolean = false;
+
+	get isEditMode() {
+		return this._isEditMode;
+	}
 
 	constructor() {
 		makeAutoObservable(this);
@@ -47,6 +52,26 @@ class WizardStore {
 			ingredients: this._ingredients,
 			steps: this._steps
 		};
+	}
+
+	set recipe(recipe: Recipe) {
+		this._id = recipe.id;
+		this._title = recipe.title;
+		this._description = recipe.description;
+		this._ingredients = recipe.ingredients;
+		this._steps = recipe.steps;
+	}
+
+	initRecipeFromTemplate(recipeTemplate: Recipe, isEditMode?: boolean) {
+		this._isEditMode = Boolean(isEditMode);
+		const template: Recipe = isEditMode
+			? { ...recipeTemplate }
+			: {
+					...recipeTemplate,
+					id: crypto.randomUUID()
+			  };
+
+		this.recipe = template;
 	}
 
 	addIngredient() {

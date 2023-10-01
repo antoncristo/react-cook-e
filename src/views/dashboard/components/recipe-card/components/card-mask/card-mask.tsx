@@ -12,7 +12,9 @@ export const CardMask = ({ recipe }: { recipe: Recipe }) => (
 		>
 			Go To Recipe
 		</Styled.LinkButton>
-		<Styled.LinkButton style={{ pointerEvents: 'none' }} to=''>
+		<Styled.LinkButton
+			to={injectRecipeUUID(cookePathnames.authenticatedPathNames.EDIT_RECIPE, recipe.id)}
+		>
 			Edit
 		</Styled.LinkButton>
 	</Styled.CardMask>
