@@ -5,6 +5,7 @@ export const buttonWithHoverInversion = (bg: string, c: string) =>
 		background-color: ${bg};
 		color: ${c};
 
+		&:focus,
 		&:hover {
 			background-color: ${c};
 			color: ${bg};
