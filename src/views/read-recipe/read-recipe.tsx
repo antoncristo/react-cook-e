@@ -7,7 +7,7 @@ import * as Styled from './read-recipe.styled';
 
 export const ReadRecipe = () => {
 	const params = useParams() as Record<'recipeid', UUID>;
-	const { recipe, isError, isLoading } = useGetRecipe(params.recipeid);
+	const { recipe, isError, isLoading } = useGetRecipe({ recipeID: params.recipeid });
 
 	if (isError || !recipe) {
 		// Fix: https://trello.com/c/u9WwNHFK/18-add-loader-and-error
