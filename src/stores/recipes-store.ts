@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx';
-import { type Recipe } from '@cooke/types';
+import { type QueryBasicParams, type Recipe } from '@cooke/types';
 
 class RecipesStore {
 	private _recipes: Recipe[] | null | undefined = undefined;
+	private _searchQuery: QueryBasicParams['search'] = '';
 
 	constructor() {
 		makeAutoObservable(this);
@@ -22,6 +23,14 @@ class RecipesStore {
 
 	get isLoading() {
 		return this._recipes === undefined;
+	}
+
+	get searchQuery() {
+		return this._searchQuery;
+	}
+
+	set searchQuery(query: QueryBasicParams['search']) {
+		this._searchQuery = query;
 	}
 
 	getRecipe(recipeID: UUID): Recipe | null | undefined {
