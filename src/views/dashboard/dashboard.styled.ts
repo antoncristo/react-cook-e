@@ -4,13 +4,6 @@ export const Dashboard = styled.div`
 	height: 100%;
 `;
 
-export const TopBar = styled.div`
-	box-sizing: border-box;
-	height: 3rem;
-	display: flex;
-	align-items: center;
-`;
-
 export const RecipesFlex = styled.div`
 	box-sizing: border-box;
 	height: calc(100% - 3rem);

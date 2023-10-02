@@ -1,5 +1,6 @@
 import { type Recipe } from '@cooke/types';
 import { Text } from '@cooke/shared';
+import { useDeleteRecipe } from '@cooke/api/recipe';
 
 import { CardMask } from './components';
 
@@ -7,11 +8,11 @@ import * as Styled from './recipe-card.styled';
 
 interface RecipeCardProps {
 	recipe: Recipe;
-	deleteRecipe: (recipe: Recipe) => void;
 }
 
 export const RecipeCard = (props: RecipeCardProps) => {
-	const { recipe, deleteRecipe } = props;
+	const { recipe } = props;
+	const { deleteRecipe } = useDeleteRecipe();
 
 	const deleteHandler = () => {
 		deleteRecipe(recipe);

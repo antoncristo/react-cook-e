@@ -1,5 +1,6 @@
 import { type Recipe } from '@cooke/types';
 import { type RecipeServiceApi } from './recipe.interface';
+import { type QueryBasicParams } from '@cooke/types';
 
 let recipes: Recipe[] = [
 	{
@@ -92,7 +93,18 @@ let recipes: Recipe[] = [
 ];
 
 class RecipeService implements RecipeServiceApi {
-	getRecipes = async (): Promise<Recipe[]> => Promise.resolve(recipes);
+	getRecipes = async (queryParams?: QueryBasicParams): Promise<Recipe[]> => {
+		if (queryParams?.search) {
+			const res = recipes.filter(
+				recipe =>
+					recipe.title.toLowerCase().includes(queryParams.search!.toLowerCase()) ||
+					recipe.description.toLowerCase().includes(queryParams.search!.toLowerCase())
+			);
+			return Promise.resolve(res);
+		}
+
+		return Promise.resolve(recipes);
+	};
 
 	getRecipe = async (recipeID: UUID): Promise<Recipe | null> => {
 		const r = recipes.find(r => r.id === recipeID);

@@ -1,28 +1,20 @@
 import { useParams } from 'react-router-dom';
-import { useGetRecipe } from '@cooke/api/recipe';
+import { observer } from 'mobx-react-lite';
 
 import { Ingredients, Steps } from './components';
 
 import * as Styled from './read-recipe.styled';
+import { recipesStore } from '@cooke/stores/recipes-store';
 
-export const ReadRecipe = () => {
+export const ReadRecipe = observer(() => {
 	const params = useParams() as Record<'recipeid', UUID>;
-	const { recipe, isError, isLoading } = useGetRecipe({ recipeID: params.recipeid });
+	const recipe = recipesStore.getRecipe(params.recipeid);
 
-	if (isError || !recipe) {
+	if (!recipe) {
 		// Fix: https://trello.com/c/u9WwNHFK/18-add-loader-and-error
 		return (
 			<Styled.ReadRecipe>
 				<div>Error...</div>
-			</Styled.ReadRecipe>
-		);
-	}
-
-	if (isLoading) {
-		// Fix: https://trello.com/c/u9WwNHFK/18-add-loader-and-error
-		return (
-			<Styled.ReadRecipe>
-				<div>Loading...</div>
 			</Styled.ReadRecipe>
 		);
 	}
@@ -43,4 +35,4 @@ export const ReadRecipe = () => {
 			</Styled.RecipeFlex>
 		</Styled.ReadRecipe>
 	);
-};
+});
