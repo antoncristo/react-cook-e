@@ -1,13 +1,16 @@
 import { observer } from 'mobx-react-lite';
 import { recipesStore } from '@cooke/stores/recipes-store';
+import { Loader, Text } from '@cooke/shared';
 
-import { RecipeCard, ControlBar } from './components';
+import { RecipeCard, ControlBar, InitialState } from './components';
 
 import * as Styled from './dashboard.styled';
-import { Loader } from '@cooke/shared';
 
 export const Dashboard = observer(() => {
 	const { recipes } = recipesStore;
+
+	const isInitialState = recipes?.length === 0 && !recipesStore.searchQuery;
+	const isNoSearchMatch = recipes?.length === 0 && recipesStore.searchQuery;
 
 	return (
 		<Styled.Dashboard>
@@ -15,6 +18,13 @@ export const Dashboard = observer(() => {
 			<Styled.RecipesFlex>
 				{recipesStore.isLoading ? <Loader size='M' /> : null}
 				{recipesStore.isError ? <div>Error...</div> : null}
+				{isNoSearchMatch ? (
+					<Text
+						fontSize='2rem'
+						text={`No Recipes include the text - "${recipesStore.searchQuery!}"...`}
+					/>
+				) : null}
+				{isInitialState ? <InitialState /> : null}
 				{recipes?.map(recipe => (
 					<RecipeCard key={recipe.id} recipe={recipe} />
 				))}
