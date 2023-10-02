@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { recipesStore } from '@cooke/stores/recipes-store';
-import { Loader, Text } from '@cooke/shared';
+import { Loader, NetworkError, Text } from '@cooke/shared';
 
 import { RecipeCard, ControlBar, InitialState } from './components';
 
@@ -17,7 +17,7 @@ export const Dashboard = observer(() => {
 			<ControlBar />
 			<Styled.RecipesFlex>
 				{recipesStore.isLoading ? <Loader size='M' /> : null}
-				{recipesStore.isError ? <div>Error...</div> : null}
+				{recipesStore.isError ? <NetworkError /> : null}
 				{isNoSearchMatch ? (
 					<Text
 						fontSize='2rem'

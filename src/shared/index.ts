@@ -5,3 +5,4 @@ export { Text } from './text';
 export { TextArea } from './textarea';
 export { Select, Option } from './select';
 export { Loader } from './loader';
+export { NetworkError } from './network-error';
