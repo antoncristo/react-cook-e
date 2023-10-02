@@ -1,7 +1,7 @@
 import { useDeleteRecipe, useGetRecipes } from '@cooke/api/recipe';
 import { type Recipe } from '@cooke/types';
 
-import { RecipeCard } from './components';
+import { RecipeCard, ControlBar } from './components';
 
 import * as Styled from './dashboard.styled';
 
@@ -25,7 +25,7 @@ export const Dashboard = () => {
 
 	return (
 		<Styled.Dashboard>
-			<Styled.TopBar>search</Styled.TopBar>
+			<ControlBar />
 			<Styled.RecipesFlex>
 				{recipes?.map(recipe => (
 					<RecipeCard deleteRecipe={deleteHandler} key={recipe.id} recipe={recipe} />
