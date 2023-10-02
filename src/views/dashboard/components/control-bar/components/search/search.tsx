@@ -6,7 +6,7 @@ import * as Styled from './search.styled';
 export const Search = () => {
 	const [_search, setSearch] = useState('');
 
-	const { recipes } = useGetRecipes({ search: _search, enabled: Boolean(_search) });
+	useGetRecipes({ search: _search });
 
 	const onFocus: FocusEventHandler<HTMLInputElement> = focus => {
 		focus.currentTarget.select();

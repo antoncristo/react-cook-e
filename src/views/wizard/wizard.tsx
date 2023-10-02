@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetRecipe } from '@cooke/api/recipe';
+import { observer } from 'mobx-react-lite';
 import { type Recipe } from '@cooke/types';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
+import { recipesStore } from '@cooke/stores/recipes-store';
 
 import {
 	DishDescription,
@@ -15,12 +16,9 @@ import { RECIPE_TEMPLATE } from './templates';
 
 import * as Styled from './wizard.styled';
 
-export const Wizard = () => {
+export const Wizard = observer(() => {
 	const params = useParams() as Record<'recipeid', UUID>;
-	const { recipe } = useGetRecipe({
-		recipeID: params.recipeid,
-		enabled: Boolean(params.recipeid)
-	});
+	const recipe = recipesStore.getRecipe(params.recipeid);
 
 	useEffect(() => {
 		if (recipe) {
@@ -53,4 +51,4 @@ export const Wizard = () => {
 			</Styled.WizardFlex>
 		</Styled.Wizard>
 	);
-};
+});
