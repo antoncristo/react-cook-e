@@ -1,20 +1,20 @@
 import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
+import { recipesStore } from '@cooke/stores/recipes-store';
+import { NetworkError } from '@cooke/shared';
 
 import { Ingredients, Steps } from './components';
 
 import * as Styled from './read-recipe.styled';
-import { recipesStore } from '@cooke/stores/recipes-store';
 
 export const ReadRecipe = observer(() => {
 	const params = useParams() as Record<'recipeid', UUID>;
 	const recipe = recipesStore.getRecipe(params.recipeid);
 
 	if (!recipe) {
-		// Fix: https://trello.com/c/u9WwNHFK/18-add-loader-and-error
 		return (
 			<Styled.ReadRecipe>
-				<div>Error...</div>
+				<NetworkError />
 			</Styled.ReadRecipe>
 		);
 	}

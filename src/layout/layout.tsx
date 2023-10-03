@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
 import { userStore } from '@cooke/stores/user-store';
 
-import { Header, Menu } from './components';
+import { Header, Menu, Alert } from './components';
 
 import * as Styled from './layout.styled';
 
@@ -26,6 +26,7 @@ export const Layout = observer(({ children }: LayoutProps) => {
 			) : (
 				children
 			)}
+			<Alert />
 		</Styled.Layout>
 	);
 });
