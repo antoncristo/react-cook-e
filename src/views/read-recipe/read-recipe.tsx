@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { recipesStore } from '@cooke/stores/recipes-store';
 import { Button, NetworkError } from '@cooke/shared';
+import { PrintIcon } from '@cooke/assets';
 
 import { Ingredients, Steps } from './components';
 
@@ -32,7 +33,13 @@ export const ReadRecipe = observer(() => {
 					fontSize='2.5rem'
 					text={recipe.title}
 				/>
-				<Button className='control' onClick={onPrint} variant='secondary'>
+				<Button
+					style={{ display: 'flex', alignItems: 'center' }}
+					className='control'
+					onClick={onPrint}
+					variant='secondary'
+				>
+					<PrintIcon width={22} height={22} right='1rem' />
 					Print
 				</Button>
 				<Styled.RecipeDescription>{recipe.description}</Styled.RecipeDescription>

@@ -13,7 +13,7 @@ export const ErrorPage = () => {
 
 	return (
 		<Styled.ErrorPage>
-			<CookeLogo fontSize='8rem' />
+			<CookeLogo fontSize='8rem' iconDiameter={70} />
 			<Styled.ErrorMessage>
 				{`The requested URL was not found! 
       Check if it is a correct one. If it is, please login :)`}

@@ -11,7 +11,7 @@ export const BookIcon = ({
 	const { bottom = '0', left = '0', right = '0', top = '0' } = margin;
 
 	return (
-		<div style={{ margin: `${top} ${right} ${bottom} ${left}` }}>
+		<div style={{ margin: `${top} ${right} ${bottom} ${left}`, height: `${height}px` }}>
 			<svg width={width} height={height} viewBox='0 0 24 24' fill='none'>
 				<path
 					d='M12 5.29994V21.3299C11.83 21.3299 11.65 21.2999 11.51 21.2199L11.47 21.1999C9.55 20.1499 6.2 19.0499 4.03 18.7599L3.74 18.7199C2.78 18.5999 2 17.6999 2 16.7399V4.65994C2 3.46994 2.97 2.56994 4.16 2.66994C6.26 2.83994 9.44 3.89994 11.22 5.00994L11.47 5.15994C11.62 5.24994 11.81 5.29994 12 5.29994Z'

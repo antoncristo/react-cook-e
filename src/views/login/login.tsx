@@ -6,7 +6,7 @@ import * as Styled from './login.styled';
 
 export const Login = () => (
 	<Styled.Login>
-		<CookeLogo fontSize='6rem' />
+		<CookeLogo fontSize='6rem' iconDiameter={50} />
 		<LoginForm />
 	</Styled.Login>
 );
