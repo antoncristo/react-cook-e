@@ -14,7 +14,7 @@ export const Alert = observer(() => {
 		alertStore.confirmationAction();
 	});
 
-	return (
+	return alertStore.showAlert ? (
 		<Styled.Alert>
 			<Styled.Box>
 				<Styled.Message>{alertStore.message}</Styled.Message>
@@ -24,5 +24,5 @@ export const Alert = observer(() => {
 				</Styled.Controls>
 			</Styled.Box>
 		</Styled.Alert>
-	);
+	) : null;
 });

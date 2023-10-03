@@ -8,12 +8,17 @@ export const Wizard = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	overflow-y: auto;
+
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 export const WizardFlex = styled.div`
 	box-sizing: border-box;
 	width: 100%;
-	height: 100%;
 	max-width: 99rem;
 	padding-inline-end: 1rem;
 	padding-inline-start: 1rem;
@@ -22,12 +27,6 @@ export const WizardFlex = styled.div`
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: 2rem;
-	overflow-y: auto;
-
-	scrollbar-width: none;
-	&::-webkit-scrollbar {
-		display: none;
-	}
 `;
 
 export const WizardTitle = styled.h1`
