@@ -56,7 +56,8 @@ export const Ingredient = observer((props: IngredientProps) => {
 
 	useEffect(() => {
 		wizardValidator.ingredientValidation().addSimpleValidation(ingredient.id);
-		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		_ref.current?.focus();
 	}, []);
 
 	return (

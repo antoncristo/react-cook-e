@@ -44,7 +44,8 @@ export const Step = observer((props: StepProps) => {
 
 	useEffect(() => {
 		wizardValidator.stepsValidation().addSimpleValidation(step.id);
-		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		(document.querySelector(`[data-id="${step.id}"]`)! as HTMLElement)?.focus();
 	}, []);
 
 	return (
@@ -75,6 +76,7 @@ export const Step = observer((props: StepProps) => {
 				</Styled.Controls>
 			</Styled.Header>
 			<Styled.DescriptionInput
+				data-id={step.id}
 				value={step.description}
 				isValid={isDescriptionValid || !isDescriptionTouched}
 				onChange={onChangeDescriptionHandler}
