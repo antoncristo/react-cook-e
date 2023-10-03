@@ -26,6 +26,18 @@ export const RecipeFlex = styled.div`
 	&::-webkit-scrollbar {
 		display: none;
 	}
+
+	@media print {
+		overflow: visible;
+
+		* {
+			text-shadow: none;
+		}
+
+		.control {
+			display: none;
+		}
+	}
 `;
 
 export const RecipeTitle = styled(Text)`
@@ -33,6 +45,10 @@ export const RecipeTitle = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+
+	@media print {
+		text-shadow: none;
+	}
 `;
 
 export const RecipeDescription = styled.p`
