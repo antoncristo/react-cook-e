@@ -24,6 +24,16 @@ export const Box = styled.div`
 	border-radius: 1.6rem;
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 	border: 0.1rem dashed rgba(${({ theme }) => theme.colors.primary}, 1);
+	animation: appear 300ms ease-in;
+
+	@keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 `;
 
 export const Message = styled.p`

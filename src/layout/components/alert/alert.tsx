@@ -1,27 +1,28 @@
+import { action } from 'mobx';
+import { observer } from 'mobx-react-lite';
+import { alertStore } from '@cooke/stores/alert-store';
 import { Button } from '@cooke/shared';
 
 import * as Styled from './alert.styled';
 
-interface AlertProps {
-	text: string;
-	confirmationCallback?: () => void;
-	cancelCallback?: () => void;
-}
+export const Alert = observer(() => {
+	const dismissAction = action(() => {
+		alertStore.dismiss();
+	});
 
-export const Alert = (props: AlertProps) => {
-	const { text, cancelCallback, confirmationCallback } = props;
+	const confirmAction = action(() => {
+		alertStore.confirmationAction();
+	});
 
 	return (
 		<Styled.Alert>
 			<Styled.Box>
-				<Styled.Message>{text}</Styled.Message>
+				<Styled.Message>{alertStore.message}</Styled.Message>
 				<Styled.Controls>
-					{cancelCallback ? <Button onClick={cancelCallback}>Cancel</Button> : null}
-					{confirmationCallback ? (
-						<Button onClick={confirmationCallback}>OK</Button>
-					) : null}
+					<Button onClick={dismissAction}>Dismiss</Button>
+					<Button onClick={confirmAction}>Confirm</Button>
 				</Styled.Controls>
 			</Styled.Box>
 		</Styled.Alert>
 	);
-};
+});
