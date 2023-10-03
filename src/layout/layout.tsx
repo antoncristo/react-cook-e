@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
 import { userStore } from '@cooke/stores/user-store';
 
-import { Header, Menu } from './components';
+import { Header, Menu, Alert } from './components';
 
 import * as Styled from './layout.styled';
 
@@ -12,6 +12,7 @@ interface LayoutProps {
 
 export const Layout = observer(({ children }: LayoutProps) => {
 	const { user } = userStore;
+	const alertStore = false;
 
 	return (
 		<Styled.Layout>
@@ -26,6 +27,7 @@ export const Layout = observer(({ children }: LayoutProps) => {
 			) : (
 				children
 			)}
+			{alertStore ? <Alert text='' /> : null}
 		</Styled.Layout>
 	);
 });
