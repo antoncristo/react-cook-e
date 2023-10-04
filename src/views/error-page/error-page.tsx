@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { BreakPointSwitch, Button, CookeLogo } from '@cooke/shared';
 import { cookePathnames } from '@cooke/router';
+import { breakpoints } from '@cooke/style';
+
 import * as Styled from './error-page.styled';
 
 export const ErrorPage = () => {
@@ -15,7 +17,7 @@ export const ErrorPage = () => {
 		<Styled.ErrorPage>
 			<BreakPointSwitch
 				before={<CookeLogo fontSize='5rem' iconDiameter={40} />}
-				switchAt='768px'
+				switchAt={`${breakpoints.mobile.width}px`}
 				after={<CookeLogo fontSize='8rem' iconDiameter={70} />}
 			/>
 			<Styled.ErrorMessage>
