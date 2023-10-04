@@ -1,4 +1,5 @@
 import { Button, TextArea } from '@cooke/shared';
+import { breakpoints } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Step = styled.div`
@@ -11,12 +12,26 @@ export const Header = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media screen and (max-width: ${breakpoints.mobile.width}px) {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
 `;
 
 export const Controls = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+
+	@media screen and (max-width: ${breakpoints.mobile.width}px) {
+		width: 100%;
+
+		& > button:nth-child(3) {
+			margin-inline-start: auto;
+		}
+	}
 `;
 
 export const StepCount = styled.h2`

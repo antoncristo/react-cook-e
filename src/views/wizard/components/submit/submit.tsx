@@ -27,5 +27,9 @@ export const Submit = observer(() => {
 		}
 	};
 
-	return <Button onClick={onSubmit}>{isEditMode ? 'UPDATE' : 'SUBMIT'}</Button>;
+	return (
+		<Button width='100%' onClick={onSubmit}>
+			<b>{isEditMode ? 'UPDATE' : 'SUBMIT'}</b>
+		</Button>
+	);
 });
