@@ -4,6 +4,7 @@ import { Button } from '@cooke/shared';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
+import { alertStore } from '@cooke/stores/alert-store';
 
 export const Submit = observer(() => {
 	const { recipe, isEditMode } = wizardStore;
@@ -22,8 +23,9 @@ export const Submit = observer(() => {
 			navigate(cookePathnames.authenticatedPathNames.DASHBOARD);
 		} else {
 			wizardValidator.touchAll();
-			// eslint-disable-next-line
-			alert('Please fill correctly all the highlighted/missing fields');
+			alertStore.setAlert({
+				msg: 'Please fill correctly all the highlighted/missing fields'
+			});
 		}
 	};
 
