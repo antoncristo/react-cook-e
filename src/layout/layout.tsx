@@ -5,6 +5,7 @@ import { userStore } from '@cooke/stores/user-store';
 import { Header, Menu, Alert } from './components';
 
 import * as Styled from './layout.styled';
+import { BreakPointSwitch } from '@cooke/shared';
 
 interface LayoutProps {
 	children: ReactNode;
@@ -19,7 +20,7 @@ export const Layout = observer(({ children }: LayoutProps) => {
 				<Styled.Children>
 					<Header />
 					<Styled.Body>
-						<Menu />
+						<BreakPointSwitch before={null} switchAt='768px' after={<Menu />} />
 						<Styled.AppOutlet>{children}</Styled.AppOutlet>
 					</Styled.Body>
 				</Styled.Children>

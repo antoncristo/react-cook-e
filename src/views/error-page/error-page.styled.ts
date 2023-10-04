@@ -14,4 +14,5 @@ export const ErrorMessage = styled.p`
 	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
 	white-space: pre-line;
 	font-size: 1.6rem;
+	padding: ${({ theme }) => theme.decorators.padding.default};
 `;
