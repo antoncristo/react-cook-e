@@ -1,4 +1,5 @@
 import { Input } from '@cooke/shared';
+import { breakpoints } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Search = styled(Input)`
@@ -9,6 +10,7 @@ export const Search = styled(Input)`
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	width: 100%;
 	max-width: 46rem;
+	margin-bottom: 2rem;
 
 	&::placeholder {
 		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);
@@ -17,5 +19,9 @@ export const Search = styled(Input)`
 	&::selection {
 		color: rgba(${({ theme }) => theme.colors.black}, 1);
 		background-color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+	}
+
+	@media screen and (max-width: ${breakpoints.mobile.width}px) {
+		max-width: unset;
 	}
 `;

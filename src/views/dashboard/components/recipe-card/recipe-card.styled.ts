@@ -1,3 +1,4 @@
+import { breakpoints } from '@cooke/style';
 import styled from 'styled-components';
 
 export const RecipeCard = styled.div`
@@ -20,6 +21,11 @@ export const RecipeCard = styled.div`
 		> .mask {
 			display: flex;
 		}
+	}
+
+	@media screen and (max-width: ${breakpoints.mobile.width}px) {
+		width: 100%;
+		aspect-ratio: unset;
 	}
 `;
 
