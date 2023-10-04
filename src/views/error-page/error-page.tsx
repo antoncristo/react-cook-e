@@ -1,7 +1,7 @@
-import { Button, CookeLogo } from '@cooke/shared';
-import * as Styled from './error-page.styled';
 import { useNavigate } from 'react-router-dom';
+import { BreakPointSwitch, Button, CookeLogo } from '@cooke/shared';
 import { cookePathnames } from '@cooke/router';
+import * as Styled from './error-page.styled';
 
 export const ErrorPage = () => {
 	const navigate = useNavigate();
@@ -13,7 +13,11 @@ export const ErrorPage = () => {
 
 	return (
 		<Styled.ErrorPage>
-			<CookeLogo fontSize='8rem' iconDiameter={70} />
+			<BreakPointSwitch
+				before={<CookeLogo fontSize='5rem' iconDiameter={40} />}
+				switchAt='768px'
+				after={<CookeLogo fontSize='8rem' iconDiameter={70} />}
+			/>
 			<Styled.ErrorMessage>
 				{`The requested URL was not found! 
       Check if it is a correct one. If it is, please login :)`}

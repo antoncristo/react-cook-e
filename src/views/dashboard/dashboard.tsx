@@ -21,6 +21,7 @@ export const Dashboard = observer(() => {
 				{isNoSearchMatch ? (
 					<Text
 						fontSize='2rem'
+						numberOfLines={3}
 						text={`No Recipes include the text - "${recipesStore.searchQuery!}"...`}
 					/>
 				) : null}

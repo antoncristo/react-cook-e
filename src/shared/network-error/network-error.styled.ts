@@ -7,6 +7,7 @@ export const NetworkError = styled.div`
 	max-width: 46rem;
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 	border-radius: 1.3rem;
+	padding: ${({ theme }) => theme.decorators.padding.default};
 `;
 
 export const ErrorMessage = styled.p`
