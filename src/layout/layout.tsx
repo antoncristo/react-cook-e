@@ -4,7 +4,7 @@ import { userStore } from '@cooke/stores/user-store';
 import { BreakPointSwitch } from '@cooke/shared';
 import { breakpoints } from '@cooke/style';
 
-import { Header, Menu, Alert } from './components';
+import { Header, Menu, Alert, BottomNav } from './components';
 
 import * as Styled from './layout.styled';
 
@@ -22,7 +22,7 @@ export const Layout = observer(({ children }: LayoutProps) => {
 					<Header />
 					<Styled.Body>
 						<BreakPointSwitch
-							before={null}
+							before={<BottomNav />}
 							switchAt={`${breakpoints.mobile.width}px`}
 							after={<Menu />}
 						/>

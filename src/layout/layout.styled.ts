@@ -1,6 +1,8 @@
+import { breakpoints } from '@cooke/style';
 import styled from 'styled-components';
 
 const HEADER_HEIGHT = '6rem';
+const BOTTOM_NAV_HEIGHT = '5rem';
 
 export const Layout = styled.div`
 	box-sizing: border-box;
@@ -27,4 +29,8 @@ export const AppOutlet = styled.div`
 	width: 100%;
 	height: calc(100vh - ${HEADER_HEIGHT});
 	padding: ${({ theme }) => theme.decorators.padding.default};
+
+	@media screen and (max-width: ${breakpoints.mobile.width}px) {
+		height: calc(100vh - ${HEADER_HEIGHT} - ${BOTTOM_NAV_HEIGHT});
+	}
 `;

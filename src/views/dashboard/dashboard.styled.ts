@@ -1,3 +1,4 @@
+import { breakpoints } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Dashboard = styled.div`
@@ -13,4 +14,9 @@ export const RecipesFlex = styled.div`
 	flex-wrap: wrap;
 	gap: 2rem;
 	overflow-y: auto;
+
+	@media screen and (max-width: ${breakpoints.mobile.width}px) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
 `;
