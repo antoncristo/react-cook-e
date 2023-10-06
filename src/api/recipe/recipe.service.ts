@@ -5,7 +5,7 @@ import { type AxiosResponse } from 'axios';
 
 import { axiosClient } from '../axios';
 
-let recipes: Recipe[] = [
+const recipes: Recipe[] = [
 	{
 		id: crypto.randomUUID(),
 		title: 'Shnitzel overflowing text test overflowing text test overflowing text test',
@@ -124,10 +124,8 @@ class RecipeService implements RecipeServiceApi {
 		return Promise.resolve(needsUpdate!);
 	};
 
-	deleteRecipe = async (recipeToDelete: Recipe): Promise<UUID> => {
-		recipes = recipes.filter(recipe => recipe.id !== recipeToDelete.id);
-		return recipeToDelete.id;
-	};
+	deleteRecipe = async (recipeToDelete: Recipe): Promise<AxiosResponse<UUID>> =>
+		axiosClient.delete(`/recipes/${recipeToDelete.id}`);
 }
 
 export const recipeService = new RecipeService();
