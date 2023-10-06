@@ -15,6 +15,7 @@ interface LayoutProps {
 export const Layout = observer(({ children }: LayoutProps) => {
 	const { user } = userStore;
 
+	// Fix: clear logs after data is verified
 	// eslint-disable-next-line no-console
 	console.log(import.meta.env);
 	// eslint-disable-next-line no-console
