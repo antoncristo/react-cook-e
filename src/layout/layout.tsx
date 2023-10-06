@@ -15,6 +15,9 @@ interface LayoutProps {
 export const Layout = observer(({ children }: LayoutProps) => {
 	const { user } = userStore;
 
+	// eslint-disable-next-line no-console
+	console.log(import.meta.env);
+
 	return (
 		<Styled.Layout>
 			{user ? (
