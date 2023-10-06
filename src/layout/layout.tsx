@@ -17,6 +17,8 @@ export const Layout = observer(({ children }: LayoutProps) => {
 
 	// eslint-disable-next-line no-console
 	console.log(import.meta.env);
+	// eslint-disable-next-line no-console
+	console.log(import.meta.env.VITE_API_BASE_URL);
 
 	return (
 		<Styled.Layout>
