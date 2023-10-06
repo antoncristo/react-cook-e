@@ -13,8 +13,8 @@ export const useGetRecipes = (props?: QueryBasicParams): QueryGetter => {
 			return recipeService.getRecipes({ search: props?.search });
 		},
 		{
-			onSuccess(data) {
-				recipesStore.recipes = data;
+			onSuccess(response) {
+				recipesStore.recipes = response.data;
 			},
 			onError() {
 				recipesStore.recipes = null;

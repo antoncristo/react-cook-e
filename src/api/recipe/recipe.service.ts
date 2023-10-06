@@ -1,6 +1,9 @@
 import { type Recipe } from '@cooke/types';
 import { type RecipeServiceApi } from './recipe.interface';
 import { type QueryBasicParams } from '@cooke/types';
+import { type AxiosResponse } from 'axios';
+
+import { axiosClient } from '../axios';
 
 let recipes: Recipe[] = [
 	{
@@ -93,17 +96,14 @@ let recipes: Recipe[] = [
 ];
 
 class RecipeService implements RecipeServiceApi {
-	getRecipes = async (queryParams?: QueryBasicParams): Promise<Recipe[]> => {
-		if (queryParams?.search) {
-			const res = recipes.filter(
-				recipe =>
-					recipe.title.toLowerCase().includes(queryParams.search!.toLowerCase()) ||
-					recipe.description.toLowerCase().includes(queryParams.search!.toLowerCase())
-			);
-			return Promise.resolve(res);
-		}
+	getRecipes = async (
+		queryParams?: QueryBasicParams
+	): Promise<AxiosResponse<Recipe[]>> => {
+		const params: QueryBasicParams = {
+			search: queryParams?.search ? queryParams?.search : undefined
+		};
 
-		return Promise.resolve(recipes);
+		return axiosClient.get('/recipes', { params });
 	};
 
 	getRecipe = async (recipeID: UUID): Promise<Recipe | null> => {
