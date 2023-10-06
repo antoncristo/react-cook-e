@@ -106,19 +106,8 @@ class RecipeService implements RecipeServiceApi {
 		return axiosClient.get('/recipes', { params });
 	};
 
-	getRecipe = async (recipeID: UUID): Promise<Recipe | null> => {
-		const r = recipes.find(r => r.id === recipeID);
-		if (r) {
-			return Promise.resolve(r);
-		}
-
-		return Promise.resolve(null);
-	};
-
-	postRecipe = async (recipe: Recipe): Promise<Recipe> => {
-		recipes.push(recipe);
-		return Promise.resolve(recipe);
-	};
+	postRecipe = async (recipe: Recipe): Promise<AxiosResponse<Recipe>> =>
+		axiosClient.post('/recipes', { recipe });
 
 	putRecipe = async (recipe: Recipe): Promise<Recipe> => {
 		let needsUpdate = recipes.find(r => r.id === recipe.id);
