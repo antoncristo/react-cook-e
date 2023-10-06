@@ -6,6 +6,8 @@
 	"scripts": {
 		"dev": "vite --port 3000",
 		"build": "tsc && vite build",
+		"build:app": "tsc && vite build --mode production",
+		"build:dev": "tsc && vite build --mode development",
 		"preview": "vite preview",
 		"husky-prepare": "husky install",
 		"test": "vitest -c ./vite.config.ts --run",
