@@ -1,12 +1,15 @@
-import { type FocusEventHandler, type ChangeEventHandler } from 'react';
+import { type FocusEventHandler, type ChangeEventHandler, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useGetRecipes } from '@cooke/api/recipe';
 import { recipesStore } from '@cooke/stores/recipes-store';
+import { useDebounce } from '@cooke/hooks';
 
 import * as Styled from './search.styled';
 
 export const Search = observer(() => {
 	const { searchQuery } = recipesStore;
+	const [searchQueryLocal, setSearchQueryLocal] = useState('');
+
 	useGetRecipes({ search: searchQuery });
 
 	const onFocus: FocusEventHandler<HTMLInputElement> = focus => {
@@ -14,10 +17,22 @@ export const Search = observer(() => {
 	};
 
 	const onChange: ChangeEventHandler<HTMLInputElement> = change => {
-		recipesStore.searchQuery = change.currentTarget.value;
+		setSearchQueryLocal(change.currentTarget.value);
 	};
 
+	useDebounce({
+		cb() {
+			recipesStore.searchQuery = searchQueryLocal;
+		},
+		delay: 200
+	});
+
 	return (
-		<Styled.Search placeholder='Find a Recipe...' onChange={onChange} onFocus={onFocus} />
+		<Styled.Search
+			placeholder='Find a Recipe...'
+			value={searchQueryLocal}
+			onChange={onChange}
+			onFocus={onFocus}
+		/>
 	);
 });
