@@ -6,6 +6,7 @@ import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
 import { alertStore } from '@cooke/stores/alert-store';
 import { useEffect } from 'react';
+import { confirmationHandler } from '@cooke/utils';
 
 export const Submit = observer(() => {
 	const { recipe, isEditMode } = wizardStore;
@@ -22,7 +23,7 @@ export const Submit = observer(() => {
 			}
 		} else {
 			wizardValidator.touchAll();
-			alertStore.setAlert({
+			confirmationHandler({
 				msg: 'Please fill correctly all the highlighted/missing fields'
 			});
 		}
