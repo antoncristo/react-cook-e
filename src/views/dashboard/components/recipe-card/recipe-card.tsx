@@ -1,7 +1,7 @@
 import { type Recipe } from '@cooke/types';
 import { Text } from '@cooke/shared';
 import { useDeleteRecipe } from '@cooke/api/recipe';
-import { alertStore } from '@cooke/stores/alert-store';
+import { confirmationHandler } from '@cooke/utils';
 
 import { CardMask } from './components';
 
@@ -16,7 +16,7 @@ export const RecipeCard = (props: RecipeCardProps) => {
 	const { deleteRecipe } = useDeleteRecipe();
 
 	const deleteHandler = () => {
-		alertStore.setAlert({
+		confirmationHandler({
 			msg: `Delete "${recipe.title}" recipe ?`,
 			cb() {
 				deleteRecipe(recipe);

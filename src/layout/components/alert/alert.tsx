@@ -20,7 +20,9 @@ export const Alert = observer(() => {
 				<Styled.Message>{alertStore.message}</Styled.Message>
 				<Styled.Controls>
 					<Button onClick={dismissAction}>Dismiss</Button>
-					<Button onClick={confirmAction}>Confirm</Button>
+					{alertStore.hasCallback ? (
+						<Button onClick={confirmAction}>Confirm</Button>
+					) : null}
 				</Styled.Controls>
 			</Styled.Box>
 		</Styled.Alert>
