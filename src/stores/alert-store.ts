@@ -16,6 +16,10 @@ class AlertStore {
 		return Boolean(this._message);
 	}
 
+	get hasCallback() {
+		return Boolean(this._action);
+	}
+
 	setAlert({ msg, cb }: { msg: string; cb?: () => void }) {
 		this._message = msg;
 		this._action = cb;
