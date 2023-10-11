@@ -1,15 +1,16 @@
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@cooke/shared';
+import { Button, Loader } from '@cooke/shared';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
 import { alertStore } from '@cooke/stores/alert-store';
+import { useEffect } from 'react';
 
 export const Submit = observer(() => {
 	const { recipe, isEditMode } = wizardStore;
-	const { postRecipe } = usePostRecipe();
-	const { putRecipe } = usePutRecipe();
+	const { postRecipe, isPostLoading, isPostSuccess } = usePostRecipe();
+	const { putRecipe, isPutLoading, isPutSuccess } = usePutRecipe();
 	const navigate = useNavigate();
 
 	const onSubmit = () => {
@@ -19,8 +20,6 @@ export const Submit = observer(() => {
 			} else {
 				postRecipe(recipe);
 			}
-
-			navigate(cookePathnames.authenticatedPathNames.DASHBOARD);
 		} else {
 			wizardValidator.touchAll();
 			alertStore.setAlert({
@@ -29,9 +28,19 @@ export const Submit = observer(() => {
 		}
 	};
 
+	useEffect(() => {
+		if (isPostSuccess || isPutSuccess) {
+			navigate(cookePathnames.authenticatedPathNames.DASHBOARD);
+		}
+	}, [isPostSuccess, isPutSuccess]);
+
 	return (
 		<Button width='100%' onClick={onSubmit}>
-			<b>{isEditMode ? 'UPDATE' : 'SUBMIT'}</b>
+			{isPostLoading || isPutLoading ? (
+				<Loader size='S' />
+			) : (
+				<b>{isEditMode ? 'UPDATE' : 'SUBMIT'}</b>
+			)}
 		</Button>
 	);
 });
