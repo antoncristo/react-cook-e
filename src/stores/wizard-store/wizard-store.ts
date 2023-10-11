@@ -163,6 +163,15 @@ class WizardStore {
 
 		this._steps[stepIndex] = updatedRecord;
 	}
+
+	resetWizard() {
+		this._id = crypto.randomUUID();
+		this._title = '';
+		this._description = '';
+		this._ingredients = [];
+		this._steps = [];
+		this._isEditMode = false;
+	}
 }
 
 export const wizardStore = new WizardStore();

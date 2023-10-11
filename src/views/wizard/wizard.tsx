@@ -31,11 +31,12 @@ export const Wizard = observer(() => {
 				wizardValidator.preValidate(recipe);
 			}, 0);
 		} else {
-			wizardStore.initRecipeFromTemplate(RECIPE_TEMPLATE);
+			wizardStore.initRecipeFromTemplate(RECIPE_TEMPLATE, false);
 		}
 
 		return () => {
 			wizardValidator.resetValidator();
+			wizardStore.resetWizard();
 		};
 	}, [recipe]);
 
