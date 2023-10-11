@@ -23,7 +23,7 @@ class RecipeService implements RecipeServiceApi {
 		axiosClient.post(this.routePath, { recipe });
 
 	putRecipe = async (updatedRecipe: Recipe): Promise<AxiosResponse<Recipe>> =>
-		axiosClient.put(this.routePath, { updatedRecipe });
+		axiosClient.put(this.routePath, { recipe: updatedRecipe });
 
 	deleteRecipe = async (recipeToDelete: Recipe): Promise<AxiosResponse<UUID>> =>
 		axiosClient.delete(`${this.routePath}/${recipeToDelete.id}`);
