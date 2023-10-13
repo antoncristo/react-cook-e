@@ -12,3 +12,7 @@ declare interface Credentials {
 	email: Email;
 	password: Password;
 }
+
+interface SignUpCredentials extends Credentials {
+	name: string;
+}
