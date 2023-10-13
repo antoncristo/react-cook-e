@@ -44,6 +44,7 @@ export const Message = styled.p`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	word-break: break-all;
 	font-size: 1.4rem;
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	overflow-y: auto;

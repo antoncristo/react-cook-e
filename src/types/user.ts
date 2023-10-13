@@ -1,4 +1,14 @@
 export interface User {
-	id: UUID;
-	fullName: string;
+	id: string;
+	idToken: string;
+	name: string;
+	email: Email;
+}
+
+export interface SignInResponse {
+	idToken: string;
+	email: string;
+	displayName: string;
+	localId: string;
+	registered: boolean;
 }
