@@ -1,6 +1,8 @@
 import { useMutation } from 'react-query';
 import { userService } from '../user.service';
 import { userStore } from '@cooke/stores/user-store';
+import { errorHandler } from '@cooke/utils';
+import { type User } from '@cooke/types';
 
 export const LOGIN_QUERY_KEY = 'login_key';
 
@@ -9,9 +11,18 @@ export const useLogin = () => {
 		[LOGIN_QUERY_KEY],
 		async (cred: Credentials) => userService.login(cred),
 		{
-			async onSuccess(data) {
-				userStore.user = data;
-				return Promise.resolve(data);
+			onSuccess(data) {
+				const user: User = {
+					name: data.data.displayName,
+					email: data.data.email,
+					id: data.data.localId,
+					idToken: data.data.idToken
+				};
+
+				userStore.user = user;
+			},
+			onError(err) {
+				errorHandler(err);
 			}
 		}
 	);
