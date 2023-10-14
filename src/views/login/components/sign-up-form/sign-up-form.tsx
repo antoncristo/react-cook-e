@@ -7,20 +7,23 @@ import {
 import { Button, Input } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
 import { recordUpdate } from '@cooke/utils';
+import { useSignUp } from '@cooke/api/user';
 
 import * as SignUpValidators from './validators';
 
 import * as Styled from './sign-up-form.styled';
 
-export const SignUpForm = () => {
-	const [credentials, setCredentials] = useState<SignUpCredentials>({
+export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
+	const [credentials, setCredentials] = useState<ExtendedCredentials>({
 		email: '',
 		password: '',
 		name: ''
 	});
 
+	const { signUpHandler } = useSignUp(toggleForms);
+
 	const { isFormValid, isInputValid, markAsTouched, touched } =
-		useValidation<SignUpCredentials>([
+		useValidation<ExtendedCredentials>([
 			{
 				key: 'name',
 				value: credentials.name,
@@ -40,7 +43,7 @@ export const SignUpForm = () => {
 
 	const onSubmitHandler: FormEventHandler = event => {
 		event.preventDefault();
-		// Fix: add the sign up mutation
+		signUpHandler(credentials);
 	};
 
 	const onCredentialsChangeHandler: ChangeEventHandler<
@@ -53,11 +56,11 @@ export const SignUpForm = () => {
 
 		if (updatedKey) {
 			setCredentials(
-				recordUpdate<SignUpCredentials>(
+				recordUpdate<ExtendedCredentials>(
 					credentials,
 					updatedKey,
 					updatedValue
-				) as SignUpCredentials
+				) as ExtendedCredentials
 			);
 		}
 	};
@@ -65,7 +68,7 @@ export const SignUpForm = () => {
 	const onBlurHandler: FocusEventHandler<HTMLInputElement> = focusEvent => {
 		const formKey = focusEvent.currentTarget.getAttribute(
 			'data-name'
-		)! as keyof Credentials;
+		)! as keyof ExtendedCredentials;
 
 		markAsTouched(formKey);
 	};

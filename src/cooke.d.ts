@@ -13,6 +13,6 @@ declare interface Credentials {
 	password: Password;
 }
 
-interface SignUpCredentials extends Credentials {
+interface ExtendedCredentials extends Credentials {
 	name: string;
 }

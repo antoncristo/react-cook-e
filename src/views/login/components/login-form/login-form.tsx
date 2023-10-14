@@ -15,8 +15,8 @@ import * as Styled from './login-form.styled';
 
 export const LoginForm = () => {
 	const [credentials, setCredentials] = useState<Credentials>({
-		email: 'anton@gmail.com',
-		password: 'passowrd'
+		email: '',
+		password: ''
 	});
 	const { loginHandler } = useLogin();
 
@@ -83,7 +83,7 @@ export const LoginForm = () => {
 					type='password'
 					placeholder='password'
 					onBlur={onBlurHandler}
-					autoComplete='current-password'
+					autoComplete='new-password'
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>

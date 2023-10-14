@@ -30,7 +30,7 @@ export const Login = () => {
 				</Styled.Appear>
 			) : (
 				<Styled.Appear key='suk'>
-					<SignUpForm />
+					<SignUpForm toggleForms={goToLoginForm} />
 				</Styled.Appear>
 			)}
 			<Styled.RegistrationToggle
