@@ -4,8 +4,11 @@ import { axiosClient } from '../axios';
 import { type AxiosResponse } from 'axios';
 
 class UserService implements UserServiceApi {
-	login = async (cred: Credentials): Promise<AxiosResponse<SignInResponse>> =>
-		axiosClient.post('auth/sign-in', cred);
+	login = async (cred: Credentials): Promise<SignInResponse> =>
+		axiosClient.post('auth/sign-in', cred).then(res => res.data as SignInResponse);
+
+	signUp = async (cred: ExtendedCredentials): Promise<void> =>
+		axiosClient.post('/auth/register', cred);
 }
 
 export const userService = new UserService();

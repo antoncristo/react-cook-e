@@ -13,10 +13,9 @@ export const useLogin = () => {
 		{
 			onSuccess(data) {
 				const user: User = {
-					name: data.data.displayName,
-					email: data.data.email,
-					id: data.data.localId,
-					idToken: data.data.idToken
+					name: data.displayName,
+					email: data.email,
+					id: data.localId
 				};
 
 				userStore.user = user;
