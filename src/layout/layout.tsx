@@ -13,11 +13,11 @@ interface LayoutProps {
 }
 
 export const Layout = observer(({ children }: LayoutProps) => {
-	const { user } = userStore;
+	const { loginHappened } = userStore;
 
 	return (
 		<Styled.Layout>
-			{user ? (
+			{loginHappened || userStore.isAuthenticated() ? (
 				<Styled.Children>
 					<Header />
 					<Styled.Body>

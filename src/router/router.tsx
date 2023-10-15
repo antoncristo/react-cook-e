@@ -5,9 +5,10 @@ import { userStore } from '@cooke/stores/user-store';
 import { routesDelegator } from './routes.service';
 
 export const CookeRouter = observer(() => {
-	// Fix: sync with user api
-	const { user } = userStore;
-	const userRoutes = routesDelegator.initUserRoutes(Boolean(user));
+	const { loginHappened } = userStore;
+	const userRoutes = routesDelegator.initUserRoutes(
+		loginHappened || userStore.isAuthenticated()
+	);
 
 	return <RouterProvider router={userRoutes} />;
 });

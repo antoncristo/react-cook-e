@@ -1,12 +1,10 @@
 export interface User {
-	id: string;
+	uuid: string;
 	name: string;
 	email: Email;
 }
 
 export interface SignInResponse {
-	email: string;
-	displayName: string;
-	localId: string;
-	registered: boolean;
+	user: User;
+	accessToken: string;
 }
