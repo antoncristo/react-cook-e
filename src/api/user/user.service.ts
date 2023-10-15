@@ -1,7 +1,6 @@
 import { type SignInResponse } from '@cooke/types';
 import { type UserServiceApi } from './user.interface';
-import { axiosClient } from '../axios';
-import { type AxiosResponse } from 'axios';
+import { axiosClient } from '@cooke/api/axios';
 
 class UserService implements UserServiceApi {
 	login = async (cred: Credentials): Promise<SignInResponse> =>
