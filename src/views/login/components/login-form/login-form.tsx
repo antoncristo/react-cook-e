@@ -2,10 +2,11 @@ import {
 	useState,
 	type FormEventHandler,
 	type ChangeEventHandler,
-	type FocusEventHandler
+	type FocusEventHandler,
+	useEffect
 } from 'react';
 import { recordUpdate } from '@cooke/utils';
-import { Input, Button } from '@cooke/shared';
+import { Input, Button, Loader, NetworkError } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
 import { useLogin } from '@cooke/api/user';
 
@@ -18,7 +19,7 @@ export const LoginForm = () => {
 		email: '',
 		password: ''
 	});
-	const { loginHandler } = useLogin();
+	const { loginHandler, isLoginLoading, isLoginError } = useLogin();
 
 	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
@@ -61,6 +62,10 @@ export const LoginForm = () => {
 		markAsTouched(formKey);
 	};
 
+	if (isLoginError) {
+		return <NetworkError />;
+	}
+
 	return (
 		<Styled.LoginForm onSubmit={onSubmitHandler}>
 			<Styled.Inputs>
@@ -87,9 +92,15 @@ export const LoginForm = () => {
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
-				<Button disabled={!isFormValid} variant='primary' width='25.2rem' type='submit'>
-					SIGN IN
-				</Button>
+				{isLoginLoading ? (
+					<div style={{ height: '3.5rem' }}>
+						<Loader size='S' />
+					</div>
+				) : (
+					<Button disabled={!isFormValid} variant='primary' width='25.2rem' type='submit'>
+						SIGN IN
+					</Button>
+				)}
 			</Styled.Controls>
 		</Styled.LoginForm>
 	);

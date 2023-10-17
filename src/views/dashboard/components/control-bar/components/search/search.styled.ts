@@ -11,7 +11,6 @@ export const Search = styled(Input)`
 	width: 100%;
 	height: 3.8rem;
 	max-width: 46rem;
-	margin-bottom: 2rem;
 
 	&::placeholder {
 		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);

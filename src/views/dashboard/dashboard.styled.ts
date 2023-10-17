@@ -7,8 +7,9 @@ export const Dashboard = styled.div`
 
 export const RecipesFlex = styled.div`
 	box-sizing: border-box;
-	height: calc(100% - 3rem);
-	padding: ${({ theme }) => theme.decorators.padding.default};
+	height: calc(100% - 5rem);
+	margin-top: 2rem;
+	padding: 0 ${({ theme }) => theme.decorators.padding.default};
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
