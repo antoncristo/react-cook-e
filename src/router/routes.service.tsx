@@ -14,12 +14,9 @@ class RoutesDelegator {
 		path: '/',
 		element: (
 			<Layout>
-				<Outlet />
-			</Layout>
-		),
-		errorElement: (
-			<Layout>
-				<ErrorPage />
+				<ErrorPage>
+					<Outlet />
+				</ErrorPage>
 			</Layout>
 		)
 	};
