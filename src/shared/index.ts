@@ -7,3 +7,4 @@ export { Select, Option } from './select';
 export { Loader } from './loader';
 export { NetworkError } from './network-error';
 export { BreakPointSwitch } from './break-point-switch';
+export { Popover } from './popover';
