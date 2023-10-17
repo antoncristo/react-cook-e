@@ -43,8 +43,8 @@ export const Message = styled.p`
 	flex: 6;
 	display: flex;
 	align-items: flex-start;
-	justify-content: center;
-	font-size: 1.4rem;
+	justify-content: flex-start;
+	font-size: 1.6rem;
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	overflow-y: auto;
 `;

@@ -2,6 +2,7 @@ import { useQuery } from 'react-query';
 import { type QueryGetter, type QueryBasicParams, type QueryControl } from '@cooke/types';
 import { recipeService } from '../recipe.service';
 import { recipesStore } from '@cooke/stores/recipes-store';
+import { errorHandler } from '@cooke/utils';
 
 export const GET_RECIPES_QUERY_KEY = 'get_recipes_key';
 
@@ -16,8 +17,9 @@ export const useGetRecipes = (props?: QueryBasicParams): QueryGetter => {
 			onSuccess(response) {
 				recipesStore.recipes = response.data;
 			},
-			onError() {
+			onError(err) {
 				recipesStore.recipes = null;
+				errorHandler(err);
 			}
 		}
 	);

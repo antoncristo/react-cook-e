@@ -1,4 +1,10 @@
 export interface User {
-	id: UUID;
-	fullName: string;
+	uuid: string;
+	name: string;
+	email: Email;
+}
+
+export interface SignInResponse {
+	user: User;
+	accessToken: string;
 }

@@ -1,10 +1,9 @@
 import { type AxiosResponse } from 'axios';
 import { type Recipe } from '@cooke/types';
 import { type QueryBasicParams } from '@cooke/types';
+import { axiosClient } from '@cooke/api/axios';
 
 import { type RecipeServiceApi } from './recipe.interface';
-
-import { axiosClient } from '../axios';
 
 class RecipeService implements RecipeServiceApi {
 	routePath: string = '/recipes';
