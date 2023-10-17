@@ -8,7 +8,8 @@ enum authenticatedPathNames {
 	CREATE_RECIPE = '/recipe',
 	READ_RECIPE = '/recipe/:recipeid',
 	EDIT_RECIPE = '/edit/:recipeid',
-	FAVORITES = '/favorites'
+	FAVORITES = '/favorites',
+	PROFILE = '/profile'
 }
 
 export const cookePathnames = {

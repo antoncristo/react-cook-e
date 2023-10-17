@@ -4,7 +4,7 @@ import {
 	Outlet,
 	Navigate
 } from 'react-router-dom';
-import { Login, Dashboard, Wizard, ReadRecipe, ErrorPage } from '@cooke/views';
+import { Login, Dashboard, Wizard, ReadRecipe, ErrorPage, Profile } from '@cooke/views';
 
 import { cookePathnames } from './pathnames';
 import { Layout } from '../layout';
@@ -62,6 +62,10 @@ class RoutesDelegator {
 		{
 			path: cookePathnames.authenticatedPathNames.FAVORITES,
 			element: <div>Favorites mock</div>
+		},
+		{
+			path: cookePathnames.authenticatedPathNames.PROFILE,
+			element: <Profile />
 		}
 	];
 
