@@ -8,8 +8,15 @@ export const Header = styled.header`
 	background-color: rgba(${({ theme }) => theme.colors.black}, 0.6);
 	border-bottom: 0.1rem solid rgba(${({ theme }) => theme.colors.black}, 1);
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
+	padding: 0 2rem;
 
 	@media print {
 		display: none;
 	}
+`;
+
+export const Section = styled.section<{ $justify: 'center' | 'flex-end' | 'flex-start' }>`
+	flex: 1;
+	display: flex;
+	justify-content: ${({ $justify }) => $justify};
 `;
