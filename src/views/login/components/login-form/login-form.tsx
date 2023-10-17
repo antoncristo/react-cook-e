@@ -15,8 +15,8 @@ import * as Styled from './login-form.styled';
 
 export const LoginForm = () => {
 	const [credentials, setCredentials] = useState<Credentials>({
-		email: 'anton@gmail.com',
-		password: 'passowrd'
+		email: '',
+		password: ''
 	});
 	const { loginHandler } = useLogin();
 
@@ -72,6 +72,7 @@ export const LoginForm = () => {
 					onChange={onCredentialsChangeHandler}
 					placeholder={touched.email ? 'email is required...' : 'email@example.com'}
 					onBlur={onBlurHandler}
+					autoComplete='email'
 				/>
 				<Input
 					data-name='password'
@@ -87,10 +88,7 @@ export const LoginForm = () => {
 			</Styled.Inputs>
 			<Styled.Controls>
 				<Button disabled={!isFormValid} variant='primary' width='25.2rem' type='submit'>
-					SIGN_IN
-				</Button>
-				<Button disabled variant='secondary' width='25.2rem' type='button'>
-					SIGN_IN WITH GOOGLE
+					SIGN IN
 				</Button>
 			</Styled.Controls>
 		</Styled.LoginForm>

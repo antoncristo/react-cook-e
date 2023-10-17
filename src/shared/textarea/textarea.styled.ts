@@ -24,7 +24,7 @@ export const TextArea = styled.textarea<{ width?: string; $isValid: boolean }>`
 					outline-color: rgba(${({ theme }) => theme.colors.error}, 1);
 
 					&::placeholder {
-						color: rgba(${({ theme }) => theme.colors.white}, 1);
+						color: rgba(${({ theme }) => theme.colors.error}, 1);
 					}
 			  `}
 `;

@@ -13,7 +13,7 @@ interface LayoutProps {
 }
 
 export const Layout = observer(({ children }: LayoutProps) => {
-	const { user } = userStore;
+	const { loginHappened } = userStore;
 
 	// Fix: clear logs after data is verified
 	// eslint-disable-next-line no-console
@@ -23,7 +23,7 @@ export const Layout = observer(({ children }: LayoutProps) => {
 
 	return (
 		<Styled.Layout>
-			{user ? (
+			{loginHappened || userStore.isAuthenticated() ? (
 				<Styled.Children>
 					<Header />
 					<Styled.Body>
