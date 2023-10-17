@@ -11,6 +11,7 @@ export const RecipesFlex = styled.div`
 	padding: ${({ theme }) => theme.decorators.padding.default};
 	display: flex;
 	align-items: flex-start;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 	gap: 2rem;
 	overflow-y: auto;

@@ -9,6 +9,7 @@ export const Search = styled(Input)`
 	font-size: 1.4rem;
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	width: 100%;
+	height: 3.8rem;
 	max-width: 46rem;
 	margin-bottom: 2rem;
 
@@ -24,6 +25,5 @@ export const Search = styled(Input)`
 	@media screen and (max-width: ${breakpoints.mobile.width}px) {
 		max-width: unset;
 		height: 4.6rem;
-		margin-bottom: 0.5rem;
 	}
 `;
