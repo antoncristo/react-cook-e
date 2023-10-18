@@ -73,10 +73,6 @@ export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
 		markAsTouched(formKey);
 	};
 
-	if (isError) {
-		return <NetworkError />;
-	}
-
 	return (
 		<Styled.SignUpForm onSubmit={onSubmitHandler}>
 			<Styled.Inputs>

@@ -19,7 +19,7 @@ export const LoginForm = () => {
 		email: '',
 		password: ''
 	});
-	const { loginHandler, isLoginLoading, isLoginError } = useLogin();
+	const { loginHandler, isLoginLoading } = useLogin();
 
 	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
@@ -61,10 +61,6 @@ export const LoginForm = () => {
 
 		markAsTouched(formKey);
 	};
-
-	if (isLoginError) {
-		return <NetworkError />;
-	}
 
 	return (
 		<Styled.LoginForm onSubmit={onSubmitHandler}>
