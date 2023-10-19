@@ -8,18 +8,16 @@ import { Login, Dashboard, Wizard, ReadRecipe, ErrorPage, Profile } from '@cooke
 
 import { cookePathnames } from './pathnames';
 import { Layout } from '../layout';
+import { NotFound } from './not-found';
 
 class RoutesDelegator {
 	#_rootRoute: RouteObject = {
 		path: '/',
 		element: (
 			<Layout>
-				<Outlet />
-			</Layout>
-		),
-		errorElement: (
-			<Layout>
-				<ErrorPage />
+				<ErrorPage>
+					<Outlet />
+				</ErrorPage>
 			</Layout>
 		)
 	};
@@ -30,7 +28,11 @@ class RoutesDelegator {
 			path: '/',
 			element: <Navigate to={cookePathnames.unauthenticatedPathNames.LOGIN} />
 		},
-		{ path: cookePathnames.unauthenticatedPathNames.LOGIN, element: <Login /> }
+		{ path: cookePathnames.unauthenticatedPathNames.LOGIN, element: <Login /> },
+		{
+			path: '*',
+			element: <NotFound />
+		}
 	];
 
 	#_authenticatedRoutes: RouteObject[] = [
@@ -66,6 +68,10 @@ class RoutesDelegator {
 		{
 			path: cookePathnames.authenticatedPathNames.PROFILE,
 			element: <Profile />
+		},
+		{
+			path: '*',
+			element: <NotFound />
 		}
 	];
 

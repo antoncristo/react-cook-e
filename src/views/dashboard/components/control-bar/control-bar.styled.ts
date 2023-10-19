@@ -1,9 +1,9 @@
+import { breakpoints } from '@cooke/style';
 import styled from 'styled-components';
 
 export const ControlBar = styled.div`
 	box-sizing: border-box;
-	height: 3.6rem;
 	display: flex;
 	align-items: center;
-	padding: 0 2rem;
+	padding-inline-start: 2rem;
 `;
