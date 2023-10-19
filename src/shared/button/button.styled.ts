@@ -10,10 +10,14 @@ export const Button = styled.button.attrs(props => ({
 	width: string;
 }>`
 	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 0.8rem 1.2rem;
 	border-radius: 0.6rem;
 	border: none;
-	width: ${({ width }) => width};
+	width: ${({ width }) => width ?? 'fit-content'};
+	height: fit-content;
 	font-size: 1.6rem;
 	line-height: 1.2;
 	cursor: pointer;
