@@ -1,7 +1,7 @@
 import { type MouseEventHandler, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LogOutIcon } from '@cooke/assets/icons/log-out-icon';
-import { UserIcon } from '@cooke/assets';
+import { SettingsIcon, UserIcon } from '@cooke/assets';
 import { Popover } from '@cooke/shared';
 
 import * as Styled from './header-profile.styled';
@@ -33,6 +33,10 @@ export const HeaderProfile = () => {
 		userStore.logOut();
 	};
 
+	const goToSettings = () => {
+		confirmationHandler({ msg: 'NOT ACTIVE - IN DEV' });
+	};
+
 	return (
 		<Styled.HeaderProfile>
 			<Styled.ProfileButton onClick={onProfileClickHandler}>
@@ -41,6 +45,9 @@ export const HeaderProfile = () => {
 			<Popover relativeToAnchorX='left' anchor={anchor} onClose={oncloseHandler}>
 				<Styled.PopoverContent>
 					<Styled.MenuButton onMouseDown={goToProfile}>Profile</Styled.MenuButton>
+					<Styled.MenuButton onMouseDown={goToSettings}>
+						<SettingsIcon right='10px' /> Settings
+					</Styled.MenuButton>
 					<Styled.MenuButton onMouseDown={preLogout}>
 						<LogOutIcon right='10px' /> Log Out
 					</Styled.MenuButton>
