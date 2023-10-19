@@ -34,8 +34,8 @@ export const RecipeFlex = styled.div`
 			text-shadow: none;
 		}
 
-		.control {
-			display: none;
+		& > .control {
+			visibility: hidden;
 		}
 	}
 `;
@@ -56,6 +56,10 @@ export const RecipeDescription = styled.p`
 	border-left: 0.2rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	font-size: 1.6rem;
+
+	@media print {
+		text-shadow: none;
+	}
 `;
 
 export const RecipeFooter = styled.div`
