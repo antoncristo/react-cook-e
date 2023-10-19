@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { recipesStore } from '@cooke/stores/recipes-store';
-import { Button, NetworkError } from '@cooke/shared';
+import { useGetRecipe } from '@cooke/api/recipe';
+import { type Recipe } from '@cooke/types';
+import { Button, Loader, NetworkError } from '@cooke/shared';
 import { PrintIcon } from '@cooke/assets';
 
 import { Ingredients, Steps } from './components';
@@ -10,13 +12,20 @@ import * as Styled from './read-recipe.styled';
 
 export const ReadRecipe = observer(() => {
 	const params = useParams() as Record<'recipeid', UUID>;
-	const recipe = recipesStore.getRecipe(params.recipeid);
+	const storeRecipe = recipesStore.getRecipe(params.recipeid);
+	const {
+		isError,
+		isLoading,
+		recipe: fetchedRecipe
+	} = useGetRecipe({ enabled: !storeRecipe, recipeId: params.recipeid });
+
+	const recipe = (storeRecipe ?? fetchedRecipe)! as Recipe;
 
 	const onPrint = () => {
 		window.print();
 	};
 
-	if (!recipe) {
+	if (isError) {
 		return (
 			<Styled.ReadRecipe>
 				<NetworkError />
@@ -24,7 +33,9 @@ export const ReadRecipe = observer(() => {
 		);
 	}
 
-	return (
+	return isLoading ? (
+		<Loader size='L' />
+	) : (
 		<Styled.ReadRecipe>
 			<Styled.RecipeFlex>
 				<Styled.RecipeTitle
@@ -33,12 +44,7 @@ export const ReadRecipe = observer(() => {
 					fontSize='2.5rem'
 					text={recipe.title}
 				/>
-				<Button
-					style={{ display: 'flex', alignItems: 'center' }}
-					className='control'
-					onClick={onPrint}
-					variant='secondary'
-				>
+				<Button className='control' onClick={onPrint} variant='secondary'>
 					<PrintIcon width={22} height={22} right='1rem' />
 					Print
 				</Button>

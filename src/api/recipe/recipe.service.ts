@@ -18,6 +18,9 @@ class RecipeService implements RecipeServiceApi {
 		return axiosClient.get(this.routePath, { params });
 	};
 
+	getRecipe = async (recipeId: string): Promise<Recipe> =>
+		axiosClient.get(`${this.routePath}/${recipeId}`).then(res => res.data as Recipe);
+
 	postRecipe = async (recipe: Recipe): Promise<AxiosResponse<Recipe>> =>
 		axiosClient.post(this.routePath, { recipe });
 
