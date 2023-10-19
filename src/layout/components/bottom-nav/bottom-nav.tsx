@@ -8,7 +8,7 @@ export const BottomNav = () => (
 		<Styled.BottomNavLink to={cookePathnames.authenticatedPathNames.DASHBOARD}>
 			<Styled.BackgroundWrapper>
 				<BookIcon right='0.6rem' />
-				Dashboard
+				My Book
 			</Styled.BackgroundWrapper>
 		</Styled.BottomNavLink>
 		<Styled.BottomNavLink to={cookePathnames.authenticatedPathNames.CREATE_RECIPE} end>

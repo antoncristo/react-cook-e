@@ -7,7 +7,7 @@ export const NavList = () => (
 	<Styled.NavList>
 		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.DASHBOARD}>
 			<BookIcon right='1rem' />
-			Dashboard
+			My Book
 		</Styled.MenuLink>
 		<Styled.MenuLink to={cookePathnames.authenticatedPathNames.CREATE_RECIPE} end>
 			<WriteIcon right='1rem' /> Add Recipe
