@@ -18,3 +18,4 @@ interface ExtendedCredentials extends Credentials {
 }
 
 declare type CookeLanguages = 'en' | 'ru';
+declare type ColorScheme = 'dark' | 'light';
