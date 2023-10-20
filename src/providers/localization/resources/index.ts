@@ -4,7 +4,7 @@ import { resourcesEN } from './en';
 // RU
 import { resourcesRU } from './ru';
 
-export const resources: Record<string, Resources> = {
+export const resources: Record<CookeLanguages, Resources> = {
 	en: resourcesEN,
 	ru: resourcesRU
 };

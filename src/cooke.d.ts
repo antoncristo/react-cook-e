@@ -16,3 +16,5 @@ declare interface Credentials {
 interface ExtendedCredentials extends Credentials {
 	name: string;
 }
+
+declare type CookeLanguages = 'en' | 'ru';
