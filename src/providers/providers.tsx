@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 
 import { ThemeProvider } from './theme-provider';
 import { ReactQueryProvider } from './react-query-provider';
+import { LocalizationProvider } from './localization';
 
 interface ProvidersProps {
 	children: ReactNode;
@@ -9,6 +10,8 @@ interface ProvidersProps {
 
 export const Providers = ({ children }: ProvidersProps) => (
 	<ReactQueryProvider>
-		<ThemeProvider>{children}</ThemeProvider>
+		<ThemeProvider>
+			<LocalizationProvider>{children}</LocalizationProvider>
+		</ThemeProvider>
 	</ReactQueryProvider>
 );
