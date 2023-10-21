@@ -39,7 +39,7 @@ export const LinkButton = styled(Link)`
 	width: 98%;
 	border-radius: 0.8rem;
 	font-size: 1.4rem;
-	font-family: 'cooke-500';
+	${styleUtils.fontFamily(500)}
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 	display: flex;
 	align-items: center;
@@ -57,7 +57,7 @@ export const CardButton = styled(Button)`
 	width: 98%;
 	border-radius: 0.8rem;
 	font-size: 1.4rem;
-	font-family: 'cooke-500';
+	${styleUtils.fontFamily(500)}
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 
 	${({ theme }) =>

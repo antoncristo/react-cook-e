@@ -1,4 +1,5 @@
 import { Text } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const ReadRecipe = styled.div`
@@ -41,7 +42,7 @@ export const RecipeFlex = styled.div`
 `;
 
 export const RecipeTitle = styled(Text)`
-	font-family: 'cooke-600';
+	${styleUtils.fontFamily(600)}
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
@@ -66,5 +67,5 @@ export const RecipeFooter = styled.div`
 	color: rgba(${({ theme }) => theme.colors.secondary});
 	text-shadow: 0.2rem 0.2rem 0.6rem rgba(${({ theme }) => theme.colors.ternary}, 1);
 	font-size: 3rem;
-	font-family: 'cooke-600';
+	${styleUtils.fontFamily(600)}
 `;

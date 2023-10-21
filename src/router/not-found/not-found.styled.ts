@@ -1,4 +1,5 @@
 import { Text } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const NotFound = styled.div`
@@ -12,6 +13,6 @@ export const NotFound = styled.div`
 
 export const FourOFour = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.purple}, 1);
-	font-family: 'cooke-800';
+	${styleUtils.fontFamily(800)}
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 `;

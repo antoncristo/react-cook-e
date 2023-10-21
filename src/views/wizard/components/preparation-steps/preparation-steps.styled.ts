@@ -1,4 +1,5 @@
 import { Button } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const PreparationSteps = styled.div`
@@ -14,7 +15,7 @@ export const PreparationStepsTitle = styled.h2`
 	width: fit-content;
 	margin: 0;
 	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
-	font-family: 'cooke-400';
+	${styleUtils.fontFamily(400)}
 	font-size: 1.6rem;
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};

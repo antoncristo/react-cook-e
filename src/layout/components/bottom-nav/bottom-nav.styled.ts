@@ -1,3 +1,4 @@
+import { styleUtils } from '@cooke/style';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -41,7 +42,7 @@ export const BottomNavLink = styled(NavLink)`
 	&:focus,
 	&.active,
 	&:hover {
-		font-family: 'cooke-600';
+		${styleUtils.fontFamily(700)}
 		border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 		background-color: rgba(${({ theme }) => theme.colors.ternary}, 1);
 	}

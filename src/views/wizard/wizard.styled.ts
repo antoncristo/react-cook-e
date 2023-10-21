@@ -1,4 +1,5 @@
 import { Input, TextArea } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Wizard = styled.div`
@@ -30,7 +31,7 @@ export const WizardFlex = styled.div`
 `;
 
 export const WizardTitle = styled.h1`
-	font-family: 'cooke-600';
+	${styleUtils.fontFamily(600)}
 	font-size: 3rem;
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};

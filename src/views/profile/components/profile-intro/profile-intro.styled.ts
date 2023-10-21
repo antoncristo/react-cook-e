@@ -1,4 +1,5 @@
 import { Text } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const ProfileIntro = styled.div`
@@ -15,8 +16,8 @@ export const UserInfo = styled.div`
 
 export const UserInfoText = styled(Text)<{ $fontWeight: 'bold' | 'normal' }>`
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
-	font-family: ${({ $fontWeight }) =>
-		$fontWeight === 'bold' ? 'cooke-600' : 'cooke-400'};
+	${({ $fontWeight }) =>
+		$fontWeight === 'bold' ? styleUtils.fontFamily(600) : styleUtils.fontFamily(400)}
 `;
 
 export const Controls = styled.div`
