@@ -1,4 +1,5 @@
 import { Text } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Steps = styled.div`
@@ -14,7 +15,7 @@ export const Steps = styled.div`
 export const StepsTitle = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-decoration: underline;
-	font-family: 'cooke-400';
+	${styleUtils.fontFamily(400)}
 `;
 
 export const StepsList = styled.ul`

@@ -26,7 +26,7 @@ export const MenuLink = styled(NavLink)`
 	&:focus,
 	&.active,
 	&:hover {
-		${styleUtils.fontFamily(700)}
+		${styleUtils.fontFamily(600)}
 		border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 	}
 

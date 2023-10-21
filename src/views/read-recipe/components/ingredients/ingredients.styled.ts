@@ -1,4 +1,5 @@
 import { Text } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Ingredients = styled.div`
@@ -14,7 +15,7 @@ export const Ingredients = styled.div`
 export const IngredientsTitle = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-decoration: underline;
-	font-family: 'cooke-400';
+	${styleUtils.fontFamily(400)}
 `;
 
 export const IngredientsList = styled.ul`
@@ -35,7 +36,7 @@ export const IngredientItem = styled.li`
 
 	& > span:nth-child(2) {
 		color: rgba(${({ theme }) => theme.colors.ternary}, 1);
-		font-family: 'cooke-500';
+		${styleUtils.fontFamily(500)}
 		font-size: 1.8rem;
 		text-decoration: underline;
 	}
