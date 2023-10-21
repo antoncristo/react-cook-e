@@ -6,8 +6,10 @@ import { Init } from '@cooke/init';
 import { RecipeCard, ControlBar, InitialState } from './components';
 
 import * as Styled from './dashboard.styled';
+import { useTranslation } from 'react-i18next';
 
 export const Dashboard = observer(() => {
+	const { t } = useTranslation('dashboard', { keyPrefix: 'controls' });
 	const { recipes } = recipesStore;
 
 	const isInitialState = recipes?.length === 0 && !recipesStore.searchQuery;
@@ -24,7 +26,7 @@ export const Dashboard = observer(() => {
 						<Text
 							fontSize='2rem'
 							numberOfLines={3}
-							text={`No Recipes include the text - "${recipesStore.searchQuery!}"...`}
+							text={t('noMatch', { input: recipesStore.searchQuery! })}
 						/>
 					) : null}
 					{isInitialState ? <InitialState /> : null}

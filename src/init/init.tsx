@@ -1,8 +1,13 @@
 import { type ReactNode } from 'react';
 import { useInitPreferences } from './hooks';
+import { Loader, NetworkError } from '@cooke/shared';
 
 export const Init = ({ children }: { children: ReactNode }) => {
-	useInitPreferences();
+	const { isError, isLoading } = useInitPreferences();
 
-	return children;
+	if (isError) {
+		return <NetworkError />;
+	}
+
+	return isLoading ? <Loader size='L' /> : children;
 };

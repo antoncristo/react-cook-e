@@ -5,8 +5,10 @@ import { recipesStore } from '@cooke/stores/recipes-store';
 import { useDebounce } from '@cooke/hooks';
 
 import * as Styled from './search.styled';
+import { useTranslation } from 'react-i18next';
 
 export const Search = observer(() => {
+	const { t } = useTranslation('dashboard', { keyPrefix: 'controls' });
 	const { searchQuery } = recipesStore;
 	const [searchQueryLocal, setSearchQueryLocal] = useState('');
 
@@ -29,7 +31,7 @@ export const Search = observer(() => {
 
 	return (
 		<Styled.Search
-			placeholder='Find a Recipe...'
+			placeholder={t('search')}
 			value={searchQueryLocal}
 			onChange={onChange}
 			onFocus={onFocus}

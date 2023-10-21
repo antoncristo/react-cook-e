@@ -8,8 +8,10 @@ import * as Styled from './header-profile.styled';
 import { cookePathnames } from '@cooke/router';
 import { userStore } from '@cooke/stores/user-store';
 import { confirmationHandler } from '@cooke/utils';
+import { useTranslation } from 'react-i18next';
 
 export const HeaderProfile = () => {
+	const { t } = useTranslation('dashboard', { keyPrefix: 'header.profileMenu' });
 	const [anchor, setAnchor] = useState<HTMLButtonElement | null>(null);
 	const navigate = useNavigate();
 
@@ -44,12 +46,12 @@ export const HeaderProfile = () => {
 			</Styled.ProfileButton>
 			<Popover relativeToAnchorX='left' anchor={anchor} onClose={oncloseHandler}>
 				<Styled.PopoverContent>
-					<Styled.MenuButton onMouseDown={goToProfile}>Profile</Styled.MenuButton>
+					<Styled.MenuButton onMouseDown={goToProfile}>{t('profile')}</Styled.MenuButton>
 					<Styled.MenuButton onMouseDown={goToSettings}>
-						<SettingsIcon right='10px' /> Settings
+						<SettingsIcon right='10px' /> {t('settings')}
 					</Styled.MenuButton>
 					<Styled.MenuButton onMouseDown={preLogout}>
-						<LogOutIcon right='10px' /> Log Out
+						<LogOutIcon right='10px' /> {t('logout')}
 					</Styled.MenuButton>
 				</Styled.PopoverContent>
 			</Popover>
