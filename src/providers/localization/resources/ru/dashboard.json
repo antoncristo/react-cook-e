@@ -1,3 +1,19 @@
 {
-	"title": "ru - i18n title"
+	"header": {
+		"profileMenu": {
+			"profile": "Профиль",
+			"settings": "Настройки",
+			"logout": "Выйти"
+		}
+	},
+	"nav": {
+		"dashboard": "Моя книга",
+		"wizard": "Создавать",
+		"favorites": "Избранное"
+	},
+	"initialState": "Начнем готовить",
+	"controls": {
+		"search": "Найти рецепт...",
+		"noMatch": "Нет совпадений с текстом - '{{input}}'..."
+	}
 }

@@ -1,3 +1,19 @@
 {
-	"title": "en - i18n title"
+	"header": {
+		"profileMenu": {
+			"profile": "Profile",
+			"settings": "Settings",
+			"logout": "Log Out"
+		}
+	},
+	"nav": {
+		"dashboard": "My Book",
+		"wizard": "Add Recipe",
+		"favorites": "Favorites"
+	},
+	"initialState": "Let's Start Cooking",
+	"controls": {
+		"search": "Find a recipe...",
+		"noMatch": "No Matches for the text - '{{input}}'..."
+	}
 }
