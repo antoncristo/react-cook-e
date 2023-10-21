@@ -1,3 +1,4 @@
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const HeaderProfile = styled.div``;
@@ -24,12 +25,12 @@ export const MenuButton = styled.button`
 	width: 13rem;
 	border: none;
 	color: rgba(${({ theme }) => theme.colors.white});
-	font-family: 'cooke-400';
+	${styleUtils.fontFamily(400)}
 	padding-bottom: 0.6rem;
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white});
 	cursor: pointer;
 
 	&:hover {
-		font-family: 'cooke-600';
+		${styleUtils.fontFamily(700)}
 	}
 `;
