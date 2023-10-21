@@ -8,3 +8,8 @@ export const Preferences = styled.div`
 	flex-direction: column;
 	gap: 1.6rem;
 `;
+
+export const Footer = styled.div`
+	display: flex;
+	flex-direction: row-reverse;
+`;

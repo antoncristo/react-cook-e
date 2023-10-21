@@ -6,3 +6,4 @@ export { PrintIcon } from './print-icon';
 export { DoughnutIcon } from './dougnut-icon';
 export { UserIcon } from './user-icon';
 export { SettingsIcon } from './settings-icon';
+export { EditIcon } from './edit-icon';

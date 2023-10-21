@@ -33,11 +33,3 @@ export const Language = (props: LanguageProps) => {
 		</Styled.Language>
 	);
 };
-
-/**
- * <Select onChange={changeUnit}>
-				{unitsOptions.map(val => (
-					<Option key={val} selected={ingredient.unit === val} label={val} value={val} />
-				))}
-			</Select>
- */

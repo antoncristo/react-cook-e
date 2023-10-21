@@ -8,7 +8,7 @@ export const Settings = styled.div`
 `;
 
 export const SettingHeader = styled.div`
-	height: 3rem;
+	height: 5rem;
 	margin-bottom: 1rem;
 	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary});
 	display: flex;
