@@ -9,7 +9,8 @@ enum authenticatedPathNames {
 	READ_RECIPE = '/recipe/:recipeid',
 	EDIT_RECIPE = '/edit/:recipeid',
 	FAVORITES = '/favorites',
-	PROFILE = '/profile'
+	PROFILE = '/profile',
+	SETTINGS = '/profile/settings'
 }
 
 export const cookePathnames = {
