@@ -7,10 +7,18 @@ export const Settings = styled.div`
 	flex-direction: column;
 `;
 
-export const SettingsSectionTitle = styled(Text)`
+export const SettingHeader = styled.div`
+	height: 3rem;
+	margin-bottom: 1rem;
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary});
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`;
+
+export const SectionTitle = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.ternary});
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	font-size: 1.6rem;
-	margin-bottom: 1rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary});
+	font-weight: bold;
 `;

@@ -18,7 +18,6 @@ export const Settings = () => {
 
 	return (
 		<Styled.Settings>
-			<Styled.SettingsSectionTitle text='Preferences' />
 			<Preferences initialPreference={preferences!} />
 		</Styled.Settings>
 	);
