@@ -36,7 +36,7 @@ export const HeaderProfile = () => {
 	};
 
 	const goToSettings = () => {
-		confirmationHandler({ msg: 'NOT ACTIVE - IN DEV' });
+		navigate(cookePathnames.authenticatedPathNames.SETTINGS);
 	};
 
 	return (

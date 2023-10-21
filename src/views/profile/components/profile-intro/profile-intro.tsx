@@ -3,6 +3,8 @@ import { type User } from '@cooke/types';
 import * as Styled from './profile-intro.styled';
 import { SettingsIcon } from '@cooke/assets';
 import { Button } from '@cooke/shared';
+import { useNavigate } from 'react-router-dom';
+import { cookePathnames } from '@cooke/router';
 
 interface ProfileIntroProps {
 	user: User;
@@ -10,6 +12,12 @@ interface ProfileIntroProps {
 
 export const ProfileIntro = (props: ProfileIntroProps) => {
 	const { user } = props;
+	const navigate = useNavigate();
+
+	const goToSettings = () => {
+		navigate(cookePathnames.authenticatedPathNames.SETTINGS);
+	};
+
 	return (
 		<Styled.ProfileIntro>
 			<Styled.UserInfo>
@@ -17,7 +25,7 @@ export const ProfileIntro = (props: ProfileIntroProps) => {
 				<Styled.UserInfoText text={user.email} $fontWeight='normal' fontSize='1.4rem' />
 			</Styled.UserInfo>
 			<Styled.Controls>
-				<Button variant='secondary' width='fit-content'>
+				<Button onClick={goToSettings} variant='secondary' width='fit-content'>
 					<SettingsIcon right='1rem' /> Settings
 				</Button>
 			</Styled.Controls>
