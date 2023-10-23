@@ -13,8 +13,14 @@ class PreferencesService implements PreferencesServiceApi {
 				return undefined;
 			});
 
-	putPreference = async (preferences: Preferences): Promise<Preferences> =>
-		axiosClient.put('/preferences', { preferences }).then(res => res.data as Preferences);
+	putPreference = async (preferences: Preferences): Promise<Preferences | undefined> =>
+		axiosClient
+			.put('/preferences', { preferences })
+			.then(res => res.data as Preferences)
+			.catch(err => {
+				errorHandler(err);
+				return undefined;
+			});
 }
 
 export const preferencesService = new PreferencesService();

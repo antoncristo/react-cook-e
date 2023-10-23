@@ -18,7 +18,7 @@ interface PreferencesProps {
 export const Preferences = (props: PreferencesProps) => {
 	const { initialPreference } = props;
 	const { i18n } = useTranslation();
-	const { isLoading, putPreferences } = usePutPreferences();
+	const { isPutPreferencesPending, putPreferences } = usePutPreferences();
 	const [update, setUpdate] = useState<PreferencesType>(initialPreference);
 	const [isEditMode, setIsEditMode] = useState(false);
 
@@ -66,7 +66,7 @@ export const Preferences = (props: PreferencesProps) => {
 				onChange={onLanguageChange}
 				isEditMode={isEditMode}
 			/>
-			{isLoading ? (
+			{isPutPreferencesPending ? (
 				<Loader size='S' />
 			) : (
 				<Styled.Footer>
