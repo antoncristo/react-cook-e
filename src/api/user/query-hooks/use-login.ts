@@ -1,28 +1,25 @@
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { userService } from '../user.service';
 import { userStore } from '@cooke/stores/user-store';
-import { errorHandler, setSessionStorage } from '@cooke/utils';
+import { setSessionStorage } from '@cooke/utils';
 
 export const LOGIN_QUERY_KEY = 'login_key';
 
 export const useLogin = () => {
-	const { isLoading, isError, mutate } = useMutation(
-		[LOGIN_QUERY_KEY],
-		async (cred: Credentials) => userService.login(cred),
-		{
-			onSuccess(data) {
+	const { isPending, isError, mutate } = useMutation({
+		mutationKey: [LOGIN_QUERY_KEY],
+		mutationFn: async (cred: Credentials) => userService.login(cred),
+		onSuccess(data) {
+			if (data) {
 				setSessionStorage('token', data.accessToken);
 				userStore.loginHappened = true;
-			},
-			onError(err) {
-				errorHandler(err);
 			}
 		}
-	);
+	});
 
 	return {
 		loginHandler: mutate,
-		isLoginLoading: isLoading,
+		isLoginLoading: isPending,
 		isLoginError: isError
 	};
 };

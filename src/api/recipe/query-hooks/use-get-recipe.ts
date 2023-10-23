@@ -1,5 +1,4 @@
-import { useQuery } from 'react-query';
-import { type QueryGetter, type QueryBasicParams, type QueryControl } from '@cooke/types';
+import { useQuery } from '@tanstack/react-query';
 import { recipeService } from '../recipe.service';
 import { recipesStore } from '@cooke/stores/recipes-store';
 import { errorHandler } from '@cooke/utils';
@@ -13,24 +12,19 @@ export const useGetRecipe = ({
 	recipeId: string;
 	enabled?: boolean;
 }) => {
-	const { data, isError, isLoading } = useQuery(
-		[GET_RECIPE_QUERY_KEY, { recipeId }],
-		async () => {
+	const { data, isError, isPending } = useQuery({
+		queryKey: [GET_RECIPE_QUERY_KEY, { recipeId }],
+		async queryFn() {
 			recipesStore.recipes = undefined;
 			return recipeService.getRecipe(recipeId);
 		},
-		{
-			enabled,
-			staleTime: 3600000,
-			onError(err) {
-				errorHandler(err);
-			}
-		}
-	);
+		enabled,
+		staleTime: 3600000
+	});
 
 	return {
 		recipe: data,
 		isError,
-		isLoading
+		isPending
 	};
 };

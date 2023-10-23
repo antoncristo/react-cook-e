@@ -1,4 +1,9 @@
-import { type FocusEventHandler, type ChangeEventHandler, useState } from 'react';
+import {
+	type FocusEventHandler,
+	type ChangeEventHandler,
+	useState,
+	useEffect
+} from 'react';
 import { observer } from 'mobx-react-lite';
 import { useGetRecipes } from '@cooke/api/recipe';
 import { recipesStore } from '@cooke/stores/recipes-store';
@@ -12,7 +17,7 @@ export const Search = observer(() => {
 	const { searchQuery } = recipesStore;
 	const [searchQueryLocal, setSearchQueryLocal] = useState('');
 
-	useGetRecipes({ search: searchQuery });
+	const { isRecipesSuccess, fetchedRecipes } = useGetRecipes({ search: searchQuery });
 
 	const onFocus: FocusEventHandler<HTMLInputElement> = focus => {
 		focus.currentTarget.select();
@@ -28,6 +33,12 @@ export const Search = observer(() => {
 		},
 		delay: 200
 	});
+
+	useEffect(() => {
+		if (isRecipesSuccess) {
+			recipesStore.recipes = fetchedRecipes;
+		}
+	}, [isRecipesSuccess]);
 
 	return (
 		<Styled.Search
