@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { type Recipe } from '@cooke/types';
 import { queryClient } from '@cooke/api/query-client';
 import { errorHandler, successHandler } from '@cooke/utils';
@@ -8,7 +8,7 @@ import { recipeService } from '../recipe.service';
 export const PUT_RECIPE_QUERY_KEY = 'put_recipe_key';
 
 export const usePutRecipe = () => {
-	const { isError, mutate, isSuccess, isLoading } = useMutation({
+	const { isError, mutate, isSuccess, isPending } = useMutation({
 		mutationKey: [PUT_RECIPE_QUERY_KEY],
 		mutationFn: async (recipe: Recipe) => recipeService.putRecipe(recipe),
 		onSuccess(data) {
@@ -23,6 +23,6 @@ export const usePutRecipe = () => {
 		putRecipe: mutate,
 		isPutError: isError,
 		isPutSuccess: isSuccess,
-		isPutLoading: isLoading
+		isPutLoading: isPending
 	};
 };
