@@ -1,23 +1,19 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { userService } from '../user.service';
-import { userStore } from '@cooke/stores/user-store';
-import { errorHandler } from '@cooke/utils';
 
 export const GET_USER_KEY = 'get_user_key';
 
 export const useGetUser = () => {
-	const { isLoading, isError } = useQuery([GET_USER_KEY], userService.getUser, {
-		onSuccess(data) {
-			userStore.user = data;
-		},
-		onError(err) {
-			errorHandler(err);
-		},
+	const { data, isSuccess, isPending, isError } = useQuery({
+		queryKey: [GET_USER_KEY],
+		queryFn: userService.getUser,
 		staleTime: 3600000
 	});
 
 	return {
+		isUserSuccess: isSuccess,
+		fetchedUser: data,
 		isUserError: isError,
-		isUserLoading: isLoading
+		isUserPending: isPending
 	};
 };

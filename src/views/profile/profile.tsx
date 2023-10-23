@@ -3,14 +3,22 @@ import { useGetUser } from '@cooke/api/user';
 import { userStore } from '@cooke/stores/user-store';
 import { Loader, NetworkError } from '@cooke/shared';
 
-import * as Styled from './profile.styled';
 import { ProfileIntro } from './components';
+
+import * as Styled from './profile.styled';
+import { useEffect } from 'react';
 
 export const Profile = observer(() => {
 	const { user } = userStore;
-	const { isUserError, isUserLoading } = useGetUser();
+	const { isUserError, isUserPending, isUserSuccess, fetchedUser } = useGetUser();
 
-	if (isUserLoading) {
+	useEffect(() => {
+		if (isUserSuccess) {
+			userStore.user = fetchedUser;
+		}
+	}, [isUserSuccess]);
+
+	if (isUserPending) {
 		return <Loader size='M' />;
 	}
 
