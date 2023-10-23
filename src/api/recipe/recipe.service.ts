@@ -52,8 +52,13 @@ class RecipeService implements RecipeServiceApi {
 				return undefined;
 			});
 
-	deleteRecipe = async (recipeToDelete: Recipe): Promise<AxiosResponse<UUID>> =>
-		axiosClient.delete(`${this.routePath}/${recipeToDelete.id}`);
+	deleteRecipe = async (recipeToDelete: Recipe): Promise<void> =>
+		axiosClient
+			.delete(`${this.routePath}/${recipeToDelete.id}`)
+			.then(() => undefined)
+			.catch(err => {
+				errorHandler(err);
+			});
 }
 
 export const recipeService = new RecipeService();
