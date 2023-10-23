@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { QueryClientProvider } from 'react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { queryClient } from '@cooke/api';
 
