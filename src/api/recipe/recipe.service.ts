@@ -28,8 +28,14 @@ class RecipeService implements RecipeServiceApi {
 	getRecipe = async (recipeId: string): Promise<Recipe> =>
 		axiosClient.get(`${this.routePath}/${recipeId}`).then(res => res.data as Recipe);
 
-	postRecipe = async (recipe: Recipe): Promise<AxiosResponse<Recipe>> =>
-		axiosClient.post(this.routePath, { recipe });
+	postRecipe = async (recipe: Recipe): Promise<Recipe | undefined> =>
+		axiosClient
+			.post(this.routePath, { recipe })
+			.then(res => res.data as Recipe)
+			.catch(err => {
+				errorHandler(err);
+				return undefined;
+			});
 
 	putRecipe = async (updatedRecipe: Recipe): Promise<Recipe | undefined> =>
 		axiosClient
