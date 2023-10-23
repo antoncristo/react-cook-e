@@ -4,7 +4,7 @@ import {
 	type FocusEventHandler,
 	useState
 } from 'react';
-import { Button, Input, Loader, NetworkError } from '@cooke/shared';
+import { Button, Input, Loader } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
 import { recordUpdate } from '@cooke/utils';
 import { useSignUp } from '@cooke/api/user';
@@ -13,14 +13,14 @@ import * as SignUpValidators from './validators';
 
 import * as Styled from './sign-up-form.styled';
 
-export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
+export const SignUpForm = ({ toggleForms }: { toggleForms: () => void }) => {
 	const [credentials, setCredentials] = useState<ExtendedCredentials>({
 		email: '',
 		password: '',
 		name: ''
 	});
 
-	const { signUpHandler, isLoading, isError } = useSignUp(toggleForms);
+	const { signUpHandler, isSignUpPending } = useSignUp(toggleForms);
 
 	const { isFormValid, isInputValid, markAsTouched, touched } =
 		useValidation<ExtendedCredentials>([
@@ -109,7 +109,7 @@ export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
-				{isLoading ? (
+				{isSignUpPending ? (
 					<div style={{ height: '3.5rem' }}>
 						<Loader size='S' />
 					</div>
