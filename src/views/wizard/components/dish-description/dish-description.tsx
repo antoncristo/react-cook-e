@@ -1,10 +1,12 @@
 import { type ChangeEventHandler } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 
 import * as Styled from './dish-description.styled';
 
 export const DishDescription = observer(() => {
+	const { t } = useTranslation('wizard');
 	const { description } = wizardStore;
 	const { descriptionValidation } = wizardValidator;
 
@@ -24,7 +26,7 @@ export const DishDescription = observer(() => {
 			onChange={onChange}
 			onBlur={onTouchHandler}
 			placeholder={
-				descriptionValidation.isTouched ? 'Description is required...' : 'Description...'
+				descriptionValidation.isTouched ? t('descriptionInvalid') : t('description')
 			}
 		/>
 	);

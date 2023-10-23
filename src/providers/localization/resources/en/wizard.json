@@ -1,0 +1,41 @@
+{
+	"viewTitle": "What's Cook-E ?",
+	"dishName": "Dish name...",
+	"dishNameInvalid": "Dish name is required...",
+	"description": "Description...",
+	"descriptionInvalid": "Description is required...",
+	"ingredients": {
+		"section": "INGREDIENTS",
+		"buttons": {
+			"add": "Add",
+			"delete": "Delete"
+		},
+		"ingredientName": "Ingredient name...",
+		"ingredientNameInvalid": "Ingredient name is required...",
+		"unitOf": "of",
+		"measurementUnits": {
+			"cup": "cup",
+			"grams": "g",
+			"kilograms": "kg",
+			"liter": "l",
+			"mililiter": "ml",
+			"tableSpoon": "table spoon",
+			"teaSpoon": "tea spoon",
+			"unit": "unit"
+		}
+	},
+	"preparationSteps": {
+		"section": "PREPARATION STEPS",
+		"step": "Step",
+		"buttons": {
+			"add": "Add",
+			"delete": "Delete",
+			"moveUp": "up",
+			"moveDown": "down"
+		},
+		"description": "Description...",
+		"descriptionInvalid": "Description ir required..."
+	},
+	"submit": "SUBMIT",
+	"update": "UPDATE"
+}

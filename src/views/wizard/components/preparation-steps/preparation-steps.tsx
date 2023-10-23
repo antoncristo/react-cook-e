@@ -5,8 +5,10 @@ import { wizardStore } from '@cooke/stores/wizard-store';
 import { Step } from './components';
 
 import * as Styled from './preparation-steps.styled';
+import { useTranslation } from 'react-i18next';
 
 export const PreparationSteps = observer(() => {
+	const { t } = useTranslation('wizard', { keyPrefix: 'preparationSteps' });
 	const { steps } = wizardStore;
 
 	const addStep = () => {
@@ -34,8 +36,8 @@ export const PreparationSteps = observer(() => {
 	return (
 		<Styled.PreparationSteps>
 			<Styled.Header>
-				<Styled.PreparationStepsTitle>PREPARATION STEPS</Styled.PreparationStepsTitle>
-				<Styled.ControlButton onClick={addStep}>Add</Styled.ControlButton>
+				<Styled.PreparationStepsTitle>{t('section')}</Styled.PreparationStepsTitle>
+				<Styled.ControlButton onClick={addStep}>{t('buttons.add')}</Styled.ControlButton>
 			</Styled.Header>
 			{steps.map((step, index) => (
 				<Step

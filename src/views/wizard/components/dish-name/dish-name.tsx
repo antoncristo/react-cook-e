@@ -1,10 +1,12 @@
 import { type ChangeEventHandler } from 'react';
+import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 
 import * as Styled from './dish-name.styled';
 
 export const DishName = observer(() => {
+	const { t } = useTranslation('wizard');
 	const { title } = wizardStore;
 	const { titleValidation } = wizardValidator;
 
@@ -23,9 +25,7 @@ export const DishName = observer(() => {
 			onChange={onChangeHandler}
 			onBlur={onTouchHandler}
 			value={title}
-			placeholder={
-				titleValidation.isTouched ? 'Dish name is required...' : 'Dish name...'
-			}
+			placeholder={titleValidation.isTouched ? t('dishNameInvalid') : t('dishName')}
 		/>
 	);
 });
