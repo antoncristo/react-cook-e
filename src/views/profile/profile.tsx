@@ -10,13 +10,7 @@ import { useEffect } from 'react';
 
 export const Profile = observer(() => {
 	const { user } = userStore;
-	const { isUserError, isUserPending, isUserSuccess, fetchedUser } = useGetUser();
-
-	useEffect(() => {
-		if (isUserSuccess) {
-			userStore.user = fetchedUser;
-		}
-	}, [isUserSuccess]);
+	const { isUserError, isUserPending } = useGetUser();
 
 	if (isUserPending) {
 		return <Loader size='M' />;

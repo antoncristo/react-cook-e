@@ -18,6 +18,7 @@
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.0.5",
+		"@tanstack/react-query-devtools": "^5.0.5",
 		"axios": "^1.5.1",
 		"i18next": "^23.6.0",
 		"mobx": "^6.10.2",

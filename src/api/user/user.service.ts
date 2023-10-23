@@ -25,7 +25,10 @@ class UserService implements UserServiceApi {
 	getUser = async (): Promise<User | undefined> =>
 		axiosClient
 			.get('/auth/user')
-			.then(res => res.data as User)
+			.then(res => {
+				userStore.user = res.data as User;
+				return res.data as User;
+			})
 			.catch(err => {
 				errorHandler(err);
 				return undefined;

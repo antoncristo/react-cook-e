@@ -33,7 +33,7 @@ export const ReadRecipe = observer(() => {
 		);
 	}
 
-	if (isPending) {
+	if (!storeRecipe && isPending) {
 		return <Loader size='L' />;
 	}
 
