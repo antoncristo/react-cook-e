@@ -6,13 +6,13 @@ import { Preferences } from './components';
 import * as Styled from './settings.styled';
 
 export const Settings = () => {
-	const { preferences, isLoading, isError } = useGetPreferences({});
+	const { preferences, isPreferencesError, isPreferencesPending } = useGetPreferences({});
 
-	if (isLoading) {
+	if (isPreferencesPending) {
 		return <Loader size='M' />;
 	}
 
-	if (isError) {
+	if (isPreferencesError) {
 		return <NetworkError />;
 	}
 
