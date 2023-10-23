@@ -8,21 +8,16 @@ import { recipeService } from '../recipe.service';
 export const PUT_RECIPE_QUERY_KEY = 'put_recipe_key';
 
 export const usePutRecipe = () => {
-	const { isError, mutate, isSuccess, isLoading } = useMutation(
-		[PUT_RECIPE_QUERY_KEY],
-		async (recipe: Recipe) => recipeService.putRecipe(recipe),
-		{
-			onSuccess(data) {
-				void queryClient.invalidateQueries([GET_RECIPES_QUERY_KEY]);
-				successHandler({
-					msg: `Successfully UPDATED '${data.data.title}' recipe :)`
-				});
-			},
-			onError(err) {
-				errorHandler(err);
-			}
+	const { isError, mutate, isSuccess, isLoading } = useMutation({
+		mutationKey: [PUT_RECIPE_QUERY_KEY],
+		mutationFn: async (recipe: Recipe) => recipeService.putRecipe(recipe),
+		onSuccess(data) {
+			void queryClient.invalidateQueries({ queryKey: [GET_RECIPES_QUERY_KEY] });
+			successHandler({
+				msg: `Successfully UPDATED '${data?.title}' recipe :)`
+			});
 		}
-	);
+	});
 
 	return {
 		putRecipe: mutate,

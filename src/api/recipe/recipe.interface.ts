@@ -6,6 +6,6 @@ export interface RecipeServiceApi {
 	getRecipes: (queryParams: QueryBasicParams) => Promise<Recipe[] | undefined>;
 	getRecipe: (recipeId: string) => Promise<Recipe>;
 	postRecipe: (recipe: Recipe) => Promise<AxiosResponse<Recipe>>;
-	putRecipe: (updatedRecipe: Recipe) => Promise<AxiosResponse<Recipe>>;
+	putRecipe: (updatedRecipe: Recipe) => Promise<Recipe | undefined>;
 	deleteRecipe: (recipeToDelete: Recipe) => Promise<AxiosResponse<UUID>>;
 }
