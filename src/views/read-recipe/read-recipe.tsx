@@ -15,7 +15,7 @@ export const ReadRecipe = observer(() => {
 	const storeRecipe = recipesStore.getRecipe(params.recipeid);
 	const {
 		isError,
-		isLoading,
+		isPending,
 		recipe: fetchedRecipe
 	} = useGetRecipe({ enabled: !storeRecipe, recipeId: params.recipeid });
 
@@ -33,9 +33,11 @@ export const ReadRecipe = observer(() => {
 		);
 	}
 
-	return isLoading ? (
-		<Loader size='L' />
-	) : (
+	if (isPending) {
+		return <Loader size='L' />;
+	}
+
+	return (
 		<Styled.ReadRecipe>
 			<Styled.RecipeFlex>
 				<Styled.RecipeTitle

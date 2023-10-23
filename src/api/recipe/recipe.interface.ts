@@ -4,7 +4,7 @@ import { type AxiosResponse } from 'axios';
 export interface RecipeServiceApi {
 	routePath: string;
 	getRecipes: (queryParams: QueryBasicParams) => Promise<Recipe[] | undefined>;
-	getRecipe: (recipeId: string) => Promise<Recipe>;
+	getRecipe: (recipeId: string) => Promise<Recipe | undefined>;
 	postRecipe: (recipe: Recipe) => Promise<Recipe | undefined>;
 	putRecipe: (updatedRecipe: Recipe) => Promise<Recipe | undefined>;
 	deleteRecipe: (recipeToDelete: Recipe) => Promise<AxiosResponse<UUID>>;
