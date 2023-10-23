@@ -6,8 +6,10 @@ import { type MeasurementUnit } from '@cooke/types';
 import { Ingredient } from './components';
 
 import * as Styled from './ingredients.styled';
+import { useTranslation } from 'react-i18next';
 
 export const Ingredients = observer(() => {
+	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
 	const { ingredients } = wizardStore;
 
 	const addIngredient = () => {
@@ -46,8 +48,10 @@ export const Ingredients = observer(() => {
 	return (
 		<Styled.Ingredients>
 			<Styled.Header>
-				<Styled.IngredientsTitle>INGREDIENTS</Styled.IngredientsTitle>
-				<Styled.ControlButton onClick={addIngredient}>Add</Styled.ControlButton>
+				<Styled.IngredientsTitle>{t('section')}</Styled.IngredientsTitle>
+				<Styled.ControlButton onClick={addIngredient}>
+					{t('buttons.add')}
+				</Styled.ControlButton>
 			</Styled.Header>
 			{ingredients.map((ingredient, index) => (
 				<Ingredient

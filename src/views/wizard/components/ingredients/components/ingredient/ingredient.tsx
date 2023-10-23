@@ -6,6 +6,7 @@ import { Option, Select, Text } from '@cooke/shared';
 import { Colors } from '@cooke/style';
 
 import * as Styled from './ingredient.styled';
+import { useTranslation } from 'react-i18next';
 
 interface IngredientProps {
 	ingredient: IngredientType;
@@ -17,17 +18,18 @@ interface IngredientProps {
 }
 
 export const Ingredient = observer((props: IngredientProps) => {
+	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
 	const _ref = useRef<HTMLDivElement>(null);
 	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
 	const unitsOptions: MeasurementUnit[] = [
-		'cup',
-		'g',
-		'kg',
-		'l',
-		'ml',
-		'table-spoon',
-		'tea-spoon',
-		'unit'
+		t('measurementUnits.grams'),
+		t('measurementUnits.kilograms'),
+		t('measurementUnits.liter'),
+		t('measurementUnits.mililiter'),
+		t('measurementUnits.cup'),
+		t('measurementUnits.tableSpoon'),
+		t('measurementUnits.teaSpoon'),
+		t('measurementUnits.unit')
 	];
 
 	const isNameValid =
@@ -78,21 +80,19 @@ export const Ingredient = observer((props: IngredientProps) => {
 				maxWidth='3rem'
 				fontSize='1.4rem'
 				style={{ color: `rgba(${Colors.WHITE},1)` }}
-				text='of'
+				text={t('unitOf')}
 			/>
 			<Styled.IngredientInput
 				value={ingredient.name}
 				isValid={isNameValid || !isNameTouched}
 				onChange={onChangeNameHandler}
-				placeholder={
-					isNameTouched ? 'Ingredient name is required...' : 'Ingredient name...'
-				}
+				placeholder={isNameTouched ? t('ingredientNameInvalid') : t('ingredientName')}
 				width='22rem'
 			/>
 			<Styled.Controls>
-				<Styled.ControlButton onClick={add}>Add</Styled.ControlButton>
+				<Styled.ControlButton onClick={add}>{t('buttons.add')}</Styled.ControlButton>
 				<Styled.ControlButton variant='secondary' onClick={onDeleteHandler}>
-					Delete
+					{t('buttons.delete')}
 				</Styled.ControlButton>
 			</Styled.Controls>
 		</Styled.Ingredient>

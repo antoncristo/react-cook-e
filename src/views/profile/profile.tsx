@@ -6,7 +6,6 @@ import { Loader, NetworkError } from '@cooke/shared';
 import { ProfileIntro } from './components';
 
 import * as Styled from './profile.styled';
-import { useEffect } from 'react';
 
 export const Profile = observer(() => {
 	const { user } = userStore;

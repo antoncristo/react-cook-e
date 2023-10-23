@@ -6,8 +6,10 @@ import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
 import { useEffect } from 'react';
 import { confirmationHandler } from '@cooke/utils';
+import { useTranslation } from 'react-i18next';
 
 export const Submit = observer(() => {
+	const { t } = useTranslation('wizard');
 	const { recipe, isEditMode } = wizardStore;
 	const { postRecipe, isPostLoading, isPostSuccess } = usePostRecipe();
 	const { putRecipe, isPutLoading, isPutSuccess } = usePutRecipe();
@@ -39,7 +41,7 @@ export const Submit = observer(() => {
 			{isPostLoading || isPutLoading ? (
 				<Loader size='S' />
 			) : (
-				<b>{isEditMode ? 'UPDATE' : 'SUBMIT'}</b>
+				<b>{isEditMode ? t('update') : t('submit')}</b>
 			)}
 		</Button>
 	);
