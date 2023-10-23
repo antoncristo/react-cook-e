@@ -4,18 +4,25 @@ import { type QueryBasicParams } from '@cooke/types';
 import { axiosClient } from '@cooke/api/axios';
 
 import { type RecipeServiceApi } from './recipe.interface';
+import { errorHandler } from '@cooke/utils';
+import { recipesStore } from '@cooke/stores/recipes-store';
 
 class RecipeService implements RecipeServiceApi {
 	routePath: string = '/recipes';
 
-	getRecipes = async (
-		queryParams?: QueryBasicParams
-	): Promise<AxiosResponse<Recipe[]>> => {
+	getRecipes = async (queryParams?: QueryBasicParams): Promise<Recipe[] | undefined> => {
 		const params: QueryBasicParams = {
 			search: queryParams?.search ? queryParams?.search : undefined
 		};
 
-		return axiosClient.get(this.routePath, { params });
+		return axiosClient
+			.get(this.routePath, { params })
+			.then(res => res.data as Recipe[])
+			.catch(err => {
+				recipesStore.recipes = null;
+				errorHandler(err);
+				return undefined;
+			});
 	};
 
 	getRecipe = async (recipeId: string): Promise<Recipe> =>
