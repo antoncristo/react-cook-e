@@ -1,14 +1,14 @@
 import { type MouseEventHandler, useState } from 'react';
+import { cookePathnames } from '@cooke/router';
+import { userStore } from '@cooke/stores/user-store';
+import { confirmationHandler } from '@cooke/utils';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { LogOutIcon } from '@cooke/assets/icons/log-out-icon';
 import { SettingsIcon, UserIcon } from '@cooke/assets';
 import { Popover } from '@cooke/shared';
 
 import * as Styled from './header-profile.styled';
-import { cookePathnames } from '@cooke/router';
-import { userStore } from '@cooke/stores/user-store';
-import { confirmationHandler } from '@cooke/utils';
-import { useTranslation } from 'react-i18next';
 
 export const HeaderProfile = () => {
 	const { t } = useTranslation('dashboard', { keyPrefix: 'header.profileMenu' });

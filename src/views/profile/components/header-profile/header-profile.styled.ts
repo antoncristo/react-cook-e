@@ -27,7 +27,6 @@ export const MenuButton = styled.button`
 	color: rgba(${({ theme }) => theme.colors.white});
 	${styleUtils.fontFamily(400)}
 	padding-bottom: 0.6rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white});
 	cursor: pointer;
 
 	&:hover {
