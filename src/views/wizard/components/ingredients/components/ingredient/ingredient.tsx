@@ -1,12 +1,12 @@
 import { useEffect, type ChangeEventHandler, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+import { cookeTheme } from '@cooke/style';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
 import { wizardValidator } from '@cooke/stores/wizard-store';
 import { Option, Select, Text } from '@cooke/shared';
-import { Colors } from '@cooke/style';
 
 import * as Styled from './ingredient.styled';
-import { useTranslation } from 'react-i18next';
 
 interface IngredientProps {
 	ingredient: IngredientType;
@@ -79,7 +79,7 @@ export const Ingredient = observer((props: IngredientProps) => {
 			<Text
 				maxWidth='3rem'
 				fontSize='1.4rem'
-				style={{ color: `rgba(${Colors.WHITE},1)` }}
+				style={{ color: `rgba(${cookeTheme.colors.white},1)` }}
 				text={t('unitOf')}
 			/>
 			<Styled.IngredientInput

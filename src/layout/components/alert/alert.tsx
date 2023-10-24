@@ -5,7 +5,6 @@ import { alertStore } from '@cooke/stores/alert-store';
 import { Button } from '@cooke/shared';
 
 import * as Styled from './alert.styled';
-import { Colors } from '@cooke/style';
 
 export const Alert = observer(() => {
 	const alertRef = useRef<HTMLDivElement>(null);
