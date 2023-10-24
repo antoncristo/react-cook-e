@@ -48,7 +48,7 @@ export const LinkButton = styled(Link)`
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
 			`rgba(${theme.colors.black}, 1)`,
-			`rgba(${theme.colors.ternary}, 1)`
+			`rgba(${theme.colors.white}, 1)`
 		)}
 `;
 
@@ -64,6 +64,6 @@ export const CardButton = styled(Button)`
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
 			`rgba(${theme.colors.black}, 1)`,
-			`rgba(${theme.colors.ternary}, 1)`
+			`rgba(${theme.colors.white}, 1)`
 		)}
 `;

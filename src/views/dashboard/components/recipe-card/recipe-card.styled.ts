@@ -13,7 +13,7 @@ export const RecipeCard = styled.div`
 
 	&:hover,
 	&:focus-within {
-		border-left: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
+		border-left: 0.1rem solid rgba(${({ theme }) => theme.colors.white}, 1);
 
 		> .mask {
 			display: flex;
@@ -46,7 +46,7 @@ export const Stats = styled.div`
 
 	span {
 		${styleUtils.fontFamily(600)}
-		color: rgba(${({ theme }) => theme.colors.ternary});
+		color: rgba(${({ theme }) => theme.colors.white});
 		font-size: 1.4rem;
 	}
 `;

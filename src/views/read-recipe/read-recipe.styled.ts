@@ -45,7 +45,7 @@ export const RecipeTitle = styled(Text)`
 	${styleUtils.fontFamily(600)}
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white}, 1);
 
 	@media print {
 		text-shadow: none;
@@ -54,7 +54,7 @@ export const RecipeTitle = styled(Text)`
 
 export const RecipeDescription = styled.p`
 	padding-left: 1.6rem;
-	border-left: 0.2rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border-left: 0.2rem solid rgba(${({ theme }) => theme.colors.white}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	font-size: 1.6rem;
 

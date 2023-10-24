@@ -10,14 +10,14 @@ export const Settings = styled.div`
 export const SettingHeader = styled.div`
 	height: 5rem;
 	margin-bottom: 1rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary});
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white});
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 `;
 
 export const SectionTitle = styled(Text)`
-	color: rgba(${({ theme }) => theme.colors.ternary});
+	color: rgba(${({ theme }) => theme.colors.white});
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	font-size: 1.6rem;
 	font-weight: bold;

@@ -31,11 +31,11 @@ export const IngredientItem = styled.li`
 	align-items: center;
 	justify-content: space-between;
 	font-size: 1.6rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 
 	& > span:nth-child(2) {
-		color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+		color: rgba(${({ theme }) => theme.colors.white}, 1);
 		${styleUtils.fontFamily(500)}
 		font-size: 1.8rem;
 	}

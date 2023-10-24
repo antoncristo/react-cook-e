@@ -3,7 +3,6 @@ import { Colors } from './colors';
 export type BaseColor =
 	| 'primary'
 	| 'secondary'
-	| 'ternary'
 	| 'black'
 	| 'white'
 	| 'grey'
@@ -39,7 +38,6 @@ export const cookeTheme: CookeTheme = {
 		purple: Colors.PURPLE,
 		primary: Colors.PRIMARY,
 		secondary: Colors.SECONDARY,
-		ternary: Colors.WHITE,
 		success: Colors.SUCCESS,
 		warning: Colors.WARNING,
 		error: Colors.ERROR

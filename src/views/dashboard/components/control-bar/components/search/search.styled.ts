@@ -13,12 +13,12 @@ export const Search = styled(Input)`
 	max-width: 46rem;
 
 	&::placeholder {
-		color: rgba(${({ theme }) => theme.colors.ternary}, 0.9);
+		color: rgba(${({ theme }) => theme.colors.white}, 0.9);
 	}
 
 	&::selection {
 		color: rgba(${({ theme }) => theme.colors.black}, 1);
-		background-color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+		background-color: rgba(${({ theme }) => theme.colors.white}, 1);
 	}
 
 	@media screen and (max-width: ${breakpoints.mobile.width}px) {
