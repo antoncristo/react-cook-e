@@ -77,6 +77,7 @@ export const LoginForm = (props: LoginFormProps) => {
 					placeholder={touched.email ? 'email is required...' : 'email@example.com'}
 					onBlur={onBlurHandler}
 					autoComplete='email'
+					disabled={isLoginPending}
 				/>
 				<Input
 					data-name='password'
@@ -88,6 +89,7 @@ export const LoginForm = (props: LoginFormProps) => {
 					placeholder='password'
 					onBlur={onBlurHandler}
 					autoComplete='new-password'
+					disabled={isLoginPending}
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
