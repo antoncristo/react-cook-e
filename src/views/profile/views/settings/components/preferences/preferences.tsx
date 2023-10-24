@@ -49,6 +49,11 @@ export const Preferences = (props: PreferencesProps) => {
 		putPreferences(update);
 	};
 
+	const onResetEditMode = () => {
+		setIsEditMode(false);
+		setUpdate(initialPreference);
+	};
+
 	return (
 		<Styled.Preferences>
 			<StyledParent.SettingHeader>
@@ -77,6 +82,15 @@ export const Preferences = (props: PreferencesProps) => {
 						style={{ fontSize: '1.4rem' }}
 					>
 						Save Changes
+					</Button>
+					<Button
+						width='fit-content'
+						variant='secondary'
+						disabled={!isEditMode}
+						onClick={onResetEditMode}
+						style={{ fontSize: '1.4rem' }}
+					>
+						Cancel
 					</Button>
 				</Styled.Footer>
 			)}

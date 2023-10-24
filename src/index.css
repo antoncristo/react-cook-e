@@ -17,7 +17,7 @@ button {
 }
 
 *:focus {
-	outline: 0.2rem dashed rgba(17, 130, 59, 0.6);
+	outline: 0.1rem solid white;
 }
 
 @font-face {

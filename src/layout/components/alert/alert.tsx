@@ -5,6 +5,7 @@ import { alertStore } from '@cooke/stores/alert-store';
 import { Button } from '@cooke/shared';
 
 import * as Styled from './alert.styled';
+import { Colors } from '@cooke/style';
 
 export const Alert = observer(() => {
 	const alertRef = useRef<HTMLDivElement>(null);
@@ -28,10 +29,10 @@ export const Alert = observer(() => {
 			<Styled.Box>
 				<Styled.Message>{alertStore.message}</Styled.Message>
 				<Styled.Controls>
-					<Button onClick={dismissAction}>Dismiss</Button>
-					{alertStore.hasCallback ? (
-						<Button onClick={confirmAction}>Confirm</Button>
-					) : null}
+					<Button variant='secondary' onClick={dismissAction}>
+						Return
+					</Button>
+					{alertStore.hasCallback ? <Button onClick={confirmAction}>OK</Button> : null}
 				</Styled.Controls>
 			</Styled.Box>
 		</Styled.Alert>

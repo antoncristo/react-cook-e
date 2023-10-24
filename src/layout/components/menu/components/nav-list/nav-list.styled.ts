@@ -21,13 +21,13 @@ export const MenuLink = styled(NavLink)`
 	padding: 0 ${({ theme }) => theme.decorators.padding.default};
 	width: 100%;
 	border-bottom: 0.1rem dashed transparent;
-	transition: all 0.26s ease-in-out;
+	transition: all 0.2s ease-in-out;
 
 	&:focus,
 	&.active,
 	&:hover {
 		${styleUtils.fontFamily(600)}
-		border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+		text-decoration: underline;
 	}
 
 	&:focus {

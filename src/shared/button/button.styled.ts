@@ -15,7 +15,7 @@ export const Button = styled.button.attrs(props => ({
 	justify-content: center;
 	padding: 0.8rem 1.2rem;
 	border-radius: 0.6rem;
-	border: none;
+	border: 0.1rem solid rgba(${({ theme }) => theme.colors.primary}, 1);
 	width: ${({ width }) => width ?? 'fit-content'};
 	height: fit-content;
 	font-size: 1.6rem;
@@ -42,7 +42,7 @@ export const Button = styled.button.attrs(props => ({
 		if ($variant === 'secondary') {
 			return styleUtils.buttonWithHoverInversion(
 				`rgba(${theme.colors.secondary}, 1)`,
-				`rgba(${theme.colors.white}, 1)`
+				`rgba(${theme.colors.primary}, 1)`
 			);
 		}
 	}}

@@ -6,16 +6,13 @@ export const RecipeCard = styled.div`
 	box-sizing: border-box;
 	border: 0.1rem solid transparent;
 	width: 22rem;
-	aspect-ratio: 3/4;
 	border-radius: 1.2rem;
 	background-color: rgba(${({ theme }) => theme.colors.black}, 0.6);
-	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
-	padding: 1.6rem;
+	box-shadow: ${({ theme }) => theme.decorators.boxShadow.secondary};
 	transition: all 0.32s ease-in-out;
 
 	&:hover,
 	&:focus-within {
-		transform: skew(2deg, 2deg) rotateY(3deg);
 		border-left: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
 
 		> .mask {
@@ -30,26 +27,31 @@ export const RecipeCard = styled.div`
 `;
 
 export const RecipeTitle = styled.div`
-	color: rgba(${({ theme }) => theme.colors.ternary});
+	box-sizing: border-box;
+	color: rgba(${({ theme }) => theme.colors.white});
 	${styleUtils.fontFamily(500)}
-	border-bottom: 0.2rem dashed rgba(${({ theme }) => theme.colors.primary});
-	height: calc(1.8rem * 2.4);
-	margin-bottom: 1.6rem;
+	height: calc(2.5rem * 2.4);
+	padding: 1rem;
+	margin-bottom: 1.2rem;
+	background-color: rgba(${({ theme }) => theme.colors.black}, 0.6);
+	border-radius: 0.6rem 0.6rem 0 0;
 `;
 
 export const Stats = styled.div`
+	background-color: rgba(${({ theme }) => theme.colors.black}, 0.8);
+	padding: 1rem;
 	font-size: 1.4rem;
 	margin-bottom: 1.6rem;
+	text-decoration: underline;
 
 	span {
 		${styleUtils.fontFamily(600)}
 		color: rgba(${({ theme }) => theme.colors.ternary});
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 	}
 `;
 
 export const RecipeDescription = styled.div`
-	padding-top: 0.6rem;
-	border-top: 0.2rem dashed rgba(${({ theme }) => theme.colors.primary});
+	padding: 1rem;
 	${styleUtils.fontFamily(200)}
 `;

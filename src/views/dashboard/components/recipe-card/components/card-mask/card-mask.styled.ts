@@ -10,6 +10,7 @@ export const CardMask = styled.div`
 	bottom: 0;
 	left: 0;
 	right: 0;
+	padding: 0 1rem;
 	display: none;
 	background-color: rgba(${({ theme }) => theme.colors.primary}, 0.7);
 	border-radius: 1.2rem;

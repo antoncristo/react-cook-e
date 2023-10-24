@@ -39,7 +39,7 @@ export const cookeTheme: CookeTheme = {
 		purple: Colors.PURPLE,
 		primary: Colors.PRIMARY,
 		secondary: Colors.SECONDARY,
-		ternary: Colors.TERNARY,
+		ternary: Colors.WHITE,
 		success: Colors.SUCCESS,
 		warning: Colors.WARNING,
 		error: Colors.ERROR

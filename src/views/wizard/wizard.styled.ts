@@ -1,5 +1,3 @@
-import { Input, TextArea } from '@cooke/shared';
-import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Wizard = styled.div`
@@ -10,7 +8,7 @@ export const Wizard = styled.div`
 	align-items: flex-start;
 	justify-content: center;
 	overflow-y: auto;
-
+	padding-top: 2rem;
 	scrollbar-width: none;
 	&::-webkit-scrollbar {
 		display: none;
@@ -28,13 +26,5 @@ export const WizardFlex = styled.div`
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: 2rem;
-`;
-
-export const WizardTitle = styled.h1`
-	${styleUtils.fontFamily(600)}
-	font-size: 3rem;
-	color: rgba(${({ theme }) => theme.colors.primary}, 1);
-	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
-	margin: 0;
+	padding-bottom: 2rem;
 `;

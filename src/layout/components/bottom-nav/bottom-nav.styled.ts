@@ -13,7 +13,6 @@ export const BottomNav = styled.div`
 	width: 100%;
 
 	background-color: rgba(${({ theme }) => theme.colors.black}, 0.6);
-	border-top: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 
 	overflow-x: auto;
@@ -35,7 +34,8 @@ export const BottomNavLink = styled(NavLink)`
 	text-decoration: none;
 
 	background-color: transparent;
-	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+	color: rgba(${({ theme }) => theme.colors.white}, 1);
+	border-bottom: 2px solid transparent;
 
 	transition: all 0.26s ease-in-out;
 
@@ -43,8 +43,7 @@ export const BottomNavLink = styled(NavLink)`
 	&.active,
 	&:hover {
 		${styleUtils.fontFamily(700)}
-		border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
-		background-color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+		border-bottom: 2px solid white;
 	}
 
 	&:focus {

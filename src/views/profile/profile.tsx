@@ -19,11 +19,11 @@ export const Profile = observer(() => {
 		return <NetworkError />;
 	}
 
-	return (
+	return user ? (
 		<Styled.Profile>
 			<Styled.ProfileIntro>
-				<ProfileIntro user={user!} />
+				<ProfileIntro user={user} />
 			</Styled.ProfileIntro>
 		</Styled.Profile>
-	);
+	) : null;
 });

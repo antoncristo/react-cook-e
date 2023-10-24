@@ -1,16 +1,17 @@
 import { type ChangeEventHandler } from 'react';
+import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
-import { wizardStore } from '@cooke/stores/wizard-store';
+import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { type MeasurementUnit } from '@cooke/types';
 
 import { Ingredient } from './components';
 
 import * as Styled from './ingredients.styled';
-import { useTranslation } from 'react-i18next';
 
 export const Ingredients = observer(() => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
 	const { ingredients } = wizardStore;
+	const { ingredientValidation } = wizardValidator;
 
 	const addIngredient = () => {
 		wizardStore.addIngredient();

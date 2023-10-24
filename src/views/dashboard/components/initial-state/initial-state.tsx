@@ -7,11 +7,9 @@ export const InitialState = () => {
 	const { t } = useTranslation('dashboard');
 	return (
 		<Styled.InitialState>
-			<Loader size='M' />
 			<Styled.LinkButton to={cookePathnames.authenticatedPathNames.CREATE_RECIPE}>
 				{t('initialState')}
 			</Styled.LinkButton>
-			<Loader size='M' />
 		</Styled.InitialState>
 	);
 };
