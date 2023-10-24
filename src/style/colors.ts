@@ -1,6 +1,7 @@
 export enum Colors {
-	PRIMARY = '17, 130, 59',
-	SECONDARY = '2, 35, 28',
+	// Primary backup 0, 180, 216
+	PRIMARY = '9, 166, 243',
+	SECONDARY = '23, 30, 48',
 	BLACK = '23, 32, 38',
 	WHITE = '255, 255, 255',
 	GREY = '191, 191, 191',
