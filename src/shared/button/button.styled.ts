@@ -29,6 +29,7 @@ export const Button = styled.button.attrs(props => ({
 				color: rgba(${theme.colors.secondary}, 1);
 				opacity: 0.6;
 				pointer-events: none;
+				border: none;
 			`;
 		}
 
