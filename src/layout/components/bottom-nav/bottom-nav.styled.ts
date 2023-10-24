@@ -35,7 +35,7 @@ export const BottomNavLink = styled(NavLink)`
 
 	background-color: transparent;
 	color: rgba(${({ theme }) => theme.colors.white}, 1);
-	border-bottom: 2px solid transparent;
+	border-top: 2px solid transparent;
 
 	transition: all 0.26s ease-in-out;
 
@@ -43,7 +43,8 @@ export const BottomNavLink = styled(NavLink)`
 	&.active,
 	&:hover {
 		${styleUtils.fontFamily(700)}
-		border-bottom: 2px solid white;
+
+		border-top: 2px solid rgba(${({ theme }) => theme.colors.white});
 	}
 
 	&:focus {

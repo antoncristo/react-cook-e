@@ -10,6 +10,8 @@ export const CookeLogo = styled.div<{ $fontSize: string }>`
 	transition: all 0.2s ease-in-out;
 	display: flex;
 	align-items: center;
+	min-width: fit-content;
+	word-break: keep-all;
 
 	cursor: default;
 
