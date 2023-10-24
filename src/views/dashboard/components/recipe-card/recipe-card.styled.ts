@@ -53,5 +53,5 @@ export const Stats = styled.div`
 
 export const RecipeDescription = styled.div`
 	padding: 1rem;
-	${styleUtils.fontFamily(200)}
+	${styleUtils.fontFamily(300)}
 `;

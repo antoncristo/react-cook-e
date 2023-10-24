@@ -64,8 +64,8 @@ export const RecipeDescription = styled.p`
 `;
 
 export const RecipeFooter = styled.div`
-	color: rgba(${({ theme }) => theme.colors.secondary});
-	text-shadow: 0.2rem 0.2rem 0.6rem rgba(${({ theme }) => theme.colors.ternary}, 1);
+	color: rgba(${({ theme }) => theme.colors.white});
+	font-style: italic;
 	font-size: 3rem;
-	${styleUtils.fontFamily(600)}
+	${styleUtils.fontFamily(700)}
 `;

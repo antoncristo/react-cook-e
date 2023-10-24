@@ -38,6 +38,5 @@ export const IngredientItem = styled.li`
 		color: rgba(${({ theme }) => theme.colors.ternary}, 1);
 		${styleUtils.fontFamily(500)}
 		font-size: 1.8rem;
-		text-decoration: underline;
 	}
 `;

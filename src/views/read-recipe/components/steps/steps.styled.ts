@@ -41,6 +41,7 @@ export const StepsItem = styled.li`
 
 	div {
 		text-decoration: underline;
-		color: rgba(${({ theme }) => theme.colors.primary}, 1);
+		color: rgba(${({ theme }) => theme.colors.white}, 1);
+		${styleUtils.fontFamily(500)}
 	}
 `;
