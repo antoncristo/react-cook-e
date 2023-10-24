@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const HeaderProfile = styled.div``;
 
 export const ProfileButton = styled.button`
-	border: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border: 0.1rem solid rgba(${({ theme }) => theme.colors.white}, 1);
 	background-color: transparent;
 	padding: 0.6rem;
 	border-radius: 0.6rem;

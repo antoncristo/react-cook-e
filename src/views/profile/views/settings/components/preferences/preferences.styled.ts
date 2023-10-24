@@ -12,4 +12,5 @@ export const Preferences = styled.div`
 export const Footer = styled.div`
 	display: flex;
 	flex-direction: row-reverse;
+	gap: 1.6rem;
 `;

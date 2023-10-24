@@ -10,6 +10,7 @@ export const CardMask = styled.div`
 	bottom: 0;
 	left: 0;
 	right: 0;
+	padding: 0 1rem;
 	display: none;
 	background-color: rgba(${({ theme }) => theme.colors.primary}, 0.7);
 	border-radius: 1.2rem;
@@ -47,7 +48,7 @@ export const LinkButton = styled(Link)`
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
 			`rgba(${theme.colors.black}, 1)`,
-			`rgba(${theme.colors.ternary}, 1)`
+			`rgba(${theme.colors.white}, 1)`
 		)}
 `;
 
@@ -63,6 +64,6 @@ export const CardButton = styled(Button)`
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
 			`rgba(${theme.colors.black}, 1)`,
-			`rgba(${theme.colors.ternary}, 1)`
+			`rgba(${theme.colors.white}, 1)`
 		)}
 `;

@@ -5,6 +5,6 @@ export const Profile = styled.div`
 `;
 
 export const ProfileIntro = styled.div`
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary});
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white});
 	padding-bottom: 2rem;
 `;

@@ -23,7 +23,7 @@ export const Box = styled.div`
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 1);
 	border-radius: 1.6rem;
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
-	border: 0.1rem dashed rgba(${({ theme }) => theme.colors.primary}, 1);
+	border: 0.1rem solid rgba(${({ theme }) => theme.colors.primary}, 1);
 	animation: appear 300ms ease-in;
 
 	@keyframes appear {
@@ -43,6 +43,7 @@ export const Message = styled.p`
 	flex: 6;
 	display: flex;
 	align-items: flex-start;
+	white-space: pre-line;
 	justify-content: flex-start;
 	font-size: 1.6rem;
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};

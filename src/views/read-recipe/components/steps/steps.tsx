@@ -12,7 +12,7 @@ export const Steps = (props: StepsProps) => {
 
 	return (
 		<Styled.Steps>
-			<Styled.StepsTitle text='What and How?' fontSize='2rem' />
+			<Styled.StepsTitle text='Preparation Steps' fontSize='2.3rem' />
 			<Styled.StepsList>
 				{recipe.steps.map(step => (
 					<Styled.StepsItem key={step.id}>

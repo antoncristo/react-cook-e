@@ -12,7 +12,7 @@ export const Ingredients = (props: IngredientsProps) => {
 
 	return (
 		<Styled.Ingredients>
-			<Styled.IngredientsTitle text='Ingredients' fontSize='2rem' />
+			<Styled.IngredientsTitle text='Ingredients' fontSize='2.3rem' />
 			<Styled.IngredientsList>
 				{recipe.ingredients.map(ing => (
 					<Styled.IngredientItem key={ing.id}>

@@ -18,7 +18,6 @@ export const ToggleText = styled(Text)`
 	text-align: center;
 	font-size: 1.4rem;
 	font-style: italic;
-	border-bottom: 0.1rem solid white;
 	line-height: 1.9rem;
 `;
 

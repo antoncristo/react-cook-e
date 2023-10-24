@@ -14,13 +14,22 @@ export const Ingredient = styled.div`
 	padding: 0.8rem 1.2rem;
 	background-color: rgba(${({ theme }) => theme.colors.secondary}, 0.6);
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
+
+	animation: appear 0.33s ease-in-out;
+
+	@keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 `;
 
 export const IngredientInput = styled(Input)`
-	background-color: transparent;
 	padding: 0.6rem 1.2rem;
 	font-size: 1.4rem;
-	color: rgba(${({ theme }) => theme.colors.white}, 1);
 `;
 
 export const Controls = styled.div`

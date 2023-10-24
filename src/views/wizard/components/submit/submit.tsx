@@ -25,7 +25,11 @@ export const Submit = observer(() => {
 		} else {
 			wizardValidator.touchAll();
 			confirmationHandler({
-				msg: 'Please fill correctly all the highlighted/missing fields'
+				msg: `
+				Dish Name is REQUIRED
+				Description is REQUIRED 
+				Ingredients are REQUIRED
+				Preparation Steps are REQUIRED`
 			});
 		}
 	};
@@ -37,7 +41,7 @@ export const Submit = observer(() => {
 	}, [isPostSuccess, isPutSuccess]);
 
 	return (
-		<Button width='100%' onClick={onSubmit}>
+		<Button variant='secondary' width='100%' onClick={onSubmit}>
 			{isPostLoading || isPutLoading ? (
 				<Loader size='S' />
 			) : (

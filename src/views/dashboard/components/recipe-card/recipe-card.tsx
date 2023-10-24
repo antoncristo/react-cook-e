@@ -37,17 +37,17 @@ export const RecipeCard = (props: RecipeCardProps) => {
 			</Styled.RecipeTitle>
 			<Styled.Stats>
 				<div>
-					<span>{recipe.steps.length}</span> Steps
+					Steps: <span>{recipe.steps.length}</span>
 				</div>
 				<div>
-					<span>{recipe.ingredients.length}</span> Ingredients
+					Ingredients: <span>{recipe.ingredients.length}</span>
 				</div>
 			</Styled.Stats>
 			<Styled.RecipeDescription>
 				<Text
 					title={recipe.description}
 					fontSize='1.4rem'
-					numberOfLines={7}
+					numberOfLines={8}
 					text={recipe.description}
 				/>
 			</Styled.RecipeDescription>

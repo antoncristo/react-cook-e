@@ -11,7 +11,7 @@
 		"wizard": "Add Recipe",
 		"favorites": "Favorites"
 	},
-	"initialState": "Let's Start Cooking",
+	"initialState": "Create First Recipe",
 	"controls": {
 		"search": "Find a recipe...",
 		"noMatch": "No Matches for the text - '{{input}}'..."
