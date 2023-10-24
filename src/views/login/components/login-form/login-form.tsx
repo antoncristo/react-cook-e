@@ -2,24 +2,27 @@ import {
 	useState,
 	type FormEventHandler,
 	type ChangeEventHandler,
-	type FocusEventHandler,
-	useEffect
+	type FocusEventHandler
 } from 'react';
 import { recordUpdate } from '@cooke/utils';
-import { Input, Button, Loader, NetworkError } from '@cooke/shared';
+import { Input, Button, Loader } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
-import { useLogin } from '@cooke/api/user';
 
 import * as loginValidators from './validators';
 
 import * as Styled from './login-form.styled';
 
-export const LoginForm = () => {
+interface LoginFormProps {
+	loginHandler: Function;
+	isLoginPending: boolean;
+}
+
+export const LoginForm = (props: LoginFormProps) => {
+	const { isLoginPending, loginHandler } = props;
 	const [credentials, setCredentials] = useState<Credentials>({
 		email: '',
 		password: ''
 	});
-	const { loginHandler, isLoginPending } = useLogin();
 
 	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{

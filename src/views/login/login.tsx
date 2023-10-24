@@ -9,8 +9,7 @@ import { useLogin, useSignUp } from '@cooke/api/user';
 
 export const Login = () => {
 	const [isLoginForm, setIsLoginForm] = useState(true);
-	const { isLoginPending } = useLogin();
-	const { isSignUpPending } = useSignUp(() => null);
+	const { loginHandler, isLoginPending } = useLogin();
 
 	const goToLoginForm = () => {
 		setIsLoginForm(true);
@@ -19,6 +18,8 @@ export const Login = () => {
 	const goToSignUpForm = () => {
 		setIsLoginForm(false);
 	};
+
+	const { isSignUpPending, signUpHandler } = useSignUp(goToLoginForm);
 
 	return (
 		<Styled.Login>
@@ -29,11 +30,11 @@ export const Login = () => {
 			/>
 			{isLoginForm ? (
 				<Styled.Appear key='lk'>
-					<LoginForm />
+					<LoginForm loginHandler={loginHandler} isLoginPending={isLoginPending} />
 				</Styled.Appear>
 			) : (
 				<Styled.Appear key='suk'>
-					<SignUpForm toggleForms={goToLoginForm} />
+					<SignUpForm signUpHandler={signUpHandler} isSignUpPending={isSignUpPending} />
 				</Styled.Appear>
 			)}
 			<Styled.RegistrationToggle

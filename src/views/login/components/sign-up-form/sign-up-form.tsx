@@ -7,20 +7,23 @@ import {
 import { Button, Input, Loader } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
 import { recordUpdate } from '@cooke/utils';
-import { useSignUp } from '@cooke/api/user';
 
 import * as SignUpValidators from './validators';
 
 import * as Styled from './sign-up-form.styled';
 
-export const SignUpForm = ({ toggleForms }: { toggleForms: () => void }) => {
+interface SignUpFormProps {
+	signUpHandler: Function;
+	isSignUpPending: boolean;
+}
+
+export const SignUpForm = (props: SignUpFormProps) => {
+	const { isSignUpPending, signUpHandler } = props;
 	const [credentials, setCredentials] = useState<ExtendedCredentials>({
 		email: '',
 		password: '',
 		name: ''
 	});
-
-	const { signUpHandler, isSignUpPending } = useSignUp(toggleForms);
 
 	const { isFormValid, isInputValid, markAsTouched, touched } =
 		useValidation<ExtendedCredentials>([
