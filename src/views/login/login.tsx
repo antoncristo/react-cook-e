@@ -5,9 +5,12 @@ import { breakpoints } from '@cooke/style';
 import { LoginForm, SignUpForm } from './components';
 
 import * as Styled from './login.styled';
+import { useLogin, useSignUp } from '@cooke/api/user';
 
 export const Login = () => {
 	const [isLoginForm, setIsLoginForm] = useState(true);
+	const { isLoginPending } = useLogin();
+	const { isSignUpPending } = useSignUp(() => null);
 
 	const goToLoginForm = () => {
 		setIsLoginForm(true);
@@ -34,6 +37,7 @@ export const Login = () => {
 				</Styled.Appear>
 			)}
 			<Styled.RegistrationToggle
+				disabled={isLoginPending || isSignUpPending}
 				key={isLoginForm ? 'login' : 'sign-up'}
 				onClick={isLoginForm ? goToSignUpForm : goToLoginForm}
 				variant='secondary'

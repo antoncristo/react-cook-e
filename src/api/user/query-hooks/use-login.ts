@@ -19,7 +19,7 @@ export const useLogin = () => {
 
 	return {
 		loginHandler: mutate,
-		isLoginLoading: isPending,
+		isLoginPending: isPending,
 		isLoginError: isError
 	};
 };

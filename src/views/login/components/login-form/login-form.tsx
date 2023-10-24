@@ -19,7 +19,7 @@ export const LoginForm = () => {
 		email: '',
 		password: ''
 	});
-	const { loginHandler, isLoginLoading } = useLogin();
+	const { loginHandler, isLoginPending } = useLogin();
 
 	const { isFormValid, isInputValid, markAsTouched, touched } = useValidation([
 		{
@@ -88,7 +88,7 @@ export const LoginForm = () => {
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
-				{isLoginLoading ? (
+				{isLoginPending ? (
 					<div style={{ height: '3.5rem' }}>
 						<Loader size='S' />
 					</div>
