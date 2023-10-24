@@ -15,8 +15,11 @@ export const Header = styled.header`
 	}
 `;
 
-export const Section = styled.section<{ $justify: 'center' | 'flex-end' | 'flex-start' }>`
-	flex: 1;
+export const Section = styled.section<{
+	$flex: number;
+	$justify: 'center' | 'flex-end' | 'flex-start';
+}>`
+	flex: ${({ $flex }) => $flex};
 	display: flex;
 	justify-content: ${({ $justify }) => $justify};
 `;
