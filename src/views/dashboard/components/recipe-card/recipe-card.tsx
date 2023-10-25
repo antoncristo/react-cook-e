@@ -6,12 +6,14 @@ import { confirmationHandler } from '@cooke/utils';
 import { CardMask } from './components';
 
 import * as Styled from './recipe-card.styled';
+import { useTranslation } from 'react-i18next';
 
 interface RecipeCardProps {
 	recipe: Recipe;
 }
 
 export const RecipeCard = (props: RecipeCardProps) => {
+	const { t } = useTranslation('dashboard', { keyPrefix: 'recipeCard' });
 	const { recipe } = props;
 	const { deleteRecipe } = useDeleteRecipe();
 
@@ -37,10 +39,10 @@ export const RecipeCard = (props: RecipeCardProps) => {
 			</Styled.RecipeTitle>
 			<Styled.Stats>
 				<div>
-					Steps: <span>{recipe.steps.length}</span>
+					{t('steps')}: <span>{recipe.steps.length}</span>
 				</div>
 				<div>
-					Ingredients: <span>{recipe.ingredients.length}</span>
+					{t('ingredients')}: <span>{recipe.ingredients.length}</span>
 				</div>
 			</Styled.Stats>
 			<Styled.RecipeDescription>

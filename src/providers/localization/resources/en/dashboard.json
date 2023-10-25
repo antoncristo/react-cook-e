@@ -15,5 +15,9 @@
 	"controls": {
 		"search": "Find a recipe...",
 		"noMatch": "No Matches for the text - '{{input}}'..."
+	},
+	"recipeCard": {
+		"steps": "Steps",
+		"ingredients": "Ingredients"
 	}
 }
