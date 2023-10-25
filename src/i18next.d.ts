@@ -3,6 +3,7 @@ import 'i18next';
 import type dashboard from '@cooke/providers/localization/resources/en/dashboard.json';
 import type wizard from '@cooke/providers/localization/resources/en/wizard.json';
 import type profile from '@cooke/providers/localization/resources/en/profile.json';
+import type errors from '@cooke/providers/localization/resources/en/errors.json';
 
 declare module 'i18next' {
 	interface CustomTypeOptions {
@@ -10,6 +11,7 @@ declare module 'i18next' {
 			dashboard: typeof dashboard;
 			wizard: typeof wizard;
 			profile: typeof profile;
+			errors: typeof errors;
 		};
 	}
 }

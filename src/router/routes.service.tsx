@@ -4,7 +4,8 @@ import {
 	Outlet,
 	Navigate
 } from 'react-router-dom';
-import { Login, Dashboard, Wizard, ReadRecipe, ErrorPage, Profile } from '@cooke/views';
+import { Login, Dashboard, Wizard, ReadRecipe, Profile } from '@cooke/views';
+import ErrorPage from '@cooke/views/error-page';
 import { Settings } from '@cooke/views/profile/views';
 
 import { cookePathnames } from './pathnames';

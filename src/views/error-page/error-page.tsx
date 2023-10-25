@@ -1,12 +1,18 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { BreakPointSwitch, Button, CookeLogo } from '@cooke/shared';
 import { breakpoints } from '@cooke/style';
+import { Init } from '@cooke/init';
 import { userStore } from '@cooke/stores/user-store';
+import { type WithTranslation, withTranslation } from 'react-i18next';
 
 import * as Styled from './error-page.styled';
 
-export class ErrorPage extends Component<{ children: ReactNode }, { isError: boolean }> {
-	constructor(props: { children: ReactNode }) {
+interface IProps extends WithTranslation {
+	children: ReactNode;
+}
+
+class ErrorPage extends Component<IProps, { isError: boolean }> {
+	constructor(props: IProps) {
 		super(props);
 		this.state = {
 			isError: false
@@ -28,30 +34,33 @@ export class ErrorPage extends Component<{ children: ReactNode }, { isError: boo
 	render(): ReactNode {
 		if (this.state.isError) {
 			return (
-				<Styled.ErrorPage>
-					<BreakPointSwitch
-						before={<CookeLogo fontSize='5rem' iconDiameter={40} />}
-						switchAt={`${breakpoints.mobile.width}px`}
-						after={<CookeLogo fontSize='8rem' iconDiameter={70} />}
-					/>
-					<Styled.ErrorMessage>
-						{`Hurray! You Manged To Break The App :)
+				<Init>
+					<Styled.ErrorPage>
+						<BreakPointSwitch
+							before={<CookeLogo fontSize='5rem' iconDiameter={40} />}
+							switchAt={`${breakpoints.mobile.width}px`}
+							after={<CookeLogo fontSize='8rem' iconDiameter={70} />}
+						/>
+						<Styled.ErrorMessage>
+							{`${this.props.t('errorBoundary.p1') as string}
 		
-						What can be done?
 		
-						- Click the reload button and try again :)
-						- An unexpected error happened in the app, try reloading the browser
+						${this.props.t('errorBoundary.p2') as string}
+						${this.props.t('errorBoundary.p3') as string}
 						
-						* If nothing helps, please accept my apologies.. I will try to find the error in my logs! 
+						${this.props.t('errorBoundary.p4') as string} 
 					`}
-					</Styled.ErrorMessage>
-					<Button onClick={this.reloadApp} width='18rem'>
-						Reload
-					</Button>
-				</Styled.ErrorPage>
+						</Styled.ErrorMessage>
+						<Button onClick={this.reloadApp} width='18rem'>
+							{this.props.t('errorBoundary.reload')}
+						</Button>
+					</Styled.ErrorPage>
+				</Init>
 			);
 		}
 
 		return this.props.children;
 	}
 }
+
+export default withTranslation('errors')(ErrorPage);
