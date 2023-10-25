@@ -1,4 +1,5 @@
 import { Loader, NetworkError } from '@cooke/shared';
+import { Init } from '@cooke/init';
 import { useGetPreferences } from '@cooke/api/preferences';
 
 import { Preferences } from './components';
@@ -17,8 +18,10 @@ export const Settings = () => {
 	}
 
 	return (
-		<Styled.Settings>
-			<Preferences initialPreference={preferences!} />
-		</Styled.Settings>
+		<Init>
+			<Styled.Settings>
+				<Preferences initialPreference={preferences!} />
+			</Styled.Settings>
+		</Init>
 	);
 };

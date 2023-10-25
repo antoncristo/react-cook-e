@@ -15,5 +15,9 @@
 	"controls": {
 		"search": "Найти рецепт...",
 		"noMatch": "Нет совпадений с текстом - '{{input}}'..."
+	},
+	"recipeCard": {
+		"steps": "шагов",
+		"ingredients": "Ингредиентов"
 	}
 }

@@ -1,16 +1,18 @@
 import { type User } from '@cooke/types';
-
-import * as Styled from './profile-intro.styled';
 import { SettingsIcon } from '@cooke/assets';
 import { Button } from '@cooke/shared';
 import { useNavigate } from 'react-router-dom';
 import { cookePathnames } from '@cooke/router';
+import { useTranslation } from 'react-i18next';
+
+import * as Styled from './profile-intro.styled';
 
 interface ProfileIntroProps {
 	user: User;
 }
 
 export const ProfileIntro = (props: ProfileIntroProps) => {
+	const { t } = useTranslation('profile', { keyPrefix: 'settings' });
 	const { user } = props;
 	const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ export const ProfileIntro = (props: ProfileIntroProps) => {
 			</Styled.UserInfo>
 			<Styled.Controls>
 				<Button onClick={goToSettings} variant='secondary' width='fit-content'>
-					<SettingsIcon right='1rem' /> Settings
+					<SettingsIcon right='1rem' /> {t('controls.settings')}
 				</Button>
 			</Styled.Controls>
 		</Styled.ProfileIntro>

@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import { Init } from '@cooke/init';
 import { useGetUser } from '@cooke/api/user';
 import { userStore } from '@cooke/stores/user-store';
 import { Loader, NetworkError } from '@cooke/shared';
@@ -20,10 +21,12 @@ export const Profile = observer(() => {
 	}
 
 	return user ? (
-		<Styled.Profile>
-			<Styled.ProfileIntro>
-				<ProfileIntro user={user} />
-			</Styled.ProfileIntro>
-		</Styled.Profile>
+		<Init>
+			<Styled.Profile>
+				<Styled.ProfileIntro>
+					<ProfileIntro user={user} />
+				</Styled.ProfileIntro>
+			</Styled.Profile>
+		</Init>
 	) : null;
 });

@@ -17,7 +17,7 @@ interface PreferencesProps {
 
 export const Preferences = (props: PreferencesProps) => {
 	const { initialPreference } = props;
-	const { i18n } = useTranslation();
+	const { i18n, t } = useTranslation(['profile', 'alerts']);
 	const { isPutPreferencesPending, putPreferences } = usePutPreferences();
 	const [update, setUpdate] = useState<PreferencesType>(initialPreference);
 	const [isEditMode, setIsEditMode] = useState(false);
@@ -38,7 +38,7 @@ export const Preferences = (props: PreferencesProps) => {
 
 	const onPreSaveChanges = () => {
 		confirmationHandler({
-			msg: 'Are you sure you want to save the current changes ?',
+			msg: t('alerts:confirmations.confirmPreferences'),
 			cb: onSaveChanges
 		});
 	};
@@ -57,13 +57,13 @@ export const Preferences = (props: PreferencesProps) => {
 	return (
 		<Styled.Preferences>
 			<StyledParent.SettingHeader>
-				<StyledParent.SectionTitle text='Preferences' />
+				<StyledParent.SectionTitle text={t('profile:settings.preferences.header')} />
 				<Button
 					disabled={isEditMode}
 					onClick={toggleEditMode}
 					style={{ fontSize: '1.4rem' }}
 				>
-					<EditIcon right='1rem' /> Edit
+					<EditIcon right='1rem' /> {t('profile:settings.controls.edit')}
 				</Button>
 			</StyledParent.SettingHeader>
 			<Language
@@ -81,7 +81,7 @@ export const Preferences = (props: PreferencesProps) => {
 						onClick={onPreSaveChanges}
 						style={{ fontSize: '1.4rem' }}
 					>
-						Save Changes
+						{t('profile:settings.controls.saveEdit')}
 					</Button>
 					<Button
 						width='fit-content'
@@ -90,7 +90,7 @@ export const Preferences = (props: PreferencesProps) => {
 						onClick={onResetEditMode}
 						style={{ fontSize: '1.4rem' }}
 					>
-						Cancel
+						{t('profile:settings.controls.cancelEdit')}
 					</Button>
 				</Styled.Footer>
 			)}
