@@ -7,7 +7,7 @@ export const RecipeCard = styled.div`
 	border: 0.1rem solid rgba(${({ theme }) => theme.colors.secondary});
 	width: 22rem;
 	border-radius: 1.2rem;
-	background-color: rgba(${({ theme }) => theme.colors.primary});
+	background-color: rgba(${({ theme }) => theme.colors.secondary});
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.secondary};
 	transition: all 0.32s ease-in-out;
 
@@ -20,7 +20,6 @@ export const RecipeCard = styled.div`
 
 	@media screen and (max-width: ${breakpoints.mobile.width}px) {
 		width: 100%;
-		aspect-ratio: unset;
 	}
 `;
 
@@ -50,5 +49,5 @@ export const Stats = styled.div`
 export const RecipeDescription = styled.div`
 	padding: 1rem;
 	${styleUtils.fontFamily(300)}
-	color: black;
+	color: rgba(${({ theme }) => theme.colors.white});
 `;

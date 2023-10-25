@@ -22,7 +22,7 @@ export const Search = styled(Input)`
 	}
 
 	@media screen and (max-width: ${breakpoints.mobile.width}px) {
-		max-width: unset;
+		max-width: 100%;
 		height: 4.6rem;
 	}
 `;

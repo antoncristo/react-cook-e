@@ -9,7 +9,7 @@ export const RecipesFlex = styled.div`
 	box-sizing: border-box;
 	height: calc(100% - 6rem);
 	margin-top: 2rem;
-	padding: 0.6rem ${({ theme }) => theme.decorators.padding.default};
+	padding: 0.6rem 0;
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
@@ -20,5 +20,6 @@ export const RecipesFlex = styled.div`
 	@media screen and (max-width: ${breakpoints.mobile.width}px) {
 		flex-direction: column;
 		flex-wrap: nowrap;
+		padding: 0;
 	}
 `;

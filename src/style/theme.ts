@@ -6,7 +6,7 @@ export type BaseColor =
 	| 'black'
 	| 'white'
 	| 'grey'
-	| 'purple'
+	| 'pastel'
 	| 'error'
 	| 'warning'
 	| 'success';
@@ -35,7 +35,7 @@ export const cookeTheme: CookeTheme = {
 		black: Colors.BLACK,
 		white: Colors.WHITE,
 		grey: Colors.GREY,
-		purple: Colors.PURPLE,
+		pastel: Colors.PASTEL,
 		primary: Colors.PRIMARY,
 		secondary: Colors.SECONDARY,
 		success: Colors.SUCCESS,

@@ -45,7 +45,7 @@ export const Loader = styled.div<{ size: 'S' | 'M' | 'L' }>`
 		}};
 		aspect-ratio: 1/1;
 		border-radius: 50%;
-		border-left: 4px solid rgba(${({ theme }) => theme.colors.purple}, 1);
+		border-left: 4px solid rgba(${({ theme }) => theme.colors.pastel}, 1);
 		border-bottom: 4px solid transparent;
 		animation: rotation 0.5s linear infinite reverse;
 	}
