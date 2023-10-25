@@ -1,4 +1,5 @@
 import { type ChangeEventHandler } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Label, Option, Select } from '@cooke/shared';
 import { cookeTheme } from '@cooke/style';
 
@@ -11,12 +12,13 @@ interface LanguageProps {
 }
 
 export const Language = (props: LanguageProps) => {
+	const { t } = useTranslation('profile', { keyPrefix: 'settings.preferences' });
 	const { currentLng, onChange, isEditMode } = props;
 	const options: CookeLanguages[] = ['en', 'ru'];
 
 	return (
 		<Styled.Language>
-			<Label htmlFor='lng' text='Language :' fontSize='1.4rem' />
+			<Label htmlFor='lng' text={`${t('language') as string} :`} fontSize='1.4rem' />
 			{isEditMode ? (
 				<Select onChange={onChange} id='lng'>
 					{options.map(op => (
