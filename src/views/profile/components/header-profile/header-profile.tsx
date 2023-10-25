@@ -11,7 +11,7 @@ import { Popover } from '@cooke/shared';
 import * as Styled from './header-profile.styled';
 
 export const HeaderProfile = () => {
-	const { t } = useTranslation('dashboard', { keyPrefix: 'header.profileMenu' });
+	const { t } = useTranslation(['dashboard', 'alerts']);
 	const [anchor, setAnchor] = useState<HTMLButtonElement | null>(null);
 	const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export const HeaderProfile = () => {
 	};
 
 	const preLogout = () => {
-		confirmationHandler({ msg: 'Are you sure ypu wnat to logout ?', cb: logOut });
+		confirmationHandler({ msg: t('alerts:confirmations.confirmLogOut'), cb: logOut });
 	};
 
 	const logOut = () => {
@@ -46,12 +46,14 @@ export const HeaderProfile = () => {
 			</Styled.ProfileButton>
 			<Popover relativeToAnchorX='left' anchor={anchor} onClose={oncloseHandler}>
 				<Styled.PopoverContent>
-					<Styled.MenuButton onMouseDown={goToProfile}>{t('profile')}</Styled.MenuButton>
+					<Styled.MenuButton onMouseDown={goToProfile}>
+						{t('dashboard:header.profileMenu.profile')}
+					</Styled.MenuButton>
 					<Styled.MenuButton onMouseDown={goToSettings}>
-						<SettingsIcon right='10px' /> {t('settings')}
+						<SettingsIcon right='10px' /> {t('dashboard:header.profileMenu.settings')}
 					</Styled.MenuButton>
 					<Styled.MenuButton onMouseDown={preLogout}>
-						<LogOutIcon right='10px' /> {t('logout')}
+						<LogOutIcon right='10px' /> {t('dashboard:header.profileMenu.logout')}
 					</Styled.MenuButton>
 				</Styled.PopoverContent>
 			</Popover>

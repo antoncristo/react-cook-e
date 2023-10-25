@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { recipeService } from '../recipe.service';
 import { recipesStore } from '@cooke/stores/recipes-store';
-import { errorHandler } from '@cooke/utils';
 
 export const GET_RECIPE_QUERY_KEY = 'get_recipe_key';
 

@@ -5,11 +5,11 @@ import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
 import { useEffect } from 'react';
-import { confirmationHandler } from '@cooke/utils';
+import { errorHandler } from '@cooke/utils';
 import { useTranslation } from 'react-i18next';
 
 export const Submit = observer(() => {
-	const { t } = useTranslation('wizard');
+	const { t } = useTranslation(['wizard', 'alerts']);
 	const { recipe, isEditMode } = wizardStore;
 	const { postRecipe, isPostLoading, isPostSuccess } = usePostRecipe();
 	const { putRecipe, isPutLoading, isPutSuccess } = usePutRecipe();
@@ -24,13 +24,7 @@ export const Submit = observer(() => {
 			}
 		} else {
 			wizardValidator.touchAll();
-			confirmationHandler({
-				msg: `
-				Dish Name is REQUIRED
-				Description is REQUIRED 
-				Ingredients are REQUIRED
-				Preparation Steps are REQUIRED`
-			});
+			errorHandler(t('alerts:errors.recipeInvalid'));
 		}
 	};
 
@@ -45,7 +39,7 @@ export const Submit = observer(() => {
 			{isPostLoading || isPutLoading ? (
 				<Loader size='S' />
 			) : (
-				<b>{isEditMode ? t('update') : t('submit')}</b>
+				<b>{isEditMode ? t('wizard:update') : t('wizard:submit')}</b>
 			)}
 		</Button>
 	);

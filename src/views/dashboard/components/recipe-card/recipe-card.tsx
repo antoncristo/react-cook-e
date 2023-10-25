@@ -13,13 +13,13 @@ interface RecipeCardProps {
 }
 
 export const RecipeCard = (props: RecipeCardProps) => {
-	const { t } = useTranslation('dashboard', { keyPrefix: 'recipeCard' });
+	const { t } = useTranslation(['dashboard', 'alerts']);
 	const { recipe } = props;
 	const { deleteRecipe } = useDeleteRecipe();
 
 	const deleteHandler = () => {
 		confirmationHandler({
-			msg: `Delete "${recipe.title}" recipe ?`,
+			msg: t('alerts:confirmations.confirmRecipeDelete', { title: recipe.title }),
 			cb() {
 				deleteRecipe(recipe);
 			}
@@ -39,10 +39,11 @@ export const RecipeCard = (props: RecipeCardProps) => {
 			</Styled.RecipeTitle>
 			<Styled.Stats>
 				<div>
-					{t('steps')}: <span>{recipe.steps.length}</span>
+					{t('dashboard:recipeCard.steps')}: <span>{recipe.steps.length}</span>
 				</div>
 				<div>
-					{t('ingredients')}: <span>{recipe.ingredients.length}</span>
+					{t('dashboard:recipeCard.ingredients')}:{' '}
+					<span>{recipe.ingredients.length}</span>
 				</div>
 			</Styled.Stats>
 			<Styled.RecipeDescription>
