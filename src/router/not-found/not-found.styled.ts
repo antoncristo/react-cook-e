@@ -12,7 +12,7 @@ export const NotFound = styled.div`
 `;
 
 export const FourOFour = styled(Text)`
-	color: rgba(${({ theme }) => theme.colors.pastel}, 1);
+	color: rgba(${({ theme }) => theme.colors.orange}, 1);
 	${styleUtils.fontFamily(800)}
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 `;

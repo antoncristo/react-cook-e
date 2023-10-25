@@ -5,7 +5,7 @@ export const CookeLogo = styled.div<{ $fontSize: string }>`
 	font-size: ${({ $fontSize }) => $fontSize};
 	line-height: 1;
 	${styleUtils.fontFamily(600)}
-	color: rgba(${({ theme }) => theme.colors.white}, 1);
+	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-shadow: 0.3rem 0.3rem 0.6rem rgba(${({ theme }) => theme.colors.black}, 1);
 	transition: all 0.2s ease-in-out;
 	display: flex;
@@ -16,6 +16,6 @@ export const CookeLogo = styled.div<{ $fontSize: string }>`
 	cursor: default;
 
 	&:hover {
-		color: rgba(${({ theme }) => theme.colors.primary}, 1);
+		color: rgba(${({ theme }) => theme.colors.orange}, 1);
 	}
 `;

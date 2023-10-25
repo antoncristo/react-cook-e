@@ -36,7 +36,7 @@ export const Button = styled.button.attrs(props => ({
 		if ($variant === 'primary') {
 			return styleUtils.buttonWithHoverInversion(
 				`rgba(${theme.colors.primary}, 1)`,
-				`rgba(${theme.colors.white}, 1)`
+				`rgba(${theme.colors.secondary}, 1)`
 			);
 		}
 
