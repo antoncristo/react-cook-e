@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 
-import { ThemeProvider } from './theme-provider';
+import { ThemeProvider } from './theme/theme-provider';
 import { ReactQueryProvider } from './react-query-provider';
 import { LocalizationProvider } from './localization';
 

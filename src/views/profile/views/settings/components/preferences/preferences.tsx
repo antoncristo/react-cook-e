@@ -62,6 +62,7 @@ export const Preferences = (props: PreferencesProps) => {
 					disabled={isEditMode}
 					onClick={toggleEditMode}
 					style={{ fontSize: '1.4rem' }}
+					variant='secondary'
 				>
 					<EditIcon right='1rem' /> {t('profile:settings.controls.edit')}
 				</Button>

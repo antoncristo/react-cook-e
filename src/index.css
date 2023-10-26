@@ -16,10 +16,6 @@ button {
 	font-family: inherit;
 }
 
-*:focus {
-	outline: 0.1rem solid white;
-}
-
 @font-face {
 	font-family: 'cooke-100';
 	src: url('./assets/fonts/Gluten-Thin.ttf');

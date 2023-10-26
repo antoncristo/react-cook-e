@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const RecipeCard = styled.div`
 	position: relative;
 	box-sizing: border-box;
-	border: 0.1rem solid rgba(${({ theme }) => theme.colors.secondary});
+	border: 0.1rem solid rgba(${({ theme }) => theme.colors.primary});
 	width: 22rem;
 	border-radius: 1.2rem;
 	background-color: rgba(${({ theme }) => theme.colors.secondary});
@@ -30,7 +30,7 @@ export const RecipeTitle = styled.div`
 	height: calc(2.5rem * 2.4);
 	padding: 1rem;
 	background-color: rgba(${({ theme }) => theme.colors.primary});
-	border-radius: 1.1rem 1.1rem 0 0;
+	border-radius: 1.03rem 1.03rem 0 0;
 `;
 
 export const Stats = styled.div`
@@ -49,5 +49,5 @@ export const Stats = styled.div`
 export const RecipeDescription = styled.div`
 	padding: 1rem;
 	${styleUtils.fontFamily(300)}
-	color: rgba(${({ theme }) => theme.colors.white});
+	color: rgba(${({ theme }) => theme.colors.primary});
 `;

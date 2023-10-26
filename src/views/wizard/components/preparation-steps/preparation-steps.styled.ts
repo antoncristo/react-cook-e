@@ -14,7 +14,7 @@ export const PreparationSteps = styled.div`
 export const PreparationStepsTitle = styled.h2`
 	width: fit-content;
 	margin: 0;
-	color: rgba(${({ theme }) => theme.colors.white}, 1);
+	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	${styleUtils.fontFamily(400)}
 	font-size: 1.6rem;
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};

@@ -13,7 +13,7 @@ export const MenuLink = styled(NavLink)`
 	box-sizing: border-box;
 	font-size: 1.4rem;
 	text-decoration: none;
-	color: rgba(${({ theme }) => theme.colors.white}, 1);
+	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	height: 3rem;
 	display: flex;
 	align-items: center;
