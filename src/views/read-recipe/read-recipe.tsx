@@ -10,8 +10,10 @@ import { PrintIcon } from '@cooke/assets';
 import { Ingredients, Steps } from './components';
 
 import * as Styled from './read-recipe.styled';
+import { useTranslation } from 'react-i18next';
 
 export const ReadRecipe = observer(() => {
+	const { t } = useTranslation('recipe', { keyPrefix: 'controls' });
 	const params = useParams() as Record<'recipeid', UUID>;
 	const storeRecipe = recipesStore.getRecipe(params.recipeid);
 	const {
@@ -48,9 +50,14 @@ export const ReadRecipe = observer(() => {
 						fontSize='2.5rem'
 						text={recipe.title}
 					/>
-					<Button className='control' onClick={onPrint} variant='secondary'>
+					<Button
+						className='control'
+						onClick={onPrint}
+						variant='secondary'
+						width='fit -content'
+					>
 						<PrintIcon width={22} height={22} right='1rem' />
-						Print
+						{t('print')}
 					</Button>
 					<Styled.RecipeDescription>{recipe.description}</Styled.RecipeDescription>
 					<Ingredients recipe={recipe} />
