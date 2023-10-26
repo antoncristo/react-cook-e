@@ -13,8 +13,6 @@ export const TextArea = styled.textarea<{ width?: string; $isValid: boolean }>`
 	${({ $isValid }) =>
 		$isValid
 			? css`
-					box-shadow: ${({ theme }) => theme.decorators.boxShadow.secondary};
-
 					&::placeholder {
 						color: rgba(${({ theme }) => theme.colors.grey}, 1);
 					}
