@@ -1,9 +1,9 @@
 import { type ChangeEventHandler } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Label, Option, Select } from '@cooke/shared';
-import { cookeTheme } from '@cooke/style';
 
 import * as Styled from './language.styled';
+import { useThemeContext } from '@cooke/style';
 
 interface LanguageProps {
 	currentLng: CookeLanguages;
@@ -12,6 +12,7 @@ interface LanguageProps {
 }
 
 export const Language = (props: LanguageProps) => {
+	const cookeTheme = useThemeContext();
 	const { t } = useTranslation('profile', { keyPrefix: 'settings.preferences' });
 	const { currentLng, onChange, isEditMode } = props;
 	const options: CookeLanguages[] = ['en', 'ru'];

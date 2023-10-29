@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Colors } from './colors';
+import { ThemeContext } from 'styled-components';
 
 export type BaseColor =
 	| 'primary'
@@ -30,7 +32,7 @@ export interface CookeTheme {
 	decorators: Decorators;
 }
 
-export const cookeTheme: CookeTheme = {
+export const cookeDarkTheme: CookeTheme = {
 	colors: {
 		black: Colors.BLACK,
 		white: Colors.WHITE,
@@ -57,40 +59,7 @@ export const cookeTheme: CookeTheme = {
 	}
 };
 
-/** Light mode
- * import { Colors } from './colors';
-
-export type BaseColor =
-	| 'primary'
-	| 'secondary'
-	| 'black'
-	| 'white'
-	| 'grey'
-	| 'orange'
-	| 'error'
-	| 'warning'
-	| 'success';
-
-export interface Decorators {
-	boxShadow: {
-		primary: string;
-		secondary: string;
-		error: string;
-	};
-	textShadow: {
-		primary: string;
-	};
-	padding: {
-		default: string;
-	};
-}
-
-export interface CookeTheme {
-	colors: Record<BaseColor, Colors>;
-	decorators: Decorators;
-}
-
-export const cookeTheme: CookeTheme = {
+export const cookeLightTheme: CookeTheme = {
 	colors: {
 		black: Colors.WHITE,
 		white: Colors.BLACK,
@@ -117,4 +86,10 @@ export const cookeTheme: CookeTheme = {
 	}
 };
 
- */
+export const useThemeContext = () => {
+	const theme = useContext(ThemeContext);
+
+	const _theme = theme ? theme : cookeDarkTheme;
+
+	return _theme;
+};
