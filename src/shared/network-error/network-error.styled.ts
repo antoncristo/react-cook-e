@@ -12,7 +12,7 @@ export const NetworkError = styled.div`
 
 export const ErrorMessage = styled.p`
 	text-align: center;
-	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+	color: rgba(${({ theme }) => theme.colors.white}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 	white-space: pre-line;
 	font-size: 1.6rem;

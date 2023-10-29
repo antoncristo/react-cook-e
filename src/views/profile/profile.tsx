@@ -1,15 +1,18 @@
 import { observer } from 'mobx-react-lite';
+import { Init } from '@cooke/init';
 import { useGetUser } from '@cooke/api/user';
 import { userStore } from '@cooke/stores/user-store';
+import { Loader, NetworkError } from '@cooke/shared';
+
+import { ProfileIntro } from './components';
 
 import * as Styled from './profile.styled';
-import { Loader, NetworkError } from '@cooke/shared';
 
 export const Profile = observer(() => {
 	const { user } = userStore;
-	const { isUserError, isUserLoading } = useGetUser();
+	const { isUserError, isUserPending } = useGetUser();
 
-	if (isUserLoading) {
+	if (isUserPending) {
 		return <Loader size='M' />;
 	}
 
@@ -17,5 +20,13 @@ export const Profile = observer(() => {
 		return <NetworkError />;
 	}
 
-	return <Styled.Profile>{user?.name}</Styled.Profile>;
+	return user ? (
+		<Init>
+			<Styled.Profile>
+				<Styled.ProfileIntro>
+					<ProfileIntro user={user} />
+				</Styled.ProfileIntro>
+			</Styled.Profile>
+		</Init>
+	) : null;
 });

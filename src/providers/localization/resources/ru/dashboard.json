@@ -1,0 +1,26 @@
+{
+	"header": {
+		"profileMenu": {
+			"profile": "Профиль",
+			"settings": "Настройки",
+			"logout": "Выйти"
+		}
+	},
+	"nav": {
+		"dashboard": "Моя книга",
+		"wizard": "Создавать",
+		"favorites": "Избранное"
+	},
+	"initialState": "Создать первый рецепт",
+	"controls": {
+		"search": "Найти рецепт...",
+		"noMatch": "Нет совпадений с текстом - '{{input}}'...",
+		"readRecipe": "Смотреть",
+		"editRecipe": "Изменить",
+		"deleteRecipe": "Удалить"
+	},
+	"recipeCard": {
+		"steps": "шагов",
+		"ingredients": "Ингредиентов"
+	}
+}

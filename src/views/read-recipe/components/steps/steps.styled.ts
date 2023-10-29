@@ -1,4 +1,5 @@
 import { Text } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const Steps = styled.div`
@@ -14,7 +15,7 @@ export const Steps = styled.div`
 export const StepsTitle = styled(Text)`
 	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	text-decoration: underline;
-	font-family: 'cooke-400';
+	${styleUtils.fontFamily(400)}
 `;
 
 export const StepsList = styled.ul`
@@ -31,7 +32,7 @@ export const StepsItem = styled.li`
 	gap: 1rem;
 	flex-direction: column;
 	font-size: 1.6rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 
 	p {
@@ -40,6 +41,7 @@ export const StepsItem = styled.li`
 
 	div {
 		text-decoration: underline;
-		color: rgba(${({ theme }) => theme.colors.primary}, 1);
+		color: rgba(${({ theme }) => theme.colors.white}, 1);
+		${styleUtils.fontFamily(500)}
 	}
 `;

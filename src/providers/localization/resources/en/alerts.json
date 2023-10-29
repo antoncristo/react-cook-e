@@ -1,0 +1,23 @@
+{
+	"unauthorized": "You are UNAUTHORIZED to use the app, In 5 seconds you will be asked to LOG IN again",
+	"defaultSuccess": "SUCCESS!",
+	"confirmations": {
+		"confirmSignUp": "Successfully created a new user! Please login with the credentials you provided :)",
+		"confirmRecipeDelete": "Delete '{{title}}' recipe ?",
+		"confirmLogOut": "Are you sure you want to logout ?",
+		"confirmPreferences": "Are you sure you want to save the current changes ?"
+	},
+	"success": {
+		"preferencesUpdated": "Successfully updated your preferences!",
+		"recipeDeleted": "Successfully DELETED",
+		"recipeCreated": "Successfully ADDED '{{title}}' recipe :)",
+		"recipeUpdated": "Successfully UPDATED '{{title}}' recipe :)"
+	},
+	"errors": {
+		"recipeInvalid": "Dish Name is REQUIRED! Description is REQUIRED! Ingredients are REQUIRED! Preparation Steps are REQUIRED!"
+	},
+	"controls": {
+		"dismiss": "Return",
+		"confirm": "OK"
+	}
+}

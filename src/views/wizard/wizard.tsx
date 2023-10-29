@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
+import { Init } from '@cooke/init';
 import { type Recipe } from '@cooke/types';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { recipesStore } from '@cooke/stores/recipes-store';
@@ -41,15 +42,16 @@ export const Wizard = observer(() => {
 	}, [recipe]);
 
 	return (
-		<Styled.Wizard>
-			<Styled.WizardFlex>
-				<Styled.WizardTitle>What`s Cook-E ?</Styled.WizardTitle>
-				<DishName />
-				<DishDescription />
-				<Ingredients />
-				<PreparationSteps />
-				<Submit />
-			</Styled.WizardFlex>
-		</Styled.Wizard>
+		<Init>
+			<Styled.Wizard>
+				<Styled.WizardFlex>
+					<DishName />
+					<DishDescription />
+					<Ingredients />
+					<PreparationSteps />
+					<Submit />
+				</Styled.WizardFlex>
+			</Styled.Wizard>
+		</Init>
 	);
 });

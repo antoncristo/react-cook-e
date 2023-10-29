@@ -1,0 +1,40 @@
+{
+	"dishName": "Название блюда...",
+	"dishNameInvalid": "Укажите название блюда...",
+	"description": "Описание...",
+	"descriptionInvalid": "Требуется описание...",
+	"ingredients": {
+		"section": "ИНГРЕДИЕНТЫ",
+		"buttons": {
+			"add": "Добавить",
+			"delete": "Удалить"
+		},
+		"ingredientName": "Название...",
+		"ingredientNameInvalid": "Укажите название...",
+		"unitOf": "",
+		"measurementUnits": {
+			"cup": "чашка",
+			"grams": "г",
+			"kilograms": "кг",
+			"liter": "л",
+			"mililiter": "мл",
+			"tableSpoon": "ст. ложка",
+			"teaSpoon": "ч. ложка",
+			"unit": "единица"
+		}
+	},
+	"preparationSteps": {
+		"section": "ШАГИ ИЗГОТОВЛЕНИЯ",
+		"step": "#",
+		"buttons": {
+			"add": "Добавить",
+			"delete": "Удалить",
+			"moveUp": "Вверх",
+			"moveDown": "Вниз"
+		},
+		"description": "Описание...",
+		"descriptionInvalid": "Требуется описание..."
+	},
+	"submit": "СОЗДАТЬ",
+	"update": "ОБНОВИТЬ"
+}

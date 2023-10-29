@@ -1,0 +1,14 @@
+{
+	"settings": {
+		"preferences": {
+			"header": "Preferences",
+			"language": "Language"
+		},
+		"controls": {
+			"settings": "Settings",
+			"edit": "Edit",
+			"cancelEdit": "Cancel",
+			"saveEdit": "Save Changes"
+		}
+	}
+}

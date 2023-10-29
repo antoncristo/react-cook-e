@@ -1,11 +1,10 @@
 export enum Colors {
-	PRIMARY = '17, 130, 59',
-	SECONDARY = '2, 35, 28',
-	TERNARY = '145, 240, 134',
+	PRIMARY = '255, 195, 161',
+	SECONDARY = '23, 30, 48',
 	BLACK = '23, 32, 38',
 	WHITE = '255, 255, 255',
 	GREY = '191, 191, 191',
-	PURPLE = '140, 20, 252',
+	ORANGE = '249, 76, 16',
 	SUCCESS = '82,182,68',
 	WARNING = '238,186,48',
 	ERROR = '255, 0, 0'

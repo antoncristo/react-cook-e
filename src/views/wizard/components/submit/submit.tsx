@@ -4,11 +4,12 @@ import { Button, Loader } from '@cooke/shared';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { usePostRecipe, usePutRecipe } from '@cooke/api/recipe';
 import { cookePathnames } from '@cooke/router';
-import { alertStore } from '@cooke/stores/alert-store';
 import { useEffect } from 'react';
-import { confirmationHandler } from '@cooke/utils';
+import { errorHandler } from '@cooke/utils';
+import { useTranslation } from 'react-i18next';
 
 export const Submit = observer(() => {
+	const { t } = useTranslation(['wizard', 'alerts']);
 	const { recipe, isEditMode } = wizardStore;
 	const { postRecipe, isPostLoading, isPostSuccess } = usePostRecipe();
 	const { putRecipe, isPutLoading, isPutSuccess } = usePutRecipe();
@@ -23,9 +24,7 @@ export const Submit = observer(() => {
 			}
 		} else {
 			wizardValidator.touchAll();
-			confirmationHandler({
-				msg: 'Please fill correctly all the highlighted/missing fields'
-			});
+			errorHandler(t('alerts:errors.recipeInvalid'));
 		}
 	};
 
@@ -36,11 +35,11 @@ export const Submit = observer(() => {
 	}, [isPostSuccess, isPutSuccess]);
 
 	return (
-		<Button width='100%' onClick={onSubmit}>
+		<Button variant='secondary' width='100%' onClick={onSubmit}>
 			{isPostLoading || isPutLoading ? (
 				<Loader size='S' />
 			) : (
-				<b>{isEditMode ? 'UPDATE' : 'SUBMIT'}</b>
+				<b>{isEditMode ? t('wizard:update') : t('wizard:submit')}</b>
 			)}
 		</Button>
 	);

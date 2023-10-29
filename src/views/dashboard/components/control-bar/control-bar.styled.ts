@@ -5,5 +5,4 @@ export const ControlBar = styled.div`
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
-	padding-inline-start: 2rem;
 `;

@@ -18,7 +18,7 @@ export const Loader = styled.div<{ size: 'S' | 'M' | 'L' }>`
 		aspect-ratio: 1/1;
 		border-radius: 50%;
 		display: inline-block;
-		border-top: 4px solid rgba(${({ theme }) => theme.colors.warning}, 1);
+		border-top: 4px solid rgba(${({ theme }) => theme.colors.primary}, 1);
 		border-right: 4px solid transparent;
 		box-sizing: border-box;
 		animation: rotation 1s linear infinite;
@@ -45,7 +45,7 @@ export const Loader = styled.div<{ size: 'S' | 'M' | 'L' }>`
 		}};
 		aspect-ratio: 1/1;
 		border-radius: 50%;
-		border-left: 4px solid rgba(${({ theme }) => theme.colors.purple}, 1);
+		border-left: 4px solid rgba(${({ theme }) => theme.colors.orange}, 1);
 		border-bottom: 4px solid transparent;
 		animation: rotation 0.5s linear infinite reverse;
 	}
