@@ -1,0 +1,26 @@
+{
+	"header": {
+		"profileMenu": {
+			"profile": "Profile",
+			"settings": "Settings",
+			"logout": "Log Out"
+		}
+	},
+	"nav": {
+		"dashboard": "My Book",
+		"wizard": "Add Recipe",
+		"favorites": "Favorites"
+	},
+	"initialState": "Create First Recipe",
+	"controls": {
+		"search": "Find a recipe...",
+		"noMatch": "No Matches for the text - '{{input}}'...",
+		"readRecipe": "Go To Recipe",
+		"editRecipe": "Edit",
+		"deleteRecipe": "Delete"
+	},
+	"recipeCard": {
+		"steps": "Steps",
+		"ingredients": "Ingredients"
+	}
+}

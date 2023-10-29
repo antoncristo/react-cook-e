@@ -13,7 +13,7 @@ export const InitialState = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	gap: 2rem;
-	border: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border: 0.1rem dashed rgba(${({ theme }) => theme.colors.white}, 1);
 `;
 
 export const LinkButton = styled(Link)`
@@ -24,13 +24,13 @@ export const LinkButton = styled(Link)`
 	width: 98%;
 	border-radius: 0.8rem;
 	font-size: 1.8rem;
-	font-family: 'cooke-500';
+	${styleUtils.fontFamily(500)}
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 	text-align: center;
 
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
-			`rgba(${theme.colors.ternary}, 1)`,
+			`rgba(${theme.colors.white}, 1)`,
 			`rgba(${theme.colors.black}, 1)`
 		)}
 `;

@@ -1,12 +1,12 @@
 import { AxiosError } from 'axios';
 import { alertStore } from '@cooke/stores/alert-store';
-import * as sessionStorage from '@cooke/utils/storage';
 import { userStore } from '@cooke/stores/user-store';
+import i18next from '@cooke/providers/localization/i18';
 
 export const errorHandler = (err: unknown) => {
 	if (err instanceof AxiosError) {
 		if (err.response?.status === 401) {
-			alertStore.setAlert({ msg: 'In 5 seconds you will be asked to LOG IN again' });
+			alertStore.setAlert({ msg: i18next.t('unauthorized', { ns: 'alerts' }) });
 
 			setTimeout(() => {
 				userStore.logOut();

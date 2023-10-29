@@ -1,23 +1,18 @@
-import { breakpoints } from '@cooke/style';
+import { breakpoints, styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const RecipeCard = styled.div`
 	position: relative;
 	box-sizing: border-box;
-	border: 0.1rem solid transparent;
+	border: 0.1rem solid rgba(${({ theme }) => theme.colors.primary});
 	width: 22rem;
-	aspect-ratio: 3/4;
 	border-radius: 1.2rem;
-	background-color: rgba(${({ theme }) => theme.colors.black}, 0.6);
-	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
-	padding: 1.6rem;
+	background-color: rgba(${({ theme }) => theme.colors.secondary});
+	box-shadow: ${({ theme }) => theme.decorators.boxShadow.secondary};
 	transition: all 0.32s ease-in-out;
 
 	&:hover,
 	&:focus-within {
-		transform: skew(2deg, 2deg) rotateY(3deg);
-		border-left: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
-
 		> .mask {
 			display: flex;
 		}
@@ -25,35 +20,34 @@ export const RecipeCard = styled.div`
 
 	@media screen and (max-width: ${breakpoints.mobile.width}px) {
 		width: 100%;
-		aspect-ratio: unset;
 	}
 `;
 
 export const RecipeTitle = styled.div`
-	color: rgba(${({ theme }) => theme.colors.ternary});
-	font-family: 'cooke-500';
-	border-right: 0.2rem solid rgba(${({ theme }) => theme.colors.primary});
-	border-bottom: 0.2rem solid rgba(${({ theme }) => theme.colors.primary});
-	border-radius: 0 0 0.6rem 0;
-	height: calc(1.8rem * 2.4);
-	margin-bottom: 1.6rem;
+	box-sizing: border-box;
+	color: rgba(${({ theme }) => theme.colors.secondary});
+	${styleUtils.fontFamily(500)}
+	height: calc(2.5rem * 2.4);
+	padding: 1rem;
+	background-color: rgba(${({ theme }) => theme.colors.primary});
+	border-radius: 1.03rem 1.03rem 0 0;
 `;
 
 export const Stats = styled.div`
+	background-color: rgba(${({ theme }) => theme.colors.secondary});
+	padding: 1rem;
 	font-size: 1.4rem;
-	margin-bottom: 1.6rem;
+	text-decoration: underline;
 
 	span {
-		font-family: 'cooke-600';
-		color: rgba(${({ theme }) => theme.colors.ternary});
-		font-size: 1.6rem;
+		${styleUtils.fontFamily(600)}
+		color: rgba(${({ theme }) => theme.colors.white});
+		font-size: 1.4rem;
 	}
 `;
 
 export const RecipeDescription = styled.div`
-	padding-top: 0.6rem;
-	border-right: 0.1rem solid rgba(${({ theme }) => theme.colors.primary});
-	border-top: 0.1rem solid rgba(${({ theme }) => theme.colors.primary});
-	border-radius: 0 0.6rem 0 0;
-	font-family: 'cooke-100';
+	padding: 1rem;
+	${styleUtils.fontFamily(300)}
+	color: rgba(${({ theme }) => theme.colors.primary});
 `;

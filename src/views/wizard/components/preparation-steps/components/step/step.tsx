@@ -4,6 +4,7 @@ import { type PreparationStep } from '@cooke/types';
 import { wizardValidator } from '@cooke/stores/wizard-store';
 
 import * as Styled from './step.styled';
+import { useTranslation } from 'react-i18next';
 
 interface StepProps {
 	step: PreparationStep;
@@ -16,6 +17,7 @@ interface StepProps {
 }
 
 export const Step = observer((props: StepProps) => {
+	const { t } = useTranslation('wizard', { keyPrefix: 'preparationSteps' });
 	const _ref = useRef<HTMLDivElement>(null);
 	const { step, isLastStep, isFirstStep, add, deleteStep, swap, changeDescription } =
 		props;
@@ -51,11 +53,13 @@ export const Step = observer((props: StepProps) => {
 	return (
 		<Styled.Step ref={_ref}>
 			<Styled.Header>
-				<Styled.StepCount>Step {step.stepCount}</Styled.StepCount>
+				<Styled.StepCount>
+					{t('step')} {step.stepCount}
+				</Styled.StepCount>
 				<Styled.Controls>
-					<Styled.ControlButton onClick={add}>Add</Styled.ControlButton>
+					<Styled.ControlButton onClick={add}>{t('buttons.add')}</Styled.ControlButton>
 					<Styled.ControlButton variant='secondary' onClick={onDeleteHandler}>
-						Delete
+						{t('buttons.delete')}
 					</Styled.ControlButton>
 					<Styled.ControlButton
 						disabled={isFirstStep}
@@ -63,7 +67,7 @@ export const Step = observer((props: StepProps) => {
 							swap('up');
 						}}
 					>
-						Up
+						{t('buttons.moveUp')}
 					</Styled.ControlButton>
 					<Styled.ControlButton
 						onClick={() => {
@@ -71,7 +75,7 @@ export const Step = observer((props: StepProps) => {
 						}}
 						disabled={isLastStep}
 					>
-						Down
+						{t('buttons.moveDown')}
 					</Styled.ControlButton>
 				</Styled.Controls>
 			</Styled.Header>
@@ -81,9 +85,7 @@ export const Step = observer((props: StepProps) => {
 				isValid={isDescriptionValid || !isDescriptionTouched}
 				onChange={onChangeDescriptionHandler}
 				onBlur={markAsTouched}
-				placeholder={
-					isDescriptionTouched ? 'Description is required...' : 'Description...'
-				}
+				placeholder={isDescriptionTouched ? t('descriptionInvalid') : t('description')}
 			/>
 		</Styled.Step>
 	);

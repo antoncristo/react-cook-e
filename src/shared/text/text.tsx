@@ -2,7 +2,7 @@ import { type HTMLAttributes } from 'react';
 
 import * as Styled from './text.styled';
 
-interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
+export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
 	text: string;
 	maxWidth?: string;
 	fontSize?: string;

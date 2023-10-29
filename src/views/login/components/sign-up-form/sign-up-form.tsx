@@ -4,23 +4,26 @@ import {
 	type FocusEventHandler,
 	useState
 } from 'react';
-import { Button, Input, Loader, NetworkError } from '@cooke/shared';
+import { Button, Input, Loader } from '@cooke/shared';
 import { useValidation } from '@cooke/hooks';
 import { recordUpdate } from '@cooke/utils';
-import { useSignUp } from '@cooke/api/user';
 
 import * as SignUpValidators from './validators';
 
 import * as Styled from './sign-up-form.styled';
 
-export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
+interface SignUpFormProps {
+	signUpHandler: Function;
+	isSignUpPending: boolean;
+}
+
+export const SignUpForm = (props: SignUpFormProps) => {
+	const { isSignUpPending, signUpHandler } = props;
 	const [credentials, setCredentials] = useState<ExtendedCredentials>({
 		email: '',
 		password: '',
 		name: ''
 	});
-
-	const { signUpHandler, isLoading, isError } = useSignUp(toggleForms);
 
 	const { isFormValid, isInputValid, markAsTouched, touched } =
 		useValidation<ExtendedCredentials>([
@@ -85,6 +88,7 @@ export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
 					onBlur={onBlurHandler}
 					placeholder={touched.name ? 'name is required...' : 'Your name'}
 					autoComplete='name'
+					disabled={isSignUpPending}
 				/>
 				<Input
 					data-name='email'
@@ -95,6 +99,7 @@ export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
 					onBlur={onBlurHandler}
 					placeholder={touched.email ? 'email is required...' : 'email@example.com'}
 					autoComplete='email'
+					disabled={isSignUpPending}
 				/>
 				<Input
 					data-name='password'
@@ -106,10 +111,11 @@ export const SignUpForm = ({ toggleForms }: { toggleForms: Function }) => {
 					type='password'
 					placeholder={touched.password ? 'password is required...' : 'password'}
 					autoComplete='new-password'
+					disabled={isSignUpPending}
 				/>
 			</Styled.Inputs>
 			<Styled.Controls>
-				{isLoading ? (
+				{isSignUpPending ? (
 					<div style={{ height: '3.5rem' }}>
 						<Loader size='S' />
 					</div>

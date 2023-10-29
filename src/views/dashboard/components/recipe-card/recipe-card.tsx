@@ -6,18 +6,20 @@ import { confirmationHandler } from '@cooke/utils';
 import { CardMask } from './components';
 
 import * as Styled from './recipe-card.styled';
+import { useTranslation } from 'react-i18next';
 
 interface RecipeCardProps {
 	recipe: Recipe;
 }
 
 export const RecipeCard = (props: RecipeCardProps) => {
+	const { t } = useTranslation(['dashboard', 'alerts']);
 	const { recipe } = props;
 	const { deleteRecipe } = useDeleteRecipe();
 
 	const deleteHandler = () => {
 		confirmationHandler({
-			msg: `Delete "${recipe.title}" recipe ?`,
+			msg: t('alerts:confirmations.confirmRecipeDelete', { title: recipe.title }),
 			cb() {
 				deleteRecipe(recipe);
 			}
@@ -37,17 +39,18 @@ export const RecipeCard = (props: RecipeCardProps) => {
 			</Styled.RecipeTitle>
 			<Styled.Stats>
 				<div>
-					<span>{recipe.steps.length}</span> Steps
+					{t('dashboard:recipeCard.steps')}: <span>{recipe.steps.length}</span>
 				</div>
 				<div>
-					<span>{recipe.ingredients.length}</span> Ingredients
+					{t('dashboard:recipeCard.ingredients')}:{' '}
+					<span>{recipe.ingredients.length}</span>
 				</div>
 			</Styled.Stats>
 			<Styled.RecipeDescription>
 				<Text
 					title={recipe.description}
 					fontSize='1.4rem'
-					numberOfLines={7}
+					numberOfLines={8}
 					text={recipe.description}
 				/>
 			</Styled.RecipeDescription>

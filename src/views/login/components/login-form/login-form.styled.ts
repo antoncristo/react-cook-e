@@ -10,11 +10,6 @@ export const LoginForm = styled.form`
 	padding: 2.2rem;
 	border-radius: 1.6rem;
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
-
-	&:focus-within {
-		box-shadow: 0.1rem 0.1rem 2rem 0.6rem
-			rgba(${({ theme }) => theme.colors.primary}, 0.6);
-	}
 `;
 
 export const Inputs = styled.div`

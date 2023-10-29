@@ -10,8 +10,9 @@ export const CardMask = styled.div`
 	bottom: 0;
 	left: 0;
 	right: 0;
+	padding: 0 1rem;
 	display: none;
-	background-color: rgba(${({ theme }) => theme.colors.primary}, 0.7);
+	background-color: rgba(${({ theme }) => theme.colors.primary}, 0.9);
 	border-radius: 1.2rem;
 	align-items: center;
 	flex-direction: column;
@@ -39,15 +40,15 @@ export const LinkButton = styled(Link)`
 	width: 98%;
 	border-radius: 0.8rem;
 	font-size: 1.4rem;
-	font-family: 'cooke-500';
+	${styleUtils.fontFamily(500)}
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 	display: flex;
 	align-items: center;
 
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
-			`rgba(${theme.colors.black}, 1)`,
-			`rgba(${theme.colors.ternary}, 1)`
+			`rgba(${theme.colors.secondary}, 1)`,
+			`rgba(${theme.colors.primary}, 1)`
 		)}
 `;
 
@@ -57,12 +58,12 @@ export const CardButton = styled(Button)`
 	width: 98%;
 	border-radius: 0.8rem;
 	font-size: 1.4rem;
-	font-family: 'cooke-500';
+	${styleUtils.fontFamily(500)}
 	box-shadow: ${({ theme }) => theme.decorators.boxShadow.primary};
 
 	${({ theme }) =>
 		styleUtils.buttonWithHoverInversion(
-			`rgba(${theme.colors.black}, 1)`,
-			`rgba(${theme.colors.ternary}, 1)`
+			`rgba(${theme.colors.secondary}, 1)`,
+			`rgba(${theme.colors.primary}, 1)`
 		)}
 `;

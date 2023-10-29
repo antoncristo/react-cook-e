@@ -1,6 +1,7 @@
 import { type ChangeEventHandler } from 'react';
+import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
-import { wizardStore } from '@cooke/stores/wizard-store';
+import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
 import { type MeasurementUnit } from '@cooke/types';
 
 import { Ingredient } from './components';
@@ -8,7 +9,9 @@ import { Ingredient } from './components';
 import * as Styled from './ingredients.styled';
 
 export const Ingredients = observer(() => {
+	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
 	const { ingredients } = wizardStore;
+	const { ingredientValidation } = wizardValidator;
 
 	const addIngredient = () => {
 		wizardStore.addIngredient();
@@ -46,8 +49,10 @@ export const Ingredients = observer(() => {
 	return (
 		<Styled.Ingredients>
 			<Styled.Header>
-				<Styled.IngredientsTitle>INGREDIENTS</Styled.IngredientsTitle>
-				<Styled.ControlButton onClick={addIngredient}>Add</Styled.ControlButton>
+				<Styled.IngredientsTitle>{t('section')}</Styled.IngredientsTitle>
+				<Styled.ControlButton onClick={addIngredient}>
+					{t('buttons.add')}
+				</Styled.ControlButton>
 			</Styled.Header>
 			{ingredients.map((ingredient, index) => (
 				<Ingredient

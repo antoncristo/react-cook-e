@@ -1,0 +1,13 @@
+{
+	"pageNotFound": {
+		"text": "Not Found",
+		"subText": "this URL is invalid"
+	},
+	"errorBoundary": {
+		"p1": "Hurray! You Manged To Break The App :)",
+		"p2": "- Click the reload button and try again :)",
+		"p3": "- An unexpected error happened in the app, try reloading the browser",
+		"p4": "* If nothing helps, please accept my apologies.. I will try to find the error in my logs!",
+		"reload": "Reload"
+	}
+}

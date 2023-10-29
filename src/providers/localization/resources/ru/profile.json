@@ -1,0 +1,14 @@
+{
+	"settings": {
+		"preferences": {
+			"header": "Предпочтения",
+			"language": "Язык"
+		},
+		"controls": {
+			"settings": "Настройки",
+			"edit": "Изменить",
+			"cancelEdit": "Отменить",
+			"saveEdit": "Сохранить "
+		}
+	}
+}

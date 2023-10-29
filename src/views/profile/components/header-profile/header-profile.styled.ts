@@ -1,9 +1,10 @@
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const HeaderProfile = styled.div``;
 
 export const ProfileButton = styled.button`
-	border: 0.1rem solid rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border: 0.1rem solid rgba(${({ theme }) => theme.colors.primary}, 1);
 	background-color: transparent;
 	padding: 0.6rem;
 	border-radius: 0.6rem;
@@ -23,13 +24,12 @@ export const MenuButton = styled.button`
 	background-color: transparent;
 	width: 13rem;
 	border: none;
-	color: rgba(${({ theme }) => theme.colors.white});
-	font-family: 'cooke-400';
+	color: rgba(${({ theme }) => theme.colors.primary});
+	${styleUtils.fontFamily(400)}
 	padding-bottom: 0.6rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white});
 	cursor: pointer;
 
 	&:hover {
-		font-family: 'cooke-600';
+		${styleUtils.fontFamily(700)}
 	}
 `;

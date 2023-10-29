@@ -1,4 +1,5 @@
 import { Button } from '@cooke/shared';
+import { styleUtils } from '@cooke/style';
 import styled from 'styled-components';
 
 export const PreparationSteps = styled.div`
@@ -6,17 +7,16 @@ export const PreparationSteps = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 1.6rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.white}, 1);
 	padding-bottom: 2rem;
 `;
 
 export const PreparationStepsTitle = styled.h2`
 	width: fit-content;
 	margin: 0;
-	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
-	font-family: 'cooke-400';
+	color: rgba(${({ theme }) => theme.colors.primary}, 1);
+	${styleUtils.fontFamily(400)}
 	font-size: 1.6rem;
-	border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
 	text-shadow: ${({ theme }) => theme.decorators.textShadow.primary};
 `;
 

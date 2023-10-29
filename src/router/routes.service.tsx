@@ -4,7 +4,9 @@ import {
 	Outlet,
 	Navigate
 } from 'react-router-dom';
-import { Login, Dashboard, Wizard, ReadRecipe, ErrorPage, Profile } from '@cooke/views';
+import { Login, Dashboard, Wizard, ReadRecipe, Profile } from '@cooke/views';
+import ErrorPage from '@cooke/views/error-page';
+import { Settings } from '@cooke/views/profile/views';
 
 import { cookePathnames } from './pathnames';
 import { Layout } from '../layout';
@@ -67,7 +69,18 @@ class RoutesDelegator {
 		},
 		{
 			path: cookePathnames.authenticatedPathNames.PROFILE,
-			element: <Profile />
+			element: <Outlet />,
+			children: [
+				{
+					index: true,
+					path: cookePathnames.authenticatedPathNames.PROFILE,
+					element: <Profile />
+				},
+				{
+					path: cookePathnames.authenticatedPathNames.SETTINGS,
+					element: <Settings />
+				}
+			]
 		},
 		{
 			path: '*',

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { styleUtils } from '@cooke/style';
 
 export const NavList = styled.nav`
 	display: flex;
@@ -12,7 +13,7 @@ export const MenuLink = styled(NavLink)`
 	box-sizing: border-box;
 	font-size: 1.4rem;
 	text-decoration: none;
-	color: rgba(${({ theme }) => theme.colors.ternary}, 1);
+	color: rgba(${({ theme }) => theme.colors.primary}, 1);
 	height: 3rem;
 	display: flex;
 	align-items: center;
@@ -20,13 +21,13 @@ export const MenuLink = styled(NavLink)`
 	padding: 0 ${({ theme }) => theme.decorators.padding.default};
 	width: 100%;
 	border-bottom: 0.1rem dashed transparent;
-	transition: all 0.26s ease-in-out;
+	transition: all 0.2s ease-in-out;
 
 	&:focus,
 	&.active,
 	&:hover {
-		font-family: 'cooke-600';
-		border-bottom: 0.1rem dashed rgba(${({ theme }) => theme.colors.ternary}, 1);
+		${styleUtils.fontFamily(600)}
+		text-decoration: underline;
 	}
 
 	&:focus {
