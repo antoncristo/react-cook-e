@@ -1,13 +1,13 @@
 import { type SVGProps } from 'react';
 import { type IconMargin } from './icon-template';
-import { cookeTheme } from '@cooke/style';
+import { useThemeContext } from '@cooke/style';
 
 export const EditIcon = ({
 	width = 16,
 	height = 16,
-	fill = cookeTheme.colors.primary,
 	...margin
 }: SVGProps<SVGSVGElement> & IconMargin): JSX.Element => {
+	const cookeTheme = useThemeContext();
 	const { bottom = '0', left = '0', right = '0', top = '0' } = margin;
 
 	return (

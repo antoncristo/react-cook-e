@@ -1,12 +1,12 @@
 import { useEffect, type ChangeEventHandler, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
-import { cookeTheme } from '@cooke/style';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
 import { wizardValidator } from '@cooke/stores/wizard-store';
 import { Option, Select, Text } from '@cooke/shared';
 
 import * as Styled from './ingredient.styled';
+import { useThemeContext } from '@cooke/style';
 
 interface IngredientProps {
 	ingredient: IngredientType;
@@ -19,6 +19,7 @@ interface IngredientProps {
 
 export const Ingredient = observer((props: IngredientProps) => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
+	const cookeTheme = useThemeContext();
 	const _ref = useRef<HTMLDivElement>(null);
 	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
 	const unitsOptions: MeasurementUnit[] = [
