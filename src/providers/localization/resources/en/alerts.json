@@ -15,5 +15,9 @@
 	},
 	"errors": {
 		"recipeInvalid": "Dish Name is REQUIRED! Description is REQUIRED! Ingredients are REQUIRED! Preparation Steps are REQUIRED!"
+	},
+	"controls": {
+		"dismiss": "Return",
+		"confirm": "OK"
 	}
 }
