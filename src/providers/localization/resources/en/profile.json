@@ -2,7 +2,8 @@
 	"settings": {
 		"preferences": {
 			"header": "Preferences",
-			"language": "Language"
+			"language": "Language",
+			"theme": "Theme"
 		},
 		"controls": {
 			"settings": "Settings",

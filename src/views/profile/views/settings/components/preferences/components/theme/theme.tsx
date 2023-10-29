@@ -31,7 +31,7 @@ export const Theme = (props: ThemeProps) => {
 
 	return (
 		<Styled.Theme>
-			<Label htmlFor='theme' text={`${t('language') as string} :`} fontSize='1.4rem' />
+			<Label htmlFor='theme' text={`${t('theme') as string} :`} fontSize='1.4rem' />
 			{isEditMode ? (
 				<Select onChange={onThemeChange} id='theme'>
 					{options.map(op => (
