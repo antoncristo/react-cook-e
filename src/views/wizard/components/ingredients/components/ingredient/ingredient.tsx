@@ -20,7 +20,7 @@ interface IngredientProps {
 export const Ingredient = observer((props: IngredientProps) => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
 	const cookeTheme = useThemeContext();
-	const _ref = useRef<HTMLDivElement>(null);
+	const _ref = useRef<HTMLInputElement>(null);
 	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
 	const unitsOptions: MeasurementUnit[] = [
 		t('measurementUnits.grams'),
@@ -64,7 +64,7 @@ export const Ingredient = observer((props: IngredientProps) => {
 	}, []);
 
 	return (
-		<Styled.Ingredient ref={_ref} onBlur={markAsTouched} tabIndex={0}>
+		<Styled.Ingredient tabIndex={0}>
 			<Styled.IngredientInput
 				value={ingredient.amount}
 				onChange={changeAmount}
@@ -84,6 +84,8 @@ export const Ingredient = observer((props: IngredientProps) => {
 				text={t('unitOf')}
 			/>
 			<Styled.IngredientInput
+				ref={_ref}
+				onBlur={markAsTouched}
 				value={ingredient.name}
 				isValid={isNameValid || !isNameTouched}
 				onChange={onChangeNameHandler}

@@ -11,7 +11,6 @@ import * as Styled from './ingredients.styled';
 export const Ingredients = observer(() => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
 	const { ingredients } = wizardStore;
-	const { ingredientValidation } = wizardValidator;
 
 	const addIngredient = () => {
 		wizardStore.addIngredient();
