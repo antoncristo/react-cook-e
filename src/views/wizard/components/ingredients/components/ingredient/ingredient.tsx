@@ -1,13 +1,12 @@
-/* eslint-disable no-console */
 import { useEffect, type ChangeEventHandler, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
+import { useThemeContext } from '@cooke/style';
 import { wizardValidator } from '@cooke/stores/wizard-store';
 import { Option, Select, Text } from '@cooke/shared';
 
 import * as Styled from './ingredient.styled';
-import { useThemeContext } from '@cooke/style';
 
 interface IngredientProps {
 	ingredient: IngredientType;
@@ -38,20 +37,9 @@ export const Ingredient = observer((props: IngredientProps) => {
 	const isNameValid =
 		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isValid ??
 		true;
-	// Remove
-	console.log(
-		'[isNameValid]:',
-		ingredient.id,
-		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isValid
-	);
 	const isNameTouched =
 		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isTouched ??
 		false;
-	console.log(
-		'[isNameTouched]:',
-		ingredient.id,
-		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isTouched
-	);
 
 	const onChangeNameHandler: ChangeEventHandler<HTMLInputElement> = change => {
 		wizardValidator
@@ -67,7 +55,6 @@ export const Ingredient = observer((props: IngredientProps) => {
 	};
 
 	const markAsTouched = () => {
-		// Remove
 		setTrigger(!trigger);
 		wizardValidator.ingredientValidation().markAsTouched(ingredient.id);
 	};
@@ -77,10 +64,6 @@ export const Ingredient = observer((props: IngredientProps) => {
 		_ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		_ref.current?.focus();
 	}, []);
-
-	useEffect(() => {
-		console.log('Remove');
-	});
 
 	return (
 		<Styled.Ingredient tabIndex={0}>
