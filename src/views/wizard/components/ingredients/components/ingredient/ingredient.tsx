@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { useEffect, type ChangeEventHandler, useRef } from 'react';
+import { useEffect, type ChangeEventHandler, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import { type Ingredient as IngredientType, type MeasurementUnit } from '@cooke/types';
@@ -20,6 +20,7 @@ interface IngredientProps {
 
 export const Ingredient = observer((props: IngredientProps) => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'ingredients' });
+	const [trigger, setTrigger] = useState(false);
 	const cookeTheme = useThemeContext();
 	const _ref = useRef<HTMLInputElement>(null);
 	const { ingredient, add, deleteIng, changeName, changeAmount, changeUnit } = props;
@@ -66,6 +67,8 @@ export const Ingredient = observer((props: IngredientProps) => {
 	};
 
 	const markAsTouched = () => {
+		// Remove
+		setTrigger(!trigger);
 		wizardValidator.ingredientValidation().markAsTouched(ingredient.id);
 	};
 
