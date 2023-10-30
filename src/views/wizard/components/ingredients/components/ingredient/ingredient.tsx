@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useEffect, type ChangeEventHandler, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
@@ -36,9 +37,20 @@ export const Ingredient = observer((props: IngredientProps) => {
 	const isNameValid =
 		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isValid ??
 		true;
+	// Remove
+	console.log(
+		'[isNameValid]:',
+		ingredient.id,
+		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isValid
+	);
 	const isNameTouched =
 		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isTouched ??
 		false;
+	console.log(
+		'[isNameTouched]:',
+		ingredient.id,
+		wizardValidator.ingredientValidation().getInputValidator(ingredient.id)?.isTouched
+	);
 
 	const onChangeNameHandler: ChangeEventHandler<HTMLInputElement> = change => {
 		wizardValidator
