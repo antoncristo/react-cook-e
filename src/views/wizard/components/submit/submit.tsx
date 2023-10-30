@@ -16,6 +16,7 @@ export const Submit = observer(() => {
 	const navigate = useNavigate();
 
 	const onSubmit = () => {
+		wizardValidator.preValidate(recipe);
 		if (wizardValidator.isRecipeValid()) {
 			if (isEditMode) {
 				putRecipe(recipe);

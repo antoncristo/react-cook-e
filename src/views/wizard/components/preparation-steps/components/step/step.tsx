@@ -1,4 +1,4 @@
-import { useEffect, type ChangeEventHandler, useRef } from 'react';
+import { useEffect, type ChangeEventHandler, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { type PreparationStep } from '@cooke/types';
 import { wizardValidator } from '@cooke/stores/wizard-store';
@@ -18,6 +18,7 @@ interface StepProps {
 
 export const Step = observer((props: StepProps) => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'preparationSteps' });
+	const [trigger, setTrigger] = useState(false);
 	const _ref = useRef<HTMLDivElement>(null);
 	const { step, isLastStep, isFirstStep, add, deleteStep, swap, changeDescription } =
 		props;
@@ -41,6 +42,7 @@ export const Step = observer((props: StepProps) => {
 	};
 
 	const markAsTouched = () => {
+		setTrigger(!trigger);
 		wizardValidator.stepsValidation().markAsTouched(step.id);
 	};
 
