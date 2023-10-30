@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { makeAutoObservable } from 'mobx';
 
 export class SimpleInputValidator {
@@ -49,14 +50,20 @@ export class GroupInputValidator<T> {
 	}
 
 	markAsTouched(inputId: UUID) {
+		// Remove
+		console.log('[markAsTouched]: id:', inputId);
 		this.group[inputId].isTouched = true;
+		console.log('[after touch group]: ', this.group);
 	}
 
 	markAsTouchedAll() {
+		// Remove
 		const inputIDs = Object.keys(this.group) as UUID[];
+		console.log('[touch all IDs]: ', inputIDs);
 		inputIDs.forEach(inputId => {
 			this.markAsTouched(inputId);
 		});
+		console.log('[after touch group]: ', this.group);
 	}
 
 	isGroupValid(): boolean {
