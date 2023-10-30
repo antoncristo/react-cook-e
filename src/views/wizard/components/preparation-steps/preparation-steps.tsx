@@ -1,11 +1,11 @@
 import { type ChangeEventHandler } from 'react';
+import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import { wizardStore } from '@cooke/stores/wizard-store';
 
 import { Step } from './components';
 
 import * as Styled from './preparation-steps.styled';
-import { useTranslation } from 'react-i18next';
 
 export const PreparationSteps = observer(() => {
 	const { t } = useTranslation('wizard', { keyPrefix: 'preparationSteps' });

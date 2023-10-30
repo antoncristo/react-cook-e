@@ -17,6 +17,10 @@ export const Ingredient = styled.div`
 
 	animation: appear 0.33s ease-in-out;
 
+	&:focus-within {
+		outline: 0.1rem solid rgba(${({ theme }) => theme.colors.primary});
+	}
+
 	@keyframes appear {
 		0% {
 			opacity: 0;
