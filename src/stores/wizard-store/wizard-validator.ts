@@ -1,11 +1,17 @@
 import { type PreparationStep, type Ingredient, type Recipe } from '@cooke/types';
 import { GroupInputValidator, SimpleInputValidator } from '@cooke/utils/validation';
+import { makeAutoObservable } from 'mobx';
 
 export class WizardValidator {
 	private _title = new SimpleInputValidator();
 	private _description = new SimpleInputValidator();
 	private _ingredients = new GroupInputValidator<Ingredient>();
 	private _steps = new GroupInputValidator<PreparationStep>();
+
+	// Remove
+	constructor() {
+		makeAutoObservable(this);
+	}
 
 	get titleValidation() {
 		return this._title;

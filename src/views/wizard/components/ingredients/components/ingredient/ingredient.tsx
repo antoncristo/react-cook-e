@@ -75,6 +75,10 @@ export const Ingredient = observer((props: IngredientProps) => {
 		_ref.current?.focus();
 	}, []);
 
+	useEffect(() => {
+		console.log('Remove');
+	});
+
 	return (
 		<Styled.Ingredient tabIndex={0}>
 			<Styled.IngredientInput
