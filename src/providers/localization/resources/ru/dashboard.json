@@ -17,6 +17,7 @@
 		"noMatch": "Нет совпадений с текстом - '{{input}}'...",
 		"readRecipe": "Смотреть",
 		"editRecipe": "Изменить",
+		"copyRecipe": "Копировать",
 		"deleteRecipe": "Удалить"
 	},
 	"recipeCard": {

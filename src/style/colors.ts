@@ -5,6 +5,7 @@ export enum Colors {
 	WHITE = '255, 255, 255',
 	GREY = '191, 191, 191',
 	ORANGE = '249, 76, 16',
+	BLUE = '0, 119, 181',
 	SUCCESS = '82,182,68',
 	WARNING = '238,186,48',
 	ERROR = '255, 0, 0'
