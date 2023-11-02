@@ -17,6 +17,7 @@
 		"noMatch": "No Matches for the text - '{{input}}'...",
 		"readRecipe": "Go To Recipe",
 		"editRecipe": "Edit",
+		"copyRecipe": "Copy",
 		"deleteRecipe": "Delete"
 	},
 	"recipeCard": {
