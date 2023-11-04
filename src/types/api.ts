@@ -1,9 +1,6 @@
-export interface QueryControl {
-	enabled?: boolean;
-}
-
 export interface QueryBasicParams {
 	search?: string;
+	enabled?: boolean;
 }
 
 export interface QueryGetter {
