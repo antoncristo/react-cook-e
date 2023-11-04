@@ -1,5 +1,5 @@
 import { Text } from '@cooke/shared';
-import { BookIcon } from '@cooke/assets';
+import { BookPageIcon } from '@cooke/assets';
 import { type Recipe } from '@cooke/types';
 import { cookePathnames, injectRecipeUUID } from '@cooke/router';
 
@@ -21,7 +21,7 @@ export const MatchItem = (props: MatchItemProps) => {
 				)}
 			>
 				<Text text={recipe.title} numberOfLines={1} />
-				<BookIcon />
+				<BookPageIcon />
 			</Styled.MatchItemLink>
 		</Styled.MatchItem>
 	);
