@@ -33,7 +33,10 @@ export const Ingredients = observer(() => {
 	const changeAmount =
 		(index: number): ChangeEventHandler<HTMLInputElement> =>
 		change => {
-			wizardStore.changeIngredientAmount(index, parseInt(change.currentTarget.value, 10));
+			const updatedAmount = parseFloat(change.currentTarget.value);
+			if (updatedAmount >= 0.1) {
+				wizardStore.changeIngredientAmount(index, parseFloat(change.currentTarget.value));
+			}
 		};
 
 	const changeUnit =

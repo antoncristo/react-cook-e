@@ -54,7 +54,7 @@ export const ReadRecipe = observer(() => {
 						className='control'
 						onClick={onPrint}
 						variant='secondary'
-						width='fit -content'
+						width='fit-content'
 					>
 						<PrintIcon width={22} height={22} right='1rem' />
 						{t('print')}
