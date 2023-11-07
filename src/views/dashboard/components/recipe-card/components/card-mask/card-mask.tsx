@@ -1,17 +1,20 @@
+import { useTranslation } from 'react-i18next';
 import { type Recipe } from '@cooke/types';
 import { cookePathnames, injectRecipeUUID } from '@cooke/router';
-import { BookPageIcon, WriteIcon } from '@cooke/assets';
+import { BookPageIcon, CopyIcon, WriteIcon } from '@cooke/assets';
 
 import * as Styled from './card-mask.styled';
-import { useTranslation } from 'react-i18next';
 
-export const CardMask = ({
-	recipe,
-	deleteRecipe
-}: {
+interface CardMaskProps {
 	recipe: Recipe;
-	deleteRecipe: () => void;
-}) => {
+	handlers: {
+		deleteRecipe: () => void;
+		copyRecipe: () => void;
+	};
+}
+
+export const CardMask = (props: CardMaskProps) => {
+	const { recipe, handlers } = props;
 	const { t } = useTranslation('dashboard', { keyPrefix: 'controls' });
 	return (
 		<Styled.CardMask className='mask'>
@@ -33,7 +36,16 @@ export const CardMask = ({
 				<WriteIcon right='1rem' />
 				{t('editRecipe')}
 			</Styled.LinkButton>
-			<Styled.CardButton onClick={deleteRecipe}>{t('deleteRecipe')}</Styled.CardButton>
+			<Styled.CardButton
+				style={{ display: 'flex', justifyContent: 'flex-start' }}
+				onClick={handlers.copyRecipe}
+			>
+				<CopyIcon right='1rem' />
+				{t('copyRecipe')}
+			</Styled.CardButton>
+			<Styled.CardButton onClick={handlers.deleteRecipe}>
+				{t('deleteRecipe')}
+			</Styled.CardButton>
 		</Styled.CardMask>
 	);
 };

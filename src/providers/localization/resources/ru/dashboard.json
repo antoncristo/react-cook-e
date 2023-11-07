@@ -14,9 +14,11 @@
 	"initialState": "Создать первый рецепт",
 	"controls": {
 		"search": "Найти рецепт...",
+		"results": "Рецепты",
 		"noMatch": "Нет совпадений с текстом - '{{input}}'...",
 		"readRecipe": "Смотреть",
 		"editRecipe": "Изменить",
+		"copyRecipe": "Копировать",
 		"deleteRecipe": "Удалить"
 	},
 	"recipeCard": {
