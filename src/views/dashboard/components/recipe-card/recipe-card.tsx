@@ -1,12 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import { type Recipe } from '@cooke/types';
 import { Text } from '@cooke/shared';
-import { useDeleteRecipe } from '@cooke/api/recipe';
+import { useDeleteRecipe, usePostRecipe } from '@cooke/api/recipe';
 import { confirmationHandler } from '@cooke/utils';
 
 import { CardMask } from './components';
 
 import * as Styled from './recipe-card.styled';
-import { useTranslation } from 'react-i18next';
 
 interface RecipeCardProps {
 	recipe: Recipe;
@@ -16,6 +16,7 @@ export const RecipeCard = (props: RecipeCardProps) => {
 	const { t } = useTranslation(['dashboard', 'alerts']);
 	const { recipe } = props;
 	const { deleteRecipe } = useDeleteRecipe();
+	const { postRecipe } = usePostRecipe();
 
 	const deleteHandler = () => {
 		confirmationHandler({
@@ -26,9 +27,25 @@ export const RecipeCard = (props: RecipeCardProps) => {
 		});
 	};
 
+	const copyHandler = () => {
+		const recipeCopy = JSON.parse(JSON.stringify(recipe)) as Recipe;
+		recipeCopy.id = crypto.randomUUID();
+		recipeCopy.title = `${recipe.title} - copy`;
+
+		confirmationHandler({
+			msg: t('alerts:confirmations.confirmRecipeCopy', { title: recipeCopy.title }),
+			cb() {
+				postRecipe(recipeCopy);
+			}
+		});
+	};
+
 	return (
 		<Styled.RecipeCard tabIndex={0}>
-			<CardMask deleteRecipe={deleteHandler} recipe={recipe} />
+			<CardMask
+				handlers={{ deleteRecipe: deleteHandler, copyRecipe: copyHandler }}
+				recipe={recipe}
+			/>
 			<Styled.RecipeTitle>
 				<Text
 					title={recipe.title}

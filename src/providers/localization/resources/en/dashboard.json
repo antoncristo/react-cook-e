@@ -14,9 +14,11 @@
 	"initialState": "Create First Recipe",
 	"controls": {
 		"search": "Find a recipe...",
+		"results": "Results",
 		"noMatch": "No Matches for the text - '{{input}}'...",
 		"readRecipe": "Go To Recipe",
 		"editRecipe": "Edit",
+		"copyRecipe": "Copy",
 		"deleteRecipe": "Delete"
 	},
 	"recipeCard": {

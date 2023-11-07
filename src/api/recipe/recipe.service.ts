@@ -14,14 +14,10 @@ class RecipeService implements RecipeServiceApi {
 		const params: QueryBasicParams = {
 			search: queryParams?.search ? queryParams?.search : undefined
 		};
-		recipesStore.recipes = undefined;
 
 		return axiosClient
 			.get(this.routePath, { params })
-			.then(res => {
-				recipesStore.recipes = res.data as Recipe[];
-				return res.data as Recipe[];
-			})
+			.then(res => res.data as Recipe[])
 			.catch(err => {
 				recipesStore.recipes = null;
 				errorHandler(err);

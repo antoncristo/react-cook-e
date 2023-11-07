@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import { Init } from '@cooke/init';
 import { type Recipe } from '@cooke/types';
 import { wizardStore, wizardValidator } from '@cooke/stores/wizard-store';
-import { recipesStore } from '@cooke/stores/recipes-store';
 
 import {
 	DishDescription,
@@ -14,32 +13,35 @@ import {
 	Submit
 } from './components';
 import { RECIPE_TEMPLATE } from './templates';
+import { useInitEditMode } from './hooks';
 
 import * as Styled from './wizard.styled';
 
 export const Wizard = observer(() => {
 	const params = useParams() as Record<'recipeid', UUID>;
-	const recipe = recipesStore.getRecipe(params.recipeid);
+	const editModeRecipe = useInitEditMode(params.recipeid);
 
 	useEffect(() => {
-		if (recipe) {
+		if (params.recipeid === undefined) {
+			wizardStore.initRecipeFromTemplate(RECIPE_TEMPLATE, false);
+		}
+
+		if (editModeRecipe) {
 			wizardStore.initRecipeFromTemplate(
-				JSON.parse(JSON.stringify(recipe)) as Recipe,
+				JSON.parse(JSON.stringify(editModeRecipe)) as Recipe,
 				true
 			);
 
 			setTimeout(() => {
-				wizardValidator.preValidate(recipe);
+				wizardValidator.preValidate(editModeRecipe);
 			}, 0);
-		} else {
-			wizardStore.initRecipeFromTemplate(RECIPE_TEMPLATE, false);
 		}
 
 		return () => {
 			wizardValidator.resetValidator();
 			wizardStore.resetWizard();
 		};
-	}, [recipe]);
+	}, [editModeRecipe]);
 
 	return (
 		<Init>

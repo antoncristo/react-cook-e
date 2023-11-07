@@ -70,8 +70,10 @@ export const Ingredient = observer((props: IngredientProps) => {
 			<Styled.IngredientInput
 				value={ingredient.amount}
 				onChange={changeAmount}
-				width='4rem'
+				width='6rem'
 				type='number'
+				min='0.1'
+				step='0.1'
 				placeholder='1'
 			/>
 			<Select onChange={changeUnit}>
